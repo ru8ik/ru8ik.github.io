@@ -3,26 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Projects</title>
+  <title>My Portfolio - Projects</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
-    /* Basic styling for your projects page */
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    /* Dark theme body styling */
     body {
       background-color: #121212;
       color: #e0e0e0;
       font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
       padding: 20px;
     }
-    .project {
+    
+    /* Container styling */
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 40px;
       background-color: #1e1e1e;
       border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 20px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
-    .project h2 {
+    
+    /* Header styling */
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    header h1 {
+      font-size: 2.5em;
+      font-weight: 700;
       margin-bottom: 10px;
     }
+    
+    /* Button styling */
     .btn {
       display: inline-block;
       padding: 12px 25px;
@@ -35,20 +57,87 @@
       text-decoration: none;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
+    
     .btn:hover {
       background-color: #e0e0e0;
       color: #121212;
     }
+    
+    /* Back navigation styling */
+    #back-nav {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    /* Projects list styling */
+    #projects-list .project {
+      margin-bottom: 20px;
+      padding: 20px;
+      background-color: #252525;
+      border-radius: 6px;
+    }
+    
+    #projects-list .project h3 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+    
+    #projects-list .project p {
+      font-size: 1em;
+      margin-bottom: 10px;
+    }
+    
+    #projects-list .project a {
+      color: #e0e0e0;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+    
+    #projects-list .project a:hover {
+      color: #f0f0f0;
+    }
   </style>
 </head>
 <body>
-  <div class="project" id="ant-table-app">
-    <h2>Ant Table App</h2>
-    <p>This is a React-based web application showcasing interactive tables.</p>
-    <!-- Button to open the React app -->
-    <a href="https://ru8ik.github.io/ant-table-app" target="_blank" class="btn">
-      Open Ant Table App
-    </a>
+  <div class="container">
+    <!-- Back to Home Button -->
+    <div id="back-nav">
+      <a href="index.html" class="btn">Back to Home</a>
+    </div>
+    <!-- Header -->
+    <header>
+      <h1>My Projects</h1>
+    </header>
+    <!-- Projects List Section -->
+    <section id="projects-list">
+      <!-- Projects will be dynamically inserted here -->
+    </section>
   </div>
+  
+  <!-- Script to fetch and display GitHub projects -->
+  <script>
+    // Replace 'ru8ik' with your GitHub username if needed
+    fetch('https://api.github.com/users/ru8ik/repos')
+      .then(response => response.json())
+      .then(repos => {
+        const projectsList = document.getElementById('projects-list');
+        repos.forEach(repo => {
+          // Optionally, filter out forked or archived repos:
+          // if (repo.fork || repo.archived) return;
+          const projectDiv = document.createElement('div');
+          projectDiv.className = 'project';
+          projectDiv.innerHTML = `
+            <h3>${repo.name}</h3>
+            <p>${repo.description ? repo.description : 'No description available.'}</p>
+            <a href="${repo.html_url}" target="_blank">View Repository</a>
+          `;
+          projectsList.appendChild(projectDiv);
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching repositories:', error);
+      });
+  </script>
 </body>
 </html>
