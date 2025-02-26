@@ -56,6 +56,7 @@
       border-radius: 4px;
       text-decoration: none;
       transition: background-color 0.3s ease, color 0.3s ease;
+      margin-top: 10px;
     }
     
     .btn:hover {
@@ -127,11 +128,23 @@
           // if (repo.fork || repo.archived) return;
           const projectDiv = document.createElement('div');
           projectDiv.className = 'project';
-          projectDiv.innerHTML = `
-            <h3>${repo.name}</h3>
-            <p>${repo.description ? repo.description : 'No description available.'}</p>
-            <a href="${repo.html_url}" target="_blank">View Repository</a>
-          `;
+          
+          // If the repository is "ant-table-app", add an extra button
+          if (repo.name === 'ant-table-app') {
+            projectDiv.innerHTML = `
+              <h3>${repo.name}</h3>
+              <p>${repo.description ? repo.description : 'No description available.'}</p>
+              <a href="${repo.html_url}" target="_blank">View Repository</a>
+              <br>
+              <a href="https://ru8ik.github.io/ant-table-app" target="_blank" class="btn">Open Live App</a>
+            `;
+          } else {
+            projectDiv.innerHTML = `
+              <h3>${repo.name}</h3>
+              <p>${repo.description ? repo.description : 'No description available.'}</p>
+              <a href="${repo.html_url}" target="_blank">View Repository</a>
+            `;
+          }
           projectsList.appendChild(projectDiv);
         });
       })
