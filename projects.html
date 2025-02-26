@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio - Projects</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .container { max-width: 800px; margin: auto; }
+    header { text-align: center; }
+    button { padding: 10px 20px; font-size: 16px; cursor: pointer; margin-bottom: 20px; }
+    .project { border: 1px solid #ccc; padding: 15px; margin: 10px 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button onclick="location.href='index.html'">Back to Home</button>
+    <header>
+      <h1>My Projects</h1>
+    </header>
+    <div id="projects-list">
+      <!-- Projects will be dynamically inserted here -->
+    </div>
+  </div>
+  
+  <!-- JavaScript to fetch and display GitHub projects -->
+  <script>
+    // Replace 'yourusername' with your actual GitHub username.
+    fetch('https://api.github.com/users/yourusername/repos')
+      .then(response => response.json())
+      .then(repos => {
+        const projectsList = document.getElementById('projects-list');
+        repos.forEach(repo => {
+          // Create a container for each repository
+          const projectDiv = document.createElement('div');
+          projectDiv.className = 'project';
+          projectDiv.innerHTML = `
+            <h3>${repo.name}</h3>
+            <p>${repo.description ? repo.description : 'No description available.'}</p>
+            <a href="${repo.html_url}" target="_blank">View Repository</a>
+          `;
+          projectsList.appendChild(projectDiv);
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching repositories:', error);
+      });
+  </script>
+</body>
+</html>
