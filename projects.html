@@ -1,12 +1,19 @@
 <script>
+document.addEventListener('DOMContentLoaded', () => {
   // Define an array of repository names you want to display
   const selectedRepos = ["ant-table-app", "api-PyArrow-case-study-sec-gov"];
-  
+
+  // Get the projects-list element (ensure it exists)
+  const projectsList = document.getElementById('projects-list');
+  if (!projectsList) {
+    console.error('Element with id "projects-list" not found.');
+    return;
+  }
+
   // Fetch all public repositories for the user
   fetch('https://api.github.com/users/ru8ik/repos')
     .then(response => response.json())
     .then(repos => {
-      const projectsList = document.getElementById('projects-list');
       repos.forEach(repo => {
         // Only display the repository if its name is in the selectedRepos array
         if (!selectedRepos.includes(repo.name)) return;
@@ -36,4 +43,5 @@
     .catch(error => {
       console.error('Error fetching repositories:', error);
     });
+});
 </script>
