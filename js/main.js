@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Define an array of repository names you want to display
+  const selectedRepos = ["ant-table-app", "api-PyArrow-case-study-sec-gov"];
+
   // Replace 'ru8ik' with your GitHub username if needed
   fetch('https://api.github.com/users/ru8ik/repos')
     .then(response => response.json())
@@ -9,8 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
       repos.forEach(repo => {
-        // Optionally, filter out forked or archived repos:
-        // if (repo.fork || repo.archived) return;
+        // Only display the repository if its name is in the selectedRepos array
+        if (!selectedRepos.includes(repo.name)) return;
+        
         const projectDiv = document.createElement('div');
         projectDiv.className = 'project';
         
