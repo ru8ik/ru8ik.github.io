@@ -149,3 +149,36 @@
     color: #f0f0f0;
   }
   
+  /* Technology category styling */
+.tech-category {
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #252525;
+  border-radius: 6px;
+}
+
+.tech-category h3 {
+  font-size: 1.3em;
+  margin-bottom: 15px;
+  color: #e0e0e0;
+  border-bottom: 1px solid #333;
+  padding-bottom: 5px;
+}
+
+.tech-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.tech-icons img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.2s ease;
+}
+
+.tech-icons img:hover {
+  transform: scale(1.1);
+}
