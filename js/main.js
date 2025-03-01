@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Array of repository names to display
-  const selectedRepos = ["ant-table-app", "api-PyArrow-case-study-sec-gov"];
+  const selectedRepos = ["ant-table-app", "api-PyArrow-case-study-sec-gov", "TodoApp", "CS-UI-API-Automation"];
 
   fetch('https://api.github.com/users/ru8ik/repos')
     .then(response => response.json())
