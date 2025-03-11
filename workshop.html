@@ -3,34 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio - Workshop Details</title>
+    <meta name="description" content="About Rubik's Digital Workshop - A platform for software development and testing projects">
+    <meta name="keywords" content="digital workshop, software development, software testing, portfolio">
+    <meta name="author" content="Rubik">
+    <title>Rubik's Digital Workshop - About</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <!-- Navigation -->
         <nav id="back-nav">
-            <a href="index.html" class="btn">Back to Home</a>
+            <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
         </nav>
 
         <!-- Header Section -->
         <header>
             <img src="Cover.png" alt="Workshop Banner">
-            <h1>About This Workshop</h1>
+            <h1><i class="fas fa-tools"></i> About This Workshop</h1>
+            <p class="subtitle">The story behind this digital space</p>
         </header>
 
         <!-- Main Content -->
         <main>
             <!-- Workshop Overview Section -->
             <section id="workshop-overview">
-                <h2>Workshop Overview</h2>
-                <p>Welcome to my digital workshop a space that follow my journey in software testing and development. </p>
-                <p>This long-term project, that I creating to showcases my practical experience while also serving as a platform to develop and enhance my own skills. </p>
-                <p>Although its stiil work in progress and far from bieng complete, I thoroughly enjoy refining it bit by bit in my free time </p> 
+                <h2><i class="fas fa-info-circle"></i> Workshop Overview</h2>
+                <div class="overview-content">
+                    <p>Welcome to my digital workshop — a space that follows my journey in software testing and development.</p>
+                    
+                    <p>This long-term project, which I'm creating to showcase my practical experience, also serves as a platform to develop and enhance my own skills.</p>
+                    
+                    <p>Although it's still a work in progress and far from being complete, I thoroughly enjoy refining it bit by bit in my free time.</p> 
 
-                <p>It's a simple static Mini Website done with Github pages that was brought to life combining personal domain with some  HTML , CSS, JS </p> 
-
+                    <p>It's a simple static mini-website built with GitHub Pages, brought to life by combining a personal domain with HTML, CSS, and JavaScript.</p>
+                </div>
+                
+                <div class="tech-used">
+                    <h3><i class="fas fa-code"></i> Technologies Used</h3>
+                    <ul>
+                        <li><i class="fab fa-html5"></i> HTML5</li>
+                        <li><i class="fab fa-css3-alt"></i> CSS3</li>
+                        <li><i class="fab fa-js"></i> JavaScript</li>
+                        <li><i class="fab fa-github"></i> GitHub Pages</li>
+                    </ul>
+                </div>
             </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <h3>Let's Connect</h3>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/ru8ik/" target="_blank" title="LinkedIn Profile">
+                    <i class="fab fa-linkedin fa-2x"></i>
+                </a>
+                <a href="https://github.com/ru8ik" target="_blank" title="GitHub Profile">
+                    <i class="fab fa-github fa-2x"></i>
+                </a>
+            </div>
+            <p class="copyright">&copy; <span id="current-year"></span> Rubik's Digital Workshop. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
 
      

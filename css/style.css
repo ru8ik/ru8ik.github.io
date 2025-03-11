@@ -7,8 +7,8 @@
   
   /* Body styling with dark theme */
   body {
-    background-color: #121212;
-    color: #e0e0e0;
+    background-color: #0f1219;
+    color: #e4e6eb;
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     padding: 20px;
@@ -16,48 +16,61 @@
   
   /* Main container styling */
   .container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 40px auto;
     padding: 40px;
-    background-color: #1e1e1e;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background-color: #1a1f2b;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
   }
   
   /* Header styling */
   header {
     text-align: center;
     margin-bottom: 40px;
+    position: relative;
   }
   
   header img {
     width: 100%;
     height: auto;
-    border-radius: 8px 8px 0 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  header img:hover {
+    transform: scale(1.01);
   }
   
   header h1 {
     font-size: 2.5em;
-    margin: 20px 0 10px 0;
+    margin: 25px 0 15px 0;
     font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
   
   /* Section styling */
   section {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
   
   section h2 {
     font-size: 1.8em;
-    margin-bottom: 10px;
-    font-weight: 500;
-    border-bottom: 2px solid #333;
-    padding-bottom: 5px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    border-bottom: 2px solid #2d3748;
+    padding-bottom: 10px;
+    color: #8ab4f8;
   }
   
   p {
     font-size: 1.1em;
     margin-bottom: 20px;
+    line-height: 1.7;
+    color: #d1d5db;
   }
   
   /* Button styling */
@@ -66,132 +79,393 @@
     padding: 12px 25px;
     font-size: 1em;
     font-weight: 500;
-    color: #e0e0e0;
-    background-color: transparent;
-    border: 2px solid #e0e0e0;
-    border-radius: 4px;
+    color: #ffffff;
+    background-color: #2d3748;
+    border: 2px solid #4a5568;
+    border-radius: 6px;
     text-decoration: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
   
   .btn:hover {
-    background-color: #e0e0e0;
-    color: #121212;
+    background-color: #4a5568;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
   
   /* Technologies section styling */
   #technologies {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
   
   #technologies h2 {
     font-size: 1.8em;
-    margin-bottom: 20px;
-    font-weight: 500;
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: #8ab4f8;
   }
   
   .tech-icons {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
   }
   
   .tech-icons img {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
+    transition: all 0.3s ease;
+    filter: grayscale(20%);
+  }
+  
+  .tech-icons img:hover {
+    transform: scale(1.2);
+    filter: grayscale(0%);
   }
   
   /* Footer styling */
   footer {
     text-align: center;
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid #333;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #2d3748;
+  }
+  
+  footer h3 {
+    margin-bottom: 15px;
+    color: #8ab4f8;
   }
   
   footer a {
     margin: 0 15px;
+    display: inline-block;
+    transition: transform 0.3s ease;
   }
   
   footer img {
-    width: 50px;
+    width: 40px;
     height: auto;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  footer a:hover {
+    transform: translateY(-5px);
   }
   
   /* Additional styling for Projects page */
   .project {
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: #252525;
-    border-radius: 6px;
+    margin-bottom: 30px;
+    padding: 25px;
+    background-color: #252a36;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   }
   
   .project h3 {
     font-size: 1.5em;
-    margin-bottom: 10px;
-    font-weight: 500;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #8ab4f8;
   }
   
   .project p {
     font-size: 1em;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    color: #d1d5db;
   }
   
   .project a {
-    color: #e0e0e0;
-    text-decoration: underline;
+    color: #8ab4f8;
+    text-decoration: none;
     transition: color 0.3s ease;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 10px;
   }
   
   .project a:hover {
-    color: #f0f0f0;
+    color: #aecbfa;
+    text-decoration: underline;
   }
   
   /* Technology category styling */
-.tech-category {
-  margin-bottom: 30px;
-  padding: 20px;
-  background-color: #252525;
-  border-radius: 6px;
-}
-
-.tech-category h3 {
-  font-size: 1.3em;
-  margin-bottom: 15px;
-  color: #e0e0e0;
-  border-bottom: 1px solid #333;
-  padding-bottom: 5px;
-}
-
-.tech-icons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-}
-
-.tech-icons img {
-  width: 40px;
-  height: 40px;
-  transition: transform 0.2s ease;
-}
-
-.tech-icons img:hover {
-  transform: scale(1.1);
-}
-
-
-#nav {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin-bottom: 40px;
-}
-
-.btn {
-  min-width: 150px;
-  text-align: center;
-}
+  .tech-category {
+    margin-bottom: 30px;
+    padding: 25px;
+    background-color: #252a36;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .tech-category:hover {
+    transform: translateY(-3px);
+  }
+  
+  .tech-category h3 {
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    color: #8ab4f8;
+    border-bottom: 1px solid #2d3748;
+    padding-bottom: 8px;
+    font-weight: 500;
+  }
+  
+  .tech-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #nav {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+  
+  .btn {
+    min-width: 160px;
+    text-align: center;
+  }
+  
+  /* Back navigation */
+  #back-nav {
+    margin-bottom: 30px;
+  }
+  
+  /* Workshop page specific styling */
+  #workshop-overview {
+    background-color: #252a36;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .container {
+      padding: 25px;
+    }
+    
+    header h1 {
+      font-size: 2em;
+    }
+    
+    #nav {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .btn {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    
+    .tech-icons img {
+      width: 35px;
+      height: 35px;
+    }
+  }
+  
+  /* Subtitle styling */
+  .subtitle {
+    font-size: 1.2em;
+    color: #8ab4f8;
+    margin-bottom: 15px;
+    font-weight: 300;
+  }
+  
+  /* Highlight text */
+  .highlight {
+    color: #8ab4f8;
+    font-weight: 500;
+  }
+  
+  /* About content styling */
+  .about-content {
+    background-color: #252a36;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+  }
+  
+  /* Social links styling */
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 20px;
+  }
+  
+  .social-links a {
+    color: #8ab4f8;
+    transition: all 0.3s ease;
+  }
+  
+  .social-links a:hover {
+    color: #ffffff;
+    transform: translateY(-5px);
+  }
+  
+  /* Copyright text */
+  .copyright {
+    font-size: 0.9em;
+    color: #6c757d;
+    margin-top: 20px;
+  }
+  
+  /* Status badge */
+  .status-badge {
+    display: inline-block;
+    background-color: #2d3748;
+    color: #8ab4f8;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    margin-top: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Loading indicator */
+  .loading-indicator {
+    text-align: center;
+    padding: 30px;
+    color: #8ab4f8;
+    font-size: 1.2em;
+  }
+  
+  /* Project meta information */
+  .project-meta {
+    display: flex;
+    gap: 15px;
+    margin: 15px 0;
+    font-size: 0.9em;
+    color: #6c757d;
+  }
+  
+  /* Project links */
+  .project-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+  }
+  
+  .repo-link, .demo-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  .repo-link {
+    background-color: #2d3748;
+  }
+  
+  .demo-link {
+    background-color: #2c5282;
+  }
+  
+  .repo-link:hover, .demo-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+  }
+  
+  /* Error message */
+  .error-message {
+    text-align: center;
+    padding: 30px;
+    color: #f56565;
+    background-color: rgba(245, 101, 101, 0.1);
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  
+  .error-message i {
+    font-size: 2em;
+    margin-bottom: 15px;
+  }
+  
+  /* No projects message */
+  .no-projects {
+    text-align: center;
+    padding: 30px;
+    color: #8ab4f8;
+    font-style: italic;
+  }
+  
+  /* Workshop page specific styles */
+  .overview-content {
+    margin-bottom: 30px;
+  }
+  
+  .tech-used {
+    background-color: #2d3748;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 30px;
+  }
+  
+  .tech-used h3 {
+    color: #8ab4f8;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+  }
+  
+  .tech-used ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .tech-used li {
+    background-color: #252a36;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .tech-used li:hover {
+    transform: translateY(-3px);
+  }
+  
+  .tech-used i {
+    color: #8ab4f8;
+  }
+  
+  /* Animation for projects */
+  .project {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .project.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Icon styling */
+  i[class*="fa-"] {
+    margin-right: 5px;
+  }

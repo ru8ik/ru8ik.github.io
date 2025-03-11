@@ -3,24 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio - Projects</title>
+  <meta name="description" content="Software Development and Testing Projects - Showcasing my work in software development and testing">
+  <meta name="keywords" content="software projects, development projects, testing projects, portfolio">
+  <meta name="author" content="Rubik">
+  <title>Rubik's Digital Workshop - Projects</title>
   <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <div class="container">
     <nav id="back-nav">
-      <a href="index.html" class="btn">Back to Home</a>
+      <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
     </nav>
+    
     <header>
-      <h1>My Projects</h1>
+      <h1><i class="fas fa-code-branch"></i> My Projects</h1>
+      <p class="subtitle">Showcasing my work in software development and testing</p>
+      <div class="status-badge">
+        <i class="fas fa-hammer"></i> Under Development
+      </div>
     </header>
+    
     <main>
       <!-- Projects List Section -->
       <section id="projects-list">
+        <div class="loading-indicator">
+          <i class="fas fa-spinner fa-spin"></i> Loading projects...
+        </div>
         <!-- Projects will be dynamically inserted here -->
       </section>
     </main>
+    
+    <footer>
+      <h3>Let's Connect</h3>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/ru8ik/" target="_blank" title="LinkedIn Profile">
+          <i class="fab fa-linkedin fa-2x"></i>
+        </a>
+        <a href="https://github.com/ru8ik" target="_blank" title="GitHub Profile">
+          <i class="fab fa-github fa-2x"></i>
+        </a>
+      </div>
+      <p class="copyright">&copy; <span id="current-year"></span> Rubik's Digital Workshop. All rights reserved.</p>
+    </footer>
   </div>
   
   <!-- External JavaScript file for fetching and displaying projects -->
