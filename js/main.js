@@ -161,6 +161,7 @@ function openGamesDemo() {
             background-color: var(--light-bg);
             color: var(--text-color);
             line-height: 1.6;
+            overflow-x: hidden;
           }
           
           .container {
@@ -279,6 +280,9 @@ function openGamesDemo() {
           .tab-content {
             display: none;
             animation: fadeIn 0.5s ease;
+            height: 650px;
+            position: relative;
+            overflow: hidden;
           }
           
           .tab-content.active {
@@ -290,14 +294,25 @@ function openGamesDemo() {
             to { opacity: 1; transform: translateY(0); }
           }
           
-          .game-frame {
+          .game-container {
             width: 100%;
-            height: 600px;
-            border: none;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
             background-color: white;
-            margin-top: 15px;
+          }
+          
+          .game-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
           }
           
           .game-title {
@@ -341,7 +356,13 @@ function openGamesDemo() {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 200px;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: white;
+            z-index: 10;
             color: var(--primary-color);
             font-size: 1.2rem;
           }
@@ -366,27 +387,89 @@ function openGamesDemo() {
           }
           
           .error-message {
-            padding: 20px;
+            padding: 30px;
             background-color: #fdf2f2;
             border-left: 4px solid var(--accent-color);
             color: #721c24;
-            margin-bottom: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 500px;
             border-radius: 4px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
           }
           
           .error-message h3 {
             color: #721c24;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
           }
           
           .error-message a {
             color: var(--accent-color);
             text-decoration: none;
             font-weight: 500;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: 1px solid var(--accent-color);
+            border-radius: 4px;
+            transition: var(--transition);
           }
           
           .error-message a:hover {
-            text-decoration: underline;
+            background-color: var(--accent-color);
+            color: white;
+          }
+          
+          .game-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+          }
+          
+          .game-controls .refresh-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+            transition: var(--transition);
+          }
+          
+          .game-controls .refresh-btn i {
+            margin-right: 5px;
+          }
+          
+          .game-controls .refresh-btn:hover {
+            background-color: #2980b9;
+          }
+          
+          .aspect-ratio-container {
+            position: relative;
+            width: 100%;
+            padding-top: 75%; /* 4:3 Aspect Ratio */
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+          }
+          
+          .aspect-ratio-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
           }
           
           @media (max-width: 768px) {
@@ -407,8 +490,12 @@ function openGamesDemo() {
               font-size: 1rem;
             }
             
-            .game-frame {
+            .tab-content {
               height: 450px;
+            }
+            
+            .aspect-ratio-container {
+              padding-top: 100%; /* 1:1 Aspect Ratio for mobile */
             }
           }
         </style>
@@ -439,19 +526,37 @@ function openGamesDemo() {
             </div>
             
             <div id="game1" class="tab-content active">
-              <h3 class="game-title"><i class="fas fa-dice"></i> Game 1</h3>
-              <div id="game1Loading" class="loading-indicator">
-                <i class="fas fa-spinner"></i> Loading game...
+              <div class="game-controls">
+                <h3 class="game-title"><i class="fas fa-dice"></i> Game 1</h3>
+                <button class="refresh-btn" onclick="refreshGame('game1')">
+                  <i class="fas fa-sync-alt"></i> Refresh Game
+                </button>
               </div>
-              <iframe id="game1Frame" class="game-frame" title="Game 1" style="display: none;"></iframe>
+              <div class="aspect-ratio-container">
+                <div class="aspect-ratio-content">
+                  <div id="game1Loading" class="loading-indicator">
+                    <i class="fas fa-spinner"></i> Loading game...
+                  </div>
+                  <iframe id="game1Frame" class="game-frame" title="Game 1" style="display: none;" scrolling="no"></iframe>
+                </div>
+              </div>
             </div>
             
             <div id="game2" class="tab-content">
-              <h3 class="game-title"><i class="fas fa-chess"></i> Game 2</h3>
-              <div id="game2Loading" class="loading-indicator">
-                <i class="fas fa-spinner"></i> Loading game...
+              <div class="game-controls">
+                <h3 class="game-title"><i class="fas fa-chess"></i> Game 2</h3>
+                <button class="refresh-btn" onclick="refreshGame('game2')">
+                  <i class="fas fa-sync-alt"></i> Refresh Game
+                </button>
               </div>
-              <iframe id="game2Frame" class="game-frame" title="Game 2" style="display: none;"></iframe>
+              <div class="aspect-ratio-container">
+                <div class="aspect-ratio-content">
+                  <div id="game2Loading" class="loading-indicator">
+                    <i class="fas fa-spinner"></i> Loading game...
+                  </div>
+                  <iframe id="game2Frame" class="game-frame" title="Game 2" style="display: none;" scrolling="no"></iframe>
+                </div>
+              </div>
             </div>
           </div>
           
@@ -484,13 +589,29 @@ function openGamesDemo() {
             evt.currentTarget.classList.add("active");
           }
           
+          // Function to refresh a specific game
+          function refreshGame(gameId) {
+            if (gameId === 'game1') {
+              document.getElementById('game1Frame').style.display = 'none';
+              document.getElementById('game1Loading').style.display = 'flex';
+              loadGame1();
+            } else if (gameId === 'game2') {
+              document.getElementById('game2Frame').style.display = 'none';
+              document.getElementById('game2Loading').style.display = 'flex';
+              loadGame2();
+            }
+          }
+          
           // Function to load game content
           function loadGameContent() {
-            // URLs for the raw game HTML files
+            loadGame1();
+            loadGame2();
+          }
+          
+          // Function to load Game 1
+          function loadGame1() {
             const game1Url = "https://raw.githubusercontent.com/ru8ik/games/master/game.html";
-            const game2Url = "https://raw.githubusercontent.com/ru8ik/games/master/game2.html";
             
-            // Fetch and load Game 1
             fetch(game1Url)
               .then(response => {
                 if (!response.ok) {
@@ -499,25 +620,38 @@ function openGamesDemo() {
                 return response.text();
               })
               .then(html => {
+                // Process the HTML to make it work in an iframe
+                const processedHtml = processGameHtml(html);
+                
                 document.getElementById('game1Loading').style.display = 'none';
                 const game1Frame = document.getElementById('game1Frame');
                 game1Frame.style.display = 'block';
-                game1Frame.srcdoc = html;
+                game1Frame.srcdoc = processedHtml;
+                
+                // Add load event listener to ensure iframe content is loaded
+                game1Frame.onload = function() {
+                  try {
+                    // Try to access iframe content to ensure it's loaded properly
+                    const iframeDoc = game1Frame.contentDocument || game1Frame.contentWindow.document;
+                    if (!iframeDoc) {
+                      throw new Error('Cannot access iframe content');
+                    }
+                  } catch (e) {
+                    console.error("Error accessing iframe content:", e);
+                    showGameError('game1Frame');
+                  }
+                };
               })
               .catch(error => {
                 console.error("Error loading Game 1:", error);
-                document.getElementById('game1Loading').style.display = 'none';
-                document.getElementById('game1Frame').style.display = 'block';
-                document.getElementById('game1Frame').srcdoc = \`
-                  <div class="error-message" style="padding: 20px; text-align: center; font-family: Arial, sans-serif;">
-                    <h3><i class="fas fa-exclamation-triangle" style="color: #e74c3c; margin-right: 10px;"></i>Error Loading Game</h3>
-                    <p>Could not load the game content. This might be due to cross-origin restrictions or the file may not be available.</p>
-                    <p>Please visit the <a href="https://github.com/ru8ik/games/blob/master/game.html" target="_blank" style="color: #3498db; text-decoration: underline;">GitHub repository</a> to view the game code directly.</p>
-                  </div>
-                \`;
+                showGameError('game1Frame');
               });
+          }
+          
+          // Function to load Game 2
+          function loadGame2() {
+            const game2Url = "https://raw.githubusercontent.com/ru8ik/games/master/game2.html";
             
-            // Fetch and load Game 2
             fetch(game2Url)
               .then(response => {
                 if (!response.ok) {
@@ -526,23 +660,87 @@ function openGamesDemo() {
                 return response.text();
               })
               .then(html => {
+                // Process the HTML to make it work in an iframe
+                const processedHtml = processGameHtml(html);
+                
                 document.getElementById('game2Loading').style.display = 'none';
                 const game2Frame = document.getElementById('game2Frame');
                 game2Frame.style.display = 'block';
-                game2Frame.srcdoc = html;
+                game2Frame.srcdoc = processedHtml;
+                
+                // Add load event listener to ensure iframe content is loaded
+                game2Frame.onload = function() {
+                  try {
+                    // Try to access iframe content to ensure it's loaded properly
+                    const iframeDoc = game2Frame.contentDocument || game2Frame.contentWindow.document;
+                    if (!iframeDoc) {
+                      throw new Error('Cannot access iframe content');
+                    }
+                  } catch (e) {
+                    console.error("Error accessing iframe content:", e);
+                    showGameError('game2Frame');
+                  }
+                };
               })
               .catch(error => {
                 console.error("Error loading Game 2:", error);
-                document.getElementById('game2Loading').style.display = 'none';
-                document.getElementById('game2Frame').style.display = 'block';
-                document.getElementById('game2Frame').srcdoc = \`
-                  <div class="error-message" style="padding: 20px; text-align: center; font-family: Arial, sans-serif;">
-                    <h3><i class="fas fa-exclamation-triangle" style="color: #e74c3c; margin-right: 10px;"></i>Error Loading Game</h3>
-                    <p>Could not load the game content. This might be due to cross-origin restrictions or the file may not be available.</p>
-                    <p>Please visit the <a href="https://github.com/ru8ik/games/blob/master/game2.html" target="_blank" style="color: #3498db; text-decoration: underline;">GitHub repository</a> to view the game code directly.</p>
-                  </div>
-                \`;
+                showGameError('game2Frame');
               });
+          }
+          
+          // Function to process game HTML for iframe compatibility
+          function processGameHtml(html) {
+            // Add base target to prevent links from opening in the iframe
+            html = html.replace('<head>', '<head><base target="_blank">');
+            
+            // Add styles to prevent scrolling and ensure content fits
+            const styleTag = '<style>html, body { overflow: hidden; margin: 0; padding: 0; width: 100%; height: 100%; } * { box-sizing: border-box; }</style>';
+            html = html.replace('</head>', styleTag + '</head>');
+            
+            return html;
+          }
+          
+          // Function to show error message
+          function showGameError(frameId) {
+            document.getElementById('game1Loading').style.display = 'none';
+            document.getElementById('game2Loading').style.display = 'none';
+            
+            document.getElementById(frameId).style.display = 'block';
+            document.getElementById(frameId).srcdoc = \`
+              <div class="error-message" style="
+                padding: 30px;
+                background-color: #fdf2f2;
+                border-left: 4px solid #e74c3c;
+                color: #721c24;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 80%;
+                max-width: 500px;
+                border-radius: 4px;
+                text-align: center;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                font-family: 'Roboto', Arial, sans-serif;
+              ">
+                <h3 style="color: #721c24; margin-bottom: 15px; font-size: 1.5rem;">
+                  <i class="fas fa-exclamation-triangle" style="color: #e74c3c; margin-right: 10px;"></i>Error Loading Game
+                </h3>
+                <p style="margin-bottom: 15px; line-height: 1.6;">Could not load the game content. This might be due to cross-origin restrictions or the file may not be available.</p>
+                <p>Please visit the GitHub repository to view the game code directly:</p>
+                <a href="https://github.com/ru8ik/games" target="_blank" style="
+                  color: #e74c3c;
+                  text-decoration: none;
+                  font-weight: 500;
+                  display: inline-block;
+                  margin-top: 15px;
+                  padding: 8px 15px;
+                  border: 1px solid #e74c3c;
+                  border-radius: 4px;
+                  transition: all 0.3s ease;
+                ">View Repository</a>
+              </div>
+            \`;
           }
           
           // Load game content when the page loads
