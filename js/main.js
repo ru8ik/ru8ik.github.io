@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Function to load projects from GitHub API
 function loadProjects(projectsList) {
   // Array of repository names to display
-  const selectedRepos = ["ant-table-app", "api-PyArrow-case-study-sec-gov", "TodoApp", "CS-UI-API-Automation"];
+  const selectedRepos = ["ant-table-app", "api-PyArrow-case-study-sec-gov", "TodoApp", "CS-UI-API-Automation", "games"];
   const loadingIndicator = document.querySelector('.loading-indicator');
 
   fetch('https://api.github.com/users/ru8ik/repos')
@@ -90,6 +90,12 @@ function loadProjects(projectsList) {
               <i class="fas fa-external-link-alt"></i> Live Demo
             </a>
           `;
+        } else if (repo.name === 'games') {
+          projectContent += `
+            <a href="javascript:void(0)" class="demo-link" onclick="openGamesDemo()">
+              <i class="fas fa-gamepad"></i> Live Demo
+            </a>
+          `;
         }
         
         projectContent += `</div>`;
@@ -114,4 +120,162 @@ function loadProjects(projectsList) {
         </div>
       `;
     });
+}
+
+// Function to open games demo in a new window
+function openGamesDemo() {
+  const gamesWindow = window.open('', '_blank');
+  
+  if (gamesWindow) {
+    gamesWindow.document.write(`
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Games Repository</title>
+        <style>
+          body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+          }
+          .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+          }
+          header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius: 8px;
+          }
+          .content-box {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+          }
+          .button {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 10px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-align: center;
+          }
+          .primary-button {
+            background-color: #3498db;
+            color: white;
+          }
+          .primary-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+          }
+          .secondary-button {
+            background-color: #2ecc71;
+            color: white;
+          }
+          .secondary-button:hover {
+            background-color: #27ae60;
+            transform: translateY(-2px);
+          }
+          .close-button {
+            background-color: #e74c3c;
+            color: white;
+          }
+          .close-button:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+          }
+          h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+            margin-top: 0;
+          }
+          .icon {
+            margin-right: 8px;
+          }
+          .steps {
+            margin-left: 20px;
+            line-height: 1.6;
+          }
+          .steps li {
+            margin-bottom: 10px;
+          }
+          .note {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+          }
+        </style>
+      </head>
+      <body>
+        <header>
+          <h1><i class="fas fa-gamepad"></i> Games Repository</h1>
+          <p>Access and play the games from the GitHub repository</p>
+        </header>
+        
+        <div class="container">
+          <div class="content-box">
+            <h2>How to Access the Games</h2>
+            <p>The games are hosted on GitHub. Follow these steps to access and play them:</p>
+            
+            <ol class="steps">
+              <li>Visit the GitHub repository by clicking the button below</li>
+              <li>Navigate to the game files (game.html and game2.html)</li>
+              <li>Download the files to your computer</li>
+              <li>Open the HTML files in your browser to play the games</li>
+            </ol>
+            
+            <div style="text-align: center; margin-top: 20px;">
+              <a href="https://github.com/ru8ik/games" target="_blank" class="button primary-button">
+                <i class="fab fa-github icon"></i>View GitHub Repository
+              </a>
+            </div>
+            
+            <div class="note">
+              <strong>Note:</strong> The games are not directly playable online through GitHub Pages at this time. 
+              You'll need to download the files to play them locally.
+            </div>
+          </div>
+          
+          <div class="content-box">
+            <h2>Direct Links to Game Files</h2>
+            <p>You can view the game files directly on GitHub:</p>
+            
+            <div style="text-align: center;">
+              <a href="https://github.com/ru8ik/games/blob/master/game.html" target="_blank" class="button secondary-button">
+                <i class="fas fa-file-code icon"></i>View Game 1
+              </a>
+              <a href="https://github.com/ru8ik/games/blob/master/game2.html" target="_blank" class="button secondary-button">
+                <i class="fas fa-file-code icon"></i>View Game 2
+              </a>
+            </div>
+          </div>
+          
+          <div style="text-align: center; margin-top: 20px;">
+            <a href="javascript:window.close()" class="button close-button">
+              <i class="fas fa-times icon"></i>Close Window
+            </a>
+          </div>
+        </div>
+      </body>
+      </html>
+    `);
+    gamesWindow.document.close();
+  } else {
+    alert('Please allow pop-ups to view the games repository information.');
+  }
 }
