@@ -31,13 +31,17 @@
             <section id="workshop-overview">
                 <h2><i class="fas fa-info-circle"></i> Workshop Overview</h2>
                 <div class="overview-content">
-                    <p>Welcome to my digital workshop — a space that follows my journey in software testing and development.</p>
                     
-                    <p>This long-term project, which I'm creating to showcase my practical experience, also serves as a platform to develop and enhance my own skills.</p>
-                    
-                    <p>Although it's still a work in progress and far from being complete, I thoroughly enjoy refining it bit by bit in my free time.</p> 
 
-                    <p>It's a simple static mini-website built with GitHub Pages, brought to life by combining a personal domain with HTML, CSS, and JavaScript.</p>
+                    
+                    
+
+                    <p>Welcome to my digital workshop—a space that documents my journey in software testing and development.</p>
+                    
+                    <p>This ongoing project serves both as a showcase of my practical experience and as a platform for enhancing my skills. While it is still a work in progress, I genuinely enjoy refining it bit by bit during my free time.</p>
+                    
+                    <p>It is a simple, static mini-website hosted on GitHub Pages, brought to life by integrating a personal domain with HTML, CSS, and JavaScript.</p> 
+
                 </div>
                 
                 <div class="tech-used">
@@ -47,6 +51,9 @@
                         <li><i class="fab fa-css3-alt"></i> CSS3</li>
                         <li><i class="fab fa-js"></i> JavaScript</li>
                         <li><i class="fab fa-github"></i> GitHub Pages</li>
+                        <li><i class="fas fa-palette"></i> Canva</li>
+                        <li><i class="fas fa-globe"></i> Wix</li>
+                        <li><i class="fas fa-terminal"></i> Cursor</li>
                     </ul>
                 </div>
             </section>
@@ -69,6 +76,33 @@
 
     <!-- JavaScript -->
     <script src="js/main.js"></script>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" title="Back to Top"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+        // Back to Top button functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTopButton = document.getElementById('back-to-top');
+            
+            // Show/hide button based on scroll position
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+            
+            // Scroll to top when button is clicked
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
 
