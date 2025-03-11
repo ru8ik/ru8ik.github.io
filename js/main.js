@@ -133,17 +133,16 @@ function openGamesDemo() {
       <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Games Repository</title>
+        <title>Games Demo</title>
         <style>
           body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f5f5f5;
-            color: #333;
           }
           .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
           }
@@ -153,129 +152,165 @@ function openGamesDemo() {
             padding: 20px;
             text-align: center;
             margin-bottom: 20px;
-            border-radius: 8px;
           }
-          .content-box {
-            background-color: white;
+          .games-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+          }
+          .game-frame {
+            width: 100%;
+            height: 600px;
+            border: none;
             border-radius: 8px;
-            padding: 25px;
-            margin-bottom: 20px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background-color: white;
           }
-          .button {
+          .game-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+          }
+          .back-button {
             display: inline-block;
-            padding: 12px 24px;
-            margin: 10px;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: white;
             text-decoration: none;
             border-radius: 4px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            text-align: center;
+            transition: background-color 0.3s;
           }
-          .primary-button {
+          .back-button:hover {
+            background-color: #c0392b;
+          }
+          .game-description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+          }
+          .games-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+          }
+          .tab-container {
+            display: flex;
+            margin-bottom: 20px;
+          }
+          .tab {
+            padding: 10px 20px;
+            background-color: #ecf0f1;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+            border-radius: 4px 4px 0 0;
+            margin-right: 5px;
+          }
+          .tab.active {
             background-color: #3498db;
             color: white;
           }
-          .primary-button:hover {
-            background-color: #2980b9;
-            transform: translateY(-2px);
+          .tab:hover:not(.active) {
+            background-color: #d5dbdb;
           }
-          .secondary-button {
-            background-color: #2ecc71;
-            color: white;
+          .tab-content {
+            display: none;
           }
-          .secondary-button:hover {
-            background-color: #27ae60;
-            transform: translateY(-2px);
-          }
-          .close-button {
-            background-color: #e74c3c;
-            color: white;
-          }
-          .close-button:hover {
-            background-color: #c0392b;
-            transform: translateY(-2px);
-          }
-          h2 {
-            color: #2c3e50;
-            border-bottom: 2px solid #ecf0f1;
-            padding-bottom: 10px;
-            margin-top: 0;
-          }
-          .icon {
-            margin-right: 8px;
-          }
-          .steps {
-            margin-left: 20px;
-            line-height: 1.6;
-          }
-          .steps li {
-            margin-bottom: 10px;
-          }
-          .note {
-            background-color: #f8f9fa;
-            border-left: 4px solid #3498db;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 0 4px 4px 0;
+          .tab-content.active {
+            display: block;
           }
         </style>
       </head>
       <body>
         <header>
-          <h1><i class="fas fa-gamepad"></i> Games Repository</h1>
-          <p>Access and play the games from the GitHub repository</p>
+          <h1>Games Demo</h1>
+          <p>Experience the games from the repository</p>
         </header>
-        
         <div class="container">
-          <div class="content-box">
-            <h2>How to Access the Games</h2>
-            <p>The games are hosted on GitHub. Follow these steps to access and play them:</p>
+          <div class="games-section">
+            <h2>Available Games</h2>
+            <p class="game-description">
+              These games are part of the GitHub repository. Select a game below to play.
+            </p>
             
-            <ol class="steps">
-              <li>Visit the GitHub repository by clicking the button below</li>
-              <li>Navigate to the game files (game.html and game2.html)</li>
-              <li>Download the files to your computer</li>
-              <li>Open the HTML files in your browser to play the games</li>
-            </ol>
-            
-            <div style="text-align: center; margin-top: 20px;">
-              <a href="https://github.com/ru8ik/games" target="_blank" class="button primary-button">
-                <i class="fab fa-github icon"></i>View GitHub Repository
-              </a>
+            <div class="tab-container">
+              <button class="tab active" onclick="openTab(event, 'game1')">Game 1</button>
+              <button class="tab" onclick="openTab(event, 'game2')">Game 2</button>
             </div>
             
-            <div class="note">
-              <strong>Note:</strong> The games are not directly playable online through GitHub Pages at this time. 
-              You'll need to download the files to play them locally.
+            <div id="game1" class="tab-content active">
+              <h3 class="game-title">Game 1</h3>
+              <iframe id="game1Frame" class="game-frame" title="Game 1"></iframe>
             </div>
-          </div>
-          
-          <div class="content-box">
-            <h2>Direct Links to Game Files</h2>
-            <p>You can view the game files directly on GitHub:</p>
             
-            <div style="text-align: center;">
-              <a href="https://github.com/ru8ik/games/blob/master/game.html" target="_blank" class="button secondary-button">
-                <i class="fas fa-file-code icon"></i>View Game 1
-              </a>
-              <a href="https://github.com/ru8ik/games/blob/master/game2.html" target="_blank" class="button secondary-button">
-                <i class="fas fa-file-code icon"></i>View Game 2
-              </a>
+            <div id="game2" class="tab-content">
+              <h3 class="game-title">Game 2</h3>
+              <iframe id="game2Frame" class="game-frame" title="Game 2"></iframe>
             </div>
           </div>
           
-          <div style="text-align: center; margin-top: 20px;">
-            <a href="javascript:window.close()" class="button close-button">
-              <i class="fas fa-times icon"></i>Close Window
-            </a>
-          </div>
+          <a href="javascript:window.close()" class="back-button">Close Demo</a>
         </div>
+        
+        <script>
+          // Function to switch between tabs
+          function openTab(evt, tabName) {
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+              tabContents[i].classList.remove("active");
+            }
+            
+            const tabs = document.getElementsByClassName("tab");
+            for (let i = 0; i < tabs.length; i++) {
+              tabs[i].classList.remove("active");
+            }
+            
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+          }
+          
+          // Function to load game content
+          function loadGameContent() {
+            // URLs for the raw game HTML files
+            const game1Url = "https://raw.githubusercontent.com/ru8ik/games/master/game.html";
+            const game2Url = "https://raw.githubusercontent.com/ru8ik/games/master/game2.html";
+            
+            // Fetch and load Game 1
+            fetch(game1Url)
+              .then(response => response.text())
+              .then(html => {
+                const game1Frame = document.getElementById('game1Frame');
+                game1Frame.srcdoc = html;
+              })
+              .catch(error => {
+                console.error("Error loading Game 1:", error);
+                document.getElementById('game1Frame').srcdoc = '<div style="padding: 20px; text-align: center;"><h3>Error Loading Game</h3><p>Could not load the game content. Please try again later or visit the <a href="https://github.com/ru8ik/games/blob/master/game.html" target="_blank">GitHub repository</a>.</p></div>';
+              });
+            
+            // Fetch and load Game 2
+            fetch(game2Url)
+              .then(response => response.text())
+              .then(html => {
+                const game2Frame = document.getElementById('game2Frame');
+                game2Frame.srcdoc = html;
+              })
+              .catch(error => {
+                console.error("Error loading Game 2:", error);
+                document.getElementById('game2Frame').srcdoc = '<div style="padding: 20px; text-align: center;"><h3>Error Loading Game</h3><p>Could not load the game content. Please try again later or visit the <a href="https://github.com/ru8ik/games/blob/master/game2.html" target="_blank">GitHub repository</a>.</p></div>';
+              });
+          }
+          
+          // Load game content when the page loads
+          window.onload = loadGameContent;
+        </script>
       </body>
       </html>
     `);
     gamesWindow.document.close();
   } else {
-    alert('Please allow pop-ups to view the games repository information.');
+    alert('Please allow pop-ups to view the games demo.');
   }
 }
