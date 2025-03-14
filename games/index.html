@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Games Collection - Simple browser games created by Rubik">
+  <meta name="keywords" content="browser games, javascript games, html5 games">
+  <meta name="author" content="Rubik">
+  <title>Rubik's Games Collection</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .game-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    
+    .game-card {
+      background-color: #252525;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      border: 1px solid #333;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .game-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .game-card h3 {
+      font-size: 1.4em;
+      padding: 15px;
+      color: #fff;
+      border-bottom: 1px solid #444;
+    }
+    
+    .game-description {
+      padding: 15px;
+      flex: 1;
+    }
+    
+    .game-link {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #8e44ad;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      margin: 0 15px 15px;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+    
+    .game-link:hover {
+      background-color: #9b59b6;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Main Navigation -->
+    <nav id="main-nav">
+      <a href="../index.html" class="nav-btn"><i class="fas fa-home"></i> Home</a>
+      <a href="../projects.html" class="nav-btn"><i class="fas fa-code"></i> Projects</a>
+      <a href="../articles.html" class="nav-btn"><i class="fas fa-newspaper"></i> Articles</a>
+    </nav>
+    
+    <header>
+      <h1><i class="fas fa-gamepad"></i> Games Collection</h1>
+      <p class="subtitle">Simple browser games created with HTML, CSS, and JavaScript</p>
+    </header>
+    
+    <main>
+      <section>
+        <h2><i class="fas fa-list"></i> Available Games</h2>
+        <p>Select a game below to play:</p>
+        
+        <div class="game-container">
+          <!-- Game 1 -->
+          <div class="game-card">
+            <h3>Memory Game</h3>
+            <div class="game-description">
+              <p>Test your memory by matching pairs of cards. Find all matching pairs to win!</p>
+            </div>
+            <a href="game.html" class="game-link">Play Game</a>
+          </div>
+          
+          <!-- Game 2 -->
+          <div class="game-card">
+            <h3>Snake Game</h3>
+            <div class="game-description">
+              <p>Control the snake to eat food and grow longer. Avoid hitting the walls or yourself!</p>
+            </div>
+            <a href="game2.html" class="game-link">Play Game</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <footer>
+      <h3>Let's Connect</h3>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/ru8ik/" target="_blank" title="LinkedIn Profile">
+          <i class="fab fa-linkedin fa-2x"></i>
+        </a>
+        <a href="https://github.com/ru8ik" target="_blank" title="GitHub Profile">
+          <i class="fab fa-github fa-2x"></i>
+        </a>
+      </div>
+      <p class="copyright">&copy; <span id="current-year"></span> Rubik's Digital Workshop. All rights reserved.</p>
+    </footer>
+  </div>
+  
+  <!-- Back to Top Button -->
+  <button id="back-to-top" title="Back to Top"><i class="fas fa-arrow-up"></i></button>
+
+  <script>
+    // Set current year in copyright
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // Back to Top button functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const backToTopButton = document.getElementById('back-to-top');
+      
+      // Show/hide button based on scroll position
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+          backToTopButton.classList.add('visible');
+        } else {
+          backToTopButton.classList.remove('visible');
+        }
+      });
+      
+      // Scroll to top when button is clicked
+      backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html> 
