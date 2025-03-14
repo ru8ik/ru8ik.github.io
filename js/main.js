@@ -142,6 +142,8 @@ function loadProjects(projectsList) {
         let demoUrl = repo.homepage;
         if (repo.name === 'ant-table-app' && !demoUrl) {
           demoUrl = 'https://ru8ik.github.io/ant-table-app/';
+        } else if (repo.name === 'work-shifts-manager' && !demoUrl) {
+          demoUrl = 'https://ru8ik.github.io/work-shifts-manager/';
         }
 
         // Set project HTML content
