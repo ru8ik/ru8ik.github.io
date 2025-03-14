@@ -1,336 +1,174 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+  <title>Basic Breakout HTML Game</title>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Memory Card Game - Test your memory by matching pairs of cards">
-  <meta name="keywords" content="memory game, card game, browser game">
-  <meta name="author" content="Rubik">
-  <title>Memory Card Game</title>
-  <link rel="stylesheet" href="../css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    .game-container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    
-    .game-board {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-      margin-top: 30px;
-    }
-    
-    .card {
-      height: 120px;
-      background-color: #8e44ad;
-      border-radius: 8px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      transform-style: preserve-3d;
-      position: relative;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    }
-    
-    .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-    }
-    
-    .card.flipped {
-      transform: rotateY(180deg);
-    }
-    
-    .card.matched {
-      background-color: #27ae60;
-      cursor: default;
-    }
-    
-    .card-front, .card-back {
-      position: absolute;
-      width: 100%;
+    html, body {
       height: 100%;
-      backface-visibility: hidden;
+      margin: 0;
+    }
+
+    body {
+      background: black;
       display: flex;
-      justify-content: center;
       align-items: center;
-      border-radius: 8px;
-    }
-    
-    .card-front {
-      background-color: #8e44ad;
-      transform: rotateY(0deg);
-    }
-    
-    .card-back {
-      background-color: #2d2d2d;
-      transform: rotateY(180deg);
-    }
-    
-    .card-back i {
-      font-size: 2.5em;
-      color: #fff;
-    }
-    
-    .game-info {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
-      padding: 15px;
-      background-color: #252525;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    
-    .game-info div {
-      font-size: 1.2em;
-    }
-    
-    .reset-btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #8e44ad;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 1em;
-      transition: all 0.3s ease;
-      margin-top: 20px;
-    }
-    
-    .reset-btn:hover {
-      background-color: #9b59b6;
-      transform: translateY(-2px);
-    }
-    
-    .win-message {
-      text-align: center;
-      margin-top: 20px;
-      padding: 15px;
-      background-color: #27ae60;
-      color: white;
-      border-radius: 8px;
-      font-size: 1.3em;
-      display: none;
-    }
-    
-    @media (max-width: 600px) {
-      .game-board {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      
-      .card {
-        height: 100px;
-      }
+      justify-content: center;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Main Navigation -->
-    <nav id="main-nav">
-      <a href="../index.html" class="nav-btn"><i class="fas fa-home"></i> Home</a>
-      <a href="index.html" class="nav-btn"><i class="fas fa-gamepad"></i> Games</a>
-      <a href="../projects.html" class="nav-btn"><i class="fas fa-code"></i> Projects</a>
-    </nav>
-    
-    <header>
-      <h1><i class="fas fa-brain"></i> Memory Card Game</h1>
-      <p class="subtitle">Test your memory by matching pairs of cards</p>
-    </header>
-    
-    <main>
-      <div class="game-container">
-        <p>Flip cards to find matching pairs. Match all pairs to win!</p>
-        
-        <div class="game-info">
-          <div>Moves: <span id="moves">0</span></div>
-          <div>Pairs Found: <span id="pairs">0</span> / 8</div>
-        </div>
-        
-        <div class="game-board" id="game-board">
-          <!-- Cards will be dynamically inserted here -->
-        </div>
-        
-        <div class="win-message" id="win-message">
-          <i class="fas fa-trophy"></i> Congratulations! You've found all pairs in <span id="final-moves">0</span> moves!
-        </div>
-        
-        <button class="reset-btn" id="reset-btn">Reset Game</button>
-      </div>
-    </main>
-    
-    <footer>
-      <h3>Let's Connect</h3>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/ru8ik/" target="_blank" title="LinkedIn Profile">
-          <i class="fab fa-linkedin fa-2x"></i>
-        </a>
-        <a href="https://github.com/ru8ik" target="_blank" title="GitHub Profile">
-          <i class="fab fa-github fa-2x"></i>
-        </a>
-      </div>
-      <p class="copyright">&copy; <span id="current-year"></span> Rubik's Digital Workshop. All rights reserved.</p>
-    </footer>
-  </div>
-  
-  <!-- Back to Top Button -->
-  <button id="back-to-top" title="Back to Top"><i class="fas fa-arrow-up"></i></button>
+  <h2><b>PaddlePong</b></h2> 
+
+  <canvas id="gameCanvas" width="800" height="600"></canvas>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Set current year in copyright
-      document.getElementById('current-year').textContent = new Date().getFullYear();
-      
-      // Game variables
-      const gameBoard = document.getElementById('game-board');
-      const movesDisplay = document.getElementById('moves');
-      const pairsDisplay = document.getElementById('pairs');
-      const resetBtn = document.getElementById('reset-btn');
-      const winMessage = document.getElementById('win-message');
-      const finalMovesDisplay = document.getElementById('final-moves');
-      
-      let cards = [];
-      let flippedCards = [];
-      let moves = 0;
-      let pairsFound = 0;
-      let canFlip = true;
-      
-      // Card icons (Font Awesome)
-      const icons = [
-        'fa-heart', 'fa-star', 'fa-bell', 'fa-gem',
-        'fa-moon', 'fa-sun', 'fa-bolt', 'fa-cloud'
-      ];
-      
-      // Initialize game
-      function initGame() {
-        // Reset variables
-        cards = [];
-        flippedCards = [];
-        moves = 0;
-        pairsFound = 0;
-        canFlip = true;
-        
-        // Update displays
-        movesDisplay.textContent = moves;
-        pairsDisplay.textContent = pairsFound;
-        winMessage.style.display = 'none';
-        
-        // Clear game board
-        gameBoard.innerHTML = '';
-        
-        // Create card pairs
-        const cardPairs = [...icons, ...icons];
-        
-        // Shuffle cards
-        const shuffledCards = shuffleArray(cardPairs);
-        
-        // Create card elements
-        shuffledCards.forEach((icon, index) => {
-          const card = document.createElement('div');
-          card.className = 'card';
-          card.dataset.cardIndex = index;
-          card.dataset.icon = icon;
-          
-          card.innerHTML = `
-            <div class="card-front"></div>
-            <div class="card-back">
-              <i class="fas ${icon}"></i>
-            </div>
-          `;
-          
-          card.addEventListener('click', flipCard);
-          gameBoard.appendChild(card);
-          cards.push(card);
-        });
+    var canvas;
+    var canvasContext;
+    var ballX = 50;
+    var ballY = 50;
+    var ballSpeedX = 9;
+    var ballSpeedY = 4;
+    var player1Score =0;
+    var player2Score =0;
+    const WINNING_SCORE = 3; 
+    var showingWinScreen = false;
+    var paddle1Y = 250;
+    var paddle2Y = 250;
+    const PADDLE_HEIGHT = 100;
+    const PADDLE_THICKNESS = 10;
+
+    function calculateMousePos(evt){
+      var rect = canvas.getBoundingClientRect();
+      var root = document.documentElement;
+      var mouseX = evt.clientX - rect.left - root.scrollLeft;
+      var mouseY = evt.clientY - rect.top - root.scrollTop;
+      return {
+        x:mouseX,
+        y:mouseY
+      };
+    }
+
+    function handleMouseClick(evt){
+      if (showingWinScreen){
+        player1Score = 0;
+        player2Score = 0;
+        showingWinScreen = false;
       }
-      
-      // Shuffle array (Fisher-Yates algorithm)
-      function shuffleArray(array) {
-        const newArray = [...array];
-        for (let i = newArray.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-        }
-        return newArray;
-      }
-      
-      // Flip card
-      function flipCard() {
-        if (!canFlip || this.classList.contains('flipped') || this.classList.contains('matched')) {
-          return;
-        }
-        
-        this.classList.add('flipped');
-        flippedCards.push(this);
-        
-        if (flippedCards.length === 2) {
-          moves++;
-          movesDisplay.textContent = moves;
-          canFlip = false;
-          
-          // Check for match
-          if (flippedCards[0].dataset.icon === flippedCards[1].dataset.icon) {
-            // Match found
-            flippedCards.forEach(card => {
-              card.classList.add('matched');
-            });
-            flippedCards = [];
-            pairsFound++;
-            pairsDisplay.textContent = pairsFound;
-            canFlip = true;
-            
-            // Check for win
-            if (pairsFound === icons.length) {
-              finalMovesDisplay.textContent = moves;
-              winMessage.style.display = 'block';
-            }
-          } else {
-            // No match
-            setTimeout(() => {
-              flippedCards.forEach(card => {
-                card.classList.remove('flipped');
-              });
-              flippedCards = [];
-              canFlip = true;
-            }, 1000);
-          }
-        }
-      }
-      
-      // Reset game
-      resetBtn.addEventListener('click', initGame);
-      
-      // Back to Top button functionality
-      const backToTopButton = document.getElementById('back-to-top');
-      
-      // Show/hide button based on scroll position
-      window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-          backToTopButton.classList.add('visible');
-        } else {
-          backToTopButton.classList.remove('visible');
-        }
+    }
+
+    window.onload = function(){
+      canvas = document.getElementById('gameCanvas');
+      canvasContext = canvas.getContext('2d');
+      var framesPerSecond = 40;
+      setInterval(function(){
+        moveEverything();
+        drawEverything();
+      }, 1000/framesPerSecond);
+      canvas.addEventListener('mousedown',handleMouseClick);
+      canvas.addEventListener('mousemove', function(evt){
+        var mousePos = calculateMousePos(evt);
+        paddle1Y = mousePos.y-(PADDLE_HEIGHT/2);
       });
-      
-      // Scroll to top when button is clicked
-      backToTopButton.addEventListener('click', function() {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      });
-      
-      // Initialize game on load
-      initGame();
-    });
+    }
+
+    function ballReset(){
+      if (player1Score >= WINNING_SCORE || player2Score >= WINNING_SCORE){
+        showingWinScreen = true;
+      }
+      ballSpeedX = -ballSpeedX;
+      ballX = canvas.width/2;
+      ballY = canvas.height/2;
+    }
+
+    function computerMovment(){
+      var paddle2YCenter = paddle2Y + (PADDLE_HEIGHT/2);
+      if (paddle2YCenter < ballY - 35){
+        paddle2Y += 6;
+      }else if (paddle2YCenter > ballY + 35){
+        paddle2Y -= 6;
+      } 
+    }
+
+    function moveEverything(){
+      if(showingWinScreen){
+        return;
+      }
+      computerMovment();
+      ballX += ballSpeedX;
+      ballY += ballSpeedY;
+      if( ballX < 0 ){
+        if(ballY > paddle1Y &&
+          ballY < paddle1Y + PADDLE_HEIGHT){
+          ballSpeedX = -ballSpeedX;
+          var deltaY = ballY - (paddle1Y+PADDLE_HEIGHT/2);
+          ballSpeedY = deltaY * 0.35;
+        }else{
+          player2Score += 1;
+          ballReset();
+        } 
+      }
+      if( ballX > canvas.width ){
+        if(ballY > paddle2Y &&
+          ballY < paddle2Y + PADDLE_HEIGHT){
+          ballSpeedX = -ballSpeedX;
+          var deltaY = ballY - (paddle2Y+PADDLE_HEIGHT/2);
+          ballSpeedY = deltaY * 0.35;
+        }else{
+          player1Score += 1;
+          ballReset();
+        } 
+      }
+      if( ballY < 0 ){
+        ballSpeedY = -ballSpeedY;
+      }
+      if( ballY > canvas.height ){
+        ballSpeedY = -ballSpeedY;
+      }
+    }
+
+    function drawNet(){
+      for (var i=0; i<canvas.height; i+=40){
+        colorRect(canvas.width/2-1,i,2,20, 'white'); 
+      }
+    } 
+
+    function drawEverything(){
+      colorRect(0, 0, canvas.width, canvas.height, 'black');
+      if(showingWinScreen){
+        canvasContext.fillStyle = 'white';
+        if (player1Score >= WINNING_SCORE){ 
+          canvasContext.fillText("You WON ! ", 400, 400, );
+        }else if (player2Score >= WINNING_SCORE){
+          canvasContext.fillText("LORRRR !!!", 400, 400, );
+        }
+        canvasContext.fillStyle = 'white';
+        canvasContext.fillText("Click to Play F**er", 400, 500, );
+        return;
+      }
+      drawNet();
+      colorRect(0, paddle1Y, PADDLE_THICKNESS, PADDLE_HEIGHT, 'white');
+      colorRect(canvas.width - PADDLE_THICKNESS, paddle2Y, PADDLE_THICKNESS, PADDLE_HEIGHT, 'white');
+      colorCircle(ballX, ballY, 10, 'white');
+      canvasContext.fillText(player1Score, 100, 100, );
+      canvasContext.fillText(player2Score, canvas.width-100, 100 );
+    }
+
+    function colorCircle(centerX, CenterY, radius, drawColor){
+      canvasContext.fillStyle = drawColor;
+      canvasContext.beginPath();
+      canvasContext.arc(centerX, CenterY, radius, 0, Math.PI*2, true);
+      canvasContext.fill(); 
+    }
+
+    function colorRect(leftX, topY, width, height, drawColor){
+      canvasContext.fillStyle = drawColor;
+      canvasContext.fillRect(leftX, topY, width, height);
+    }
   </script>
+
+  <br>
+
+  Made by Rubik 
 </body>
 </html> 
