@@ -832,6 +832,7 @@
     transition: all 0.3s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     z-index: 1000;
+    padding: 0; /* Remove any padding */
   }
   
   #back-to-top.visible {
@@ -852,4 +853,25 @@
       bottom: 20px;
       right: 20px;
     }
+  }
+  
+  /* Make arrow-up icon white and centered */
+  .fas.fa-arrow-up {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 0; /* Remove any margin */
+  }
+  
+  /* Make arrow-up icon's :before pseudo-element white and centered */
+  .fa-arrow-up:before {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto; /* Center the icon */
   }
