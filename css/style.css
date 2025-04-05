@@ -638,8 +638,10 @@
   
   .articles-page {
     display: none;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin: 0 auto;
+    max-width: 100%;
   }
   
   .article {
@@ -649,7 +651,7 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
     border: 1px solid #333;
-    height: 100%;
+    height: 500px;
     display: flex;
     flex-direction: column;
   }
@@ -660,25 +662,20 @@
   }
   
   .article h3 {
-    font-size: 1.2em;
-    padding: 15px 15px 10px;
+    font-size: 1.4em;
+    padding: 15px 0 15px 0;
+    margin-top: 0;
     color: #fff;
     line-height: 1.4;
-  }
-  
-  .article-content {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
   }
   
   .article-image {
     position: relative;
     overflow: hidden;
     width: 100%;
-    height: 0;
-    padding-bottom: 100%; /* Square aspect ratio */
+    height: 250px;
     background-color: #333;
+    margin-bottom: 20px;
   }
   
   .article-image img {
@@ -691,12 +688,15 @@
     transition: transform 0.5s ease;
   }
   
-  .article:hover .article-image img {
-    transform: scale(1.05);
+  .article-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px;
   }
   
   .article-description {
-    padding: 15px;
+    padding: 0;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -704,14 +704,26 @@
   
   .article-description p {
     color: #ccc;
-    margin-bottom: 15px;
-    line-height: 1.5;
-    font-size: 0.95em;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-size: 1.05em;
     flex: 1;
   }
   
   .article-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid #333;
+  }
+  
+  .article-date {
+    color: #888;
+    font-size: 0.9rem;
+    font-style: italic;
+    order: -1;
   }
   
   .article-link {
@@ -739,6 +751,11 @@
   @media (max-width: 768px) {
     .articles-page {
       grid-template-columns: 1fr;
+    }
+    
+    .article {
+      height: auto;
+      min-height: 450px;
     }
   }
   
@@ -832,7 +849,7 @@
     transition: all 0.3s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     z-index: 1000;
-    padding: 0; /* Remove any padding */
+    padding: 0;
   }
   
   #back-to-top.visible {
@@ -863,7 +880,7 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    margin: 0; /* Remove any margin */
+    margin: 0;
   }
   
   /* Make arrow-up icon's :before pseudo-element white and centered */
@@ -873,5 +890,5 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin: auto; /* Center the icon */
+    margin: auto;
   }
