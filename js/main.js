@@ -144,6 +144,9 @@ function loadProjects(projectsList) {
           demoUrl = 'https://ru8ik.github.io/ant-table-app/';
         } else if (repo.name === 'work-shifts-manager' && !demoUrl) {
           demoUrl = 'https://ru8ik.github.io/work-shifts-manager/';
+        } else if (repo.name === 'FullstackDevelopment' && !demoUrl) {
+          // Remove the direct GitHub Pages URL since it's not working
+          demoUrl = null;
         }
 
         // Set project HTML content
@@ -162,11 +165,16 @@ function loadProjects(projectsList) {
               `<a href="javascript:void(0)" onclick="openGamesDemo()" class="demo-link">
                 <i class="fas fa-play"></i> Demo
               </a>` : 
-              (demoUrl ? 
-                `<a href="${demoUrl}" target="_blank" class="demo-link">
+              (repo.name === 'FullstackDevelopment' ?
+                `<a href="javascript:void(0)" onclick="openFullstackDemo()" class="demo-link">
                   <i class="fas fa-play"></i> Demo
-                </a>` : 
-                ''
+                </a>` :
+                (demoUrl ? 
+                  `<a href="${demoUrl}" target="_blank" class="demo-link">
+                    <i class="fas fa-play"></i> Demo
+                  </a>` : 
+                  ''
+                )
               )
             }
           </div>
@@ -198,4 +206,9 @@ function loadProjects(projectsList) {
 function openGamesDemo() {
   // Redirect to the games directory
   window.location.href = 'games/index.html';
+}
+
+function openFullstackDemo() {
+  // Redirect to the FullstackDevelopment README page
+  window.location.href = 'fullstack-demo.html';
 }
