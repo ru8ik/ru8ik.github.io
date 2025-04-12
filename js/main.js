@@ -145,9 +145,8 @@ function loadProjects(projectsList) {
         } else if (repo.name === 'work-shifts-manager' && !demoUrl) {
           demoUrl = 'https://ru8ik.github.io/work-shifts-manager/';
         } else if (repo.name === 'FullstackDevelopment' && !demoUrl) {
-          // Remove the direct GitHub Pages URL since it's not working
-          demoUrl = <img src="images\Demos\Demo2.gif" alt="Starting as a Tester"></img>
-          
+          // We don't need to set demoUrl here since we're using openFullstackDemo()
+          demoUrl = null;
         }
 
         // Set project HTML content
