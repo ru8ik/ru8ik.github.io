@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Function to load projects from GitHub API
 function loadProjects(projectsList) {
   // Array of repository names to display
-  const selectedRepos = ["ant-table-app", "api-PyArrow-case-study-sec-gov", "TodoApp", "CS-UI-API-Automation", "games", "work-shifts-manager", "FullstackDevelopment"];
+  const selectedRepos = ["toronto-calls-for-service", "ant-table-app", "api-PyArrow-case-study-sec-gov", "TodoApp", "CS-UI-API-Automation", "games", "work-shifts-manager", "FullstackDevelopment"];
   const loadingIndicator = document.querySelector('.loading-indicator');
 
   fetch('https://api.github.com/users/ru8ik/repos')
@@ -144,6 +144,8 @@ function loadProjects(projectsList) {
           demoUrl = 'https://ru8ik.github.io/ant-table-app/';
         } else if (repo.name === 'work-shifts-manager' && !demoUrl) {
           demoUrl = 'https://ru8ik.github.io/work-shifts-manager/';
+        } else if (repo.name === 'toronto-calls-for-service' && !demoUrl) {
+          demoUrl = 'https://www.ru8iks.com/toronto-calls-for-service/';
         } else if (repo.name === 'FullstackDevelopment' && !demoUrl) {
           // We don't need to set demoUrl here since we're using openFullstackDemo()
           demoUrl = null;
