@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Function to load projects from GitHub API
 function loadProjects(projectsList) {
   // Array of repository names to display
-  const selectedRepos = ["toronto-calls-for-service", "ant-table-app", "api-PyArrow-case-study-sec-gov", "TodoApp", "CS-UI-API-Automation", "games", "work-shifts-manager", "FullstackDevelopment"];
+  const selectedRepos = ["e2e-automation-testing-framework", "toronto-calls-for-service", "ant-table-app", "api-PyArrow-case-study-sec-gov", "TodoApp", "CS-UI-API-Automation", "games", "work-shifts-manager", "FullstackDevelopment"];
   const loadingIndicator = document.querySelector('.loading-indicator');
 
   fetch('https://api.github.com/users/ru8ik/repos')
