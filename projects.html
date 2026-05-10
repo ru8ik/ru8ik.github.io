@@ -8,20 +8,15 @@
   <meta name="author" content="Rubik">
   <title>Rubik's Digital Workshop - Projects</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/nav.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+  <div id="nav-root"></div>
   <div class="container">
-    <!-- Main Navigation -->
-    <nav id="main-nav">
-      <a href="index.html" class="nav-btn"><i class="fas fa-home"></i> Home</a>
-      <a href="workshop.html" class="nav-btn"><i class="fas fa-tools"></i> Workshop</a>
-      <a href="articles.html" class="nav-btn"><i class="fas fa-newspaper"></i> Articles</a>
-    </nav>
-    
     <header>
       <h1><i class="fas fa-code-branch"></i> My Projects</h1>
       <p class="subtitle">Showcasing my work in software development and testing</p>
@@ -40,48 +35,10 @@
       </section>
     </main>
     
-    <footer>
-      <h3>Let's Connect</h3>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/ru8ik/" target="_blank" title="LinkedIn Profile">
-          <i class="fab fa-linkedin fa-2x"></i>
-        </a>
-        <a href="https://github.com/ru8ik" target="_blank" title="GitHub Profile">
-          <i class="fab fa-github fa-2x"></i>
-        </a>
-      </div>
-      <p class="copyright">&copy; <span id="current-year"></span> Rubik's Digital Workshop. All rights reserved.</p>
-    </footer>
   </div>
-  
-  <!-- External JavaScript file for fetching and displaying projects -->
-  <script src="js/main.js"></script>
-  
-  <!-- Back to Top Button -->
-  <button id="back-to-top" title="Back to Top"><i class="fas fa-arrow-up"></i></button>
+  <div id="footer-root"></div>
 
-  <script>
-    // Back to Top button functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      const backToTopButton = document.getElementById('back-to-top');
-      
-      // Show/hide button based on scroll position
-      window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-          backToTopButton.classList.add('visible');
-        } else {
-          backToTopButton.classList.remove('visible');
-        }
-      });
-      
-      // Scroll to top when button is clicked
-      backToTopButton.addEventListener('click', function() {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      });
-    });
-  </script>
+  <script src="js/main.js"></script>
+  <script src="js/components.js" defer></script>
 </body>
 </html>

@@ -8,6 +8,7 @@
   <meta name="author" content="Rubik">
   <title>FullstackDevelopment Project Demo</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/nav.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -27,32 +28,32 @@
     }
     .back-button {
       position: fixed;
-      top: 20px;
+      top: 74px;
       left: 20px;
-      padding: 10px 20px;
-      background-color: #333;
-      color: white;
+      padding: 0.5rem 1rem;
+      background-color: var(--bg-card);
+      color: var(--text-secondary);
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
       z-index: 1000;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: var(--space-sm);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast);
     }
     .back-button:hover {
-      background-color: #555;
+      color: var(--accent);
+      border-color: var(--accent);
+      background-color: var(--accent-soft);
     }
   </style>
 </head>
 <body>
+  <div id="nav-root"></div>
   <div class="container">
-    <!-- Main Navigation -->
-    <nav id="main-nav">
-      <a href="index.html" class="nav-btn"><i class="fas fa-home"></i> Home</a>
-      <a href="workshop.html" class="nav-btn"><i class="fas fa-tools"></i> Workshop</a>
-      <a href="articles.html" class="nav-btn"><i class="fas fa-newspaper"></i> Articles</a>
-    </nav>
-    
     <header>
       <h1><i class="fas fa-code"></i> FullstackDevelopment Demo</h1>
       <p class="subtitle">Project Animation Showcase</p>
@@ -67,28 +68,9 @@
       </div>
     </main>
     
-    <footer>
-      <h3>Let's Connect</h3>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/ru8ik/" target="_blank" title="LinkedIn Profile">
-          <i class="fab fa-linkedin fa-2x"></i>
-        </a>
-        <a href="https://github.com/ru8ik" target="_blank" title="GitHub Profile">
-          <i class="fab fa-github fa-2x"></i>
-        </a>
-      </div>
-      <p class="copyright">&copy; <span id="current-year"></span> Rubik's Digital Workshop. All rights reserved.</p>
-    </footer>
   </div>
+  <div id="footer-root"></div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Set current year in copyright
-      const currentYearElement = document.getElementById('current-year');
-      if (currentYearElement) {
-        currentYearElement.textContent = new Date().getFullYear();
-      }
-    });
-  </script>
+  <script src="js/components.js" defer></script>
 </body>
 </html> 
