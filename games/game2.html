@@ -1,52 +1,69 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
-    <head>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-    <meta content="utf-8" http-equiv="encoding">
-    </head>
-
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Break Brick — Rubik Seviyants</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/games.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
 <body>
-    <canvas id="gameCanvas" width="800" height="600"></canvas> 
-    
+  <div id="nav-root"></div>
+
+  <div class="container">
+    <header>
+      <h1>Break Brick</h1>
+    </header>
+    <main>
+      <div class="game-wrapper">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+      </div>
+    </main>
+  </div>
+
+  <div id="footer-root"></div>
+
 <script>
     var ballX = 75;
     var ballY = 75;
     var ballSpeedX = 5;
     //ballSpeedY if increaset make bug on the paddle (after 1 miss the paddle become "transperent")
     var ballSpeedY = 6;
-    
+
     const BRICK_W = 100;
     const BRICK_H = 50;
     const BRICK_COUNT = 8;
     var brickGrid = new Array(BRICK_COUNT);
-    
+
     const PADDLE_WIDTH = 100;
     const PADDLE_THICKNESS = 10;
     const PADDLE_DIST_FROM_EDGE =60;
     var paddleX = 400;
-    
+
     var canvas;
     var canvasContext;
-    
+
     var mouseX = 0;
     var mouseY = 0;
-    
+
     function updateMousePos(evt){
-        //get the position on the page of our canvas 
+        //get the position on the page of our canvas
         var rect = canvas.getBoundingClientRect();
         var root = document.documentElement;
-        
-        // (evt) belongs to the addEventListener that takwe the mouse horizontal position from the client 
-         mouseX = evt.clientX - rect.left - root.scrollLeft;
-         mouseY = evt.clientY - rect.top - root.scrollTop; 
 
-        //the paddle = his movment and we want it centert 
+        // (evt) belongs to the addEventListener that takwe the mouse horizontal position from the client
+         mouseX = evt.clientX - rect.left - root.scrollLeft;
+         mouseY = evt.clientY - rect.top - root.scrollTop;
+
+        //the paddle = his movment and we want it centert
         paddleX = mouseX-PADDLE_WIDTH/2;
     }
-    
-    
+
+
     function brickReset(){
      for(var i=0; i<BRICK_COUNT; i++){
        if(Math.random() <0.5){
@@ -55,137 +72,132 @@
             brickGrid[i] =false;
   }// endof else (random check)
  }//end of FOR each brick
-}//end of brickReset function 
-    
+}//end of brickReset function
+
     window.onload = function() {
         canvas = document.getElementById('gameCanvas');
         canvasContext = canvas.getContext('2d');
-        
+
         var framesPerSecond = 30;
         //the refresh rate of function uptadeAll() will be 1000milseconds / 30 = 33.3frames per second refresh rate
-        setInterval(updateAll, 1000/framesPerSecond);  
-        
+        setInterval(updateAll, 1000/framesPerSecond);
+
         canvas.addEventListener('mousemove', updateMousePos);
-        
+
         brickReset();
-        
+
     }
-    
-    
-    
+
+
+
     function updateAll(){
         moveAll();
         drawAll();
     }
-    
+
     function ballReset(){
         ballX = canvas.width/2;
         ballY = canvas.height/2;
-        
+
     }
-    
+
     function moveAll(){
-        
+
         //console.log(ballX);
-        ballX  += ballSpeedX; 
+        ballX  += ballSpeedX;
         //console.log(ballY);
-        ballY  += ballSpeedY; 
-        
+        ballY  += ballSpeedY;
+
         //for ballX
         if(ballX < 0){ //Left
             ballSpeedX *= -1;
         }
-        
+
         if(ballX > canvas.width){ //Right
-            //multiply the spped by -1 to change the direction of the ball 
+            //multiply the spped by -1 to change the direction of the ball
             ballSpeedX *= -1;
         }
-        
+
         //for ballY
         if(ballY < 0){ //Top edge
             ballSpeedY *= -1;
         }
-        
+
         if(ballY > canvas.height){ //Bottom
-            //multiply the spped by -1 to change the direction of the ball 
+            //multiply the spped by -1 to change the direction of the ball
             ballReset();
         }
-        
+
         var paddleTopEdgeY = canvas.height - PADDLE_DIST_FROM_EDGE;
         var paddleBottomEdgeY = paddleTopEdgeY + PADDLE_THICKNESS;
         var paddleLeftEdgeX = paddleX;
         var paddleRightEdgeX = paddleLeftEdgeX + PADDLE_WIDTH;
         if (ballY > paddleTopEdgeY && // Below the top of paddle
             ballY < paddleBottomEdgeY && // Above bottom of the paddle
-            ballX > paddleLeftEdgeX && // Right of the left side of paddle 
+            ballX > paddleLeftEdgeX && // Right of the left side of paddle
             ballX < paddleRightEdgeX){ // Left of the right side of paddle
-        //negative send the ball UP 
+        //negative send the ball UP
             ballSpeedY *= -1;
-            
+
             var centerOfPaddleX = paddleX + PADDLE_WIDTH/2;
             var ballDistFromPaddleCenterX = ballX - centerOfPaddleX;
-            
+
             ballSpeedX = ballDistFromPaddleCenterX * 0.35;
-        }    
+        }
     }
-    
-    
-    
-    
+
+
+
+
     function drawBricks(){
         for(var i = 0; i<BRICK_COUNT; i++){
             if(brickGrid[i]){
                 colorRect(BRICK_W*i,0, BRICK_W - 2,BRICK_H, 'green'  )
             }//end of is this brick here
         }//end of FOR each brick
-    }// end of drawBricks function 
-    
-    
-    
+    }// end of drawBricks function
+
+
+
     function drawAll(){
         //black all the canvas each frame to make it looks like the ball moves and not drawns
         colorRect(0, 0, canvas.width, canvas.height, 'black');
-        
-        //ball varibal movment - draw ball 
+
+        //ball varibal movment - draw ball
         colorCircle(ballX,ballY, 10,  'red');
-        
+
         //paddle
-        colorRect(paddleX, canvas.height-PADDLE_DIST_FROM_EDGE, 
+        colorRect(paddleX, canvas.height-PADDLE_DIST_FROM_EDGE,
                   PADDLE_WIDTH,PADDLE_THICKNESS,  'blue');
-        
+
         drawBricks();
-        
-        colorText(mouseX+","+mouseY, mouseX,mouseY, 'yellow');
+
     }
-    
-    
+
+
     function colorRect(topLeftX,topLeftY, boxWidth,boxHeight, fillColor ){
         //black all the canvas each frame to make it looks like the ball moves and not drawns
         canvasContext.fillStyle = fillColor;
         canvasContext.fillRect(topLeftX,topLeftY,  boxWidth,boxHeight);
     }
-    
-    
+
+
     function colorCircle(centerX,centerY, radius,  fillColor){
         canvasContext.fillStyle = fillColor;
         canvasContext.beginPath();
         canvasContext.arc(centerX,centerY, 10, 0,Math.PI*2, true);
-        canvasContext.fill();  
+        canvasContext.fill();
     }
-    
-    
+
+
     function colorText(showWords, textX,textY, fillColor){
         canvasContext.fillStyle = fillColor;
         canvasContext.fillText(showWords, textX,textY);
     }
-    
+
 
 </script>
-        <br>
-    Made by Rubik 
-    
+
+  <script src="../js/components.js" defer></script>
 </body>
 </html>
-
-
-
