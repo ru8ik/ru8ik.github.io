@@ -3,42 +3,141 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Software Development and Testing Projects - Showcasing my work in software development and testing">
-  <meta name="keywords" content="software projects, development projects, testing projects, portfolio">
-  <meta name="author" content="Rubik">
-  <title>Rubik's Digital Workshop - Projects</title>
+  <meta name="description" content="Projects by Rubik Seviyants — software development, testing, and automation work.">
+  <meta name="keywords" content="software projects, automation, testing, portfolio, rubik seviyants">
+  <meta name="author" content="Rubik Seviyants">
+  <title>Projects — Rubik Seviyants</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/projects.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <div id="nav-root"></div>
-  <div class="container">
-    <header>
-      <h1><i class="fas fa-code-branch"></i> My Projects</h1>
-      <p class="subtitle">Showcasing my work in software development and testing</p>
-      <div class="status-badge">
-        <i class="fas fa-hammer"></i> Under Development
-      </div>
-    </header>
-    
-    <main>
-      <!-- Projects List Section -->
-      <section id="projects-list">
-        <div class="loading-indicator">
-          <i class="fas fa-spinner fa-spin"></i> Loading projects...
-        </div>
-        <!-- Projects will be dynamically inserted here -->
-      </section>
-    </main>
-    
-  </div>
-  <div id="footer-root"></div>
 
-  <script src="js/main.js"></script>
+  <main>
+
+    <!-- PAGE HEADER -->
+    <section class="projects-header">
+      <div class="container">
+        <h1>Projects</h1>
+        <p class="subtitle">A selection of things I've built, tested, and shipped.</p>
+      </div>
+    </section>
+
+    <!-- PROJECTS GRID -->
+    <section class="section">
+      <div class="container">
+        <div class="projects-grid">
+
+          <!-- PROJECT 1 — Featured -->
+          <article class="card project-card project-card--featured">
+            <div class="project-card__meta">
+              <span class="badge badge--live">Live</span>
+              <span class="badge badge--year">2024–2025</span>
+            </div>
+            <h3 class="project-card__title">Portfolio Website — ru8iks.com</h3>
+            <p class="project-card__desc">This site. A static portfolio built and maintained as a living project — continuously refactored for performance, UX, and content quality. Also serves as a sandbox for front-end experimentation.</p>
+            <div class="project-card__tags">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">GitHub Pages</span>
+            </div>
+            <div class="project-card__tested">
+              <span class="project-card__tested-label">What I tested</span>
+              <p>Cross-browser layout, page load performance, accessibility basics</p>
+            </div>
+            <div class="project-card__links">
+              <a href="https://www.ru8iks.com" target="_blank" rel="noopener noreferrer" class="project-card__link">Live Site ↗</a>
+              <a href="https://github.com/ru8ik/ru8ik.github.io" target="_blank" rel="noopener noreferrer" class="project-card__link project-card__link--secondary">GitHub ↗</a>
+            </div>
+          </article>
+
+          <!-- PROJECT 2 — Browser Games -->
+          <article class="card project-card">
+            <div class="project-card__meta">
+              <span class="badge badge--live">Live</span>
+              <span class="badge badge--year">2024</span>
+            </div>
+            <h3 class="project-card__title">Browser Games Collection</h3>
+            <p class="project-card__desc">Two canvas-based browser games built with vanilla JavaScript — PaddlePong (a pong clone with mouse control and AI opponent) and Break Brick (a breakout-style game). Built as a hands-on exercise in game loop logic and canvas rendering.</p>
+            <div class="project-card__tags">
+              <span class="tag">HTML5 Canvas</span>
+              <span class="tag">JavaScript</span>
+            </div>
+            <div class="project-card__tested">
+              <span class="project-card__tested-label">What I tested</span>
+              <p>Game loop timing, edge collision handling, browser compatibility</p>
+            </div>
+            <div class="project-card__links">
+              <a href="games/index.html" class="project-card__link">Play Games ↗</a>
+              <a href="https://github.com/ru8ik/games" target="_blank" rel="noopener noreferrer" class="project-card__link project-card__link--secondary">GitHub ↗</a>
+            </div>
+          </article>
+
+          <!-- PROJECT 3 — Fullstack Demo -->
+          <article class="card project-card">
+            <div class="project-card__meta">
+              <span class="badge badge--completed">Completed</span>
+              <span class="badge badge--year">2024</span>
+            </div>
+            <h3 class="project-card__title">Fullstack Development Demo</h3>
+            <p class="project-card__desc">[Short description — fill in yourself]</p>
+            <div class="project-card__tags">
+              <span class="tag">[Fill in]</span>
+            </div>
+            <div class="project-card__tested">
+              <span class="project-card__tested-label">What I tested</span>
+              <p>[Fill in]</p>
+            </div>
+            <div class="project-card__links">
+              <a href="fullstack-demo.html" class="project-card__link">Demo ↗</a>
+              <a href="https://github.com/ru8ik/FullstackDevelopment" target="_blank" rel="noopener noreferrer" class="project-card__link project-card__link--secondary">GitHub ↗</a>
+            </div>
+          </article>
+
+          <!-- PROJECT 4 — Placeholder -->
+          <article class="card project-card">
+            <div class="project-card__meta">
+              <span class="badge badge--progress">In Progress</span>
+              <span class="badge badge--year">2025</span>
+            </div>
+            <h3 class="project-card__title">[Project Name]</h3>
+            <p class="project-card__desc">[Short description — what it is, what problem it solves]</p>
+            <div class="project-card__tags">
+              <span class="tag">[Tech 1]</span>
+              <span class="tag">[Tech 2]</span>
+              <span class="tag">[Tech 3]</span>
+            </div>
+            <div class="project-card__tested">
+              <span class="project-card__tested-label">What I tested</span>
+              <p>[Test approach]</p>
+            </div>
+            <div class="project-card__links">
+              <a href="https://github.com/ru8ik" target="_blank" rel="noopener noreferrer" class="project-card__link">GitHub ↗</a>
+              <a href="#" class="project-card__link project-card__link--secondary">Demo ↗</a>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- MORE ON GITHUB -->
+        <div class="github-banner">
+          <p class="github-banner__text">I maintain additional scripts, automation tools, and experiments on GitHub.</p>
+          <a href="https://github.com/ru8ik" target="_blank" rel="noopener noreferrer" class="btn-secondary">Visit GitHub →</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-root"></div>
+  <div id="back-to-top-root"></div>
+
   <script src="js/components.js" defer></script>
 </body>
 </html>

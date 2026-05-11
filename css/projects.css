@@ -1,0 +1,187 @@
+/* =============================================================
+   PROJECTS PAGE — projects.css
+   Page-specific styles. Uses tokens from style.css :root.
+   ============================================================= */
+
+
+/* =============================================================
+   1. PAGE HEADER
+   ============================================================= */
+.projects-header {
+  padding-block: clamp(3rem, 8vw, 5rem) var(--space-xl);
+  text-align: center;
+}
+
+.projects-header h1 {
+  margin-bottom: var(--space-md);
+}
+
+.projects-header .subtitle {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  max-width: 52ch;
+  margin-inline: auto;
+  margin-bottom: 0;
+}
+
+
+/* =============================================================
+   2. PROJECTS GRID
+   ============================================================= */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 640px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* =============================================================
+   3. PROJECT CARD
+   ============================================================= */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* Featured: accent left border + full-row span on tablet+ */
+.project-card--featured {
+  border-left: 3px solid var(--accent);
+  padding-left: calc(var(--space-lg) - 3px); /* compensate for border */
+}
+
+@media (min-width: 640px) {
+  .project-card--featured {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Meta row: badge + year */
+.project-card__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+/* Title */
+.project-card__title {
+  margin: 0;
+}
+
+/* Description */
+.project-card__desc {
+  flex: 1;
+  margin: 0;
+}
+
+/* Stack tags row */
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+/* "What I tested" callout */
+.project-card__tested {
+  border-left: 2px solid var(--border);
+  padding-left: var(--space-md);
+}
+
+.project-card__tested-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.3rem;
+}
+
+.project-card__tested p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  max-width: none;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Links row */
+.project-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  align-items: center;
+  margin-top: auto;
+  padding-top: var(--space-xs);
+}
+
+.project-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--accent);
+  transition: color var(--transition-fast);
+}
+
+.project-card__link:hover {
+  color: var(--accent-hover);
+}
+
+.project-card__link--secondary {
+  color: var(--text-secondary);
+}
+
+.project-card__link--secondary:hover {
+  color: var(--text-primary);
+}
+
+
+/* =============================================================
+   4. STATUS BADGE VARIANTS
+   ============================================================= */
+.badge--completed {
+  color: var(--text-muted);
+  border-color: var(--border);
+  background-color: var(--bg-secondary);
+}
+
+
+/* =============================================================
+   5. "MORE ON GITHUB" BANNER
+   ============================================================= */
+.github-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-md);
+  margin-top: var(--space-2xl);
+  padding: var(--space-xl);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.github-banner__text {
+  color: var(--text-secondary);
+  max-width: 56ch;
+  margin: 0;
+  font-size: 0.975rem;
+}
+
+@media (min-width: 640px) {
+  .github-banner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
