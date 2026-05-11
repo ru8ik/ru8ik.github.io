@@ -1,71 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="About Rubik's Digital Workshop - A platform for software development and testing projects">
-    <meta name="keywords" content="digital workshop, software development, software testing, portfolio">
-    <meta name="author" content="Rubik">
-    <title>Rubik's Digital Workshop - About</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/nav.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Rubik Seviyants — Software Engineer and QA Specialist. Engineering approach, background, and how I work.">
+  <meta name="keywords" content="rubik seviyants, about, software engineer, qa specialist, test automation, portfolio">
+  <meta name="author" content="Rubik Seviyants">
+  <title>About — Rubik Seviyants</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="nav-root"></div>
-    <div class="container">
-        <!-- Header Section -->
-        <header>
-            <div class="header-image-container">
-                <img src="Cover.png" alt="Workshop Banner">
-            </div>
-            <h1><i class="fas fa-tools"></i> About This Workshop</h1>
-            <p class="subtitle">The story behind this digital space</p>
+  <div id="nav-root"></div>
+
+  <main>
+
+    <!-- PAGE HEADER -->
+    <section class="about-header">
+      <div class="container">
+        <h1>About</h1>
+        <p class="subtitle">Engineer, tester, and continuous learner.</p>
+      </div>
+    </section>
+
+
+    <!-- MY STORY -->
+    <section class="about-story section">
+      <div class="container">
+        <div class="about-story__inner">
+          <p>
+            I&rsquo;m Rubik Seviyants, a software engineer with a QA background. I sit at the intersection of
+            development and quality &mdash; I don&rsquo;t just test products, I understand how they&rsquo;re built
+            and why they break. That perspective shapes everything from how I write code to how I review someone
+            else&rsquo;s.
+          </p>
+          <p>
+            I believe quality is built in, not bolted on. I think about test strategy the same way I think about
+            system architecture &mdash; early, deliberately, and with the user in mind. The best bugs are the ones
+            that never ship, and the best test suites are the ones engineers actually trust.
+          </p>
+          <p>
+            Beyond the day job, I write technical articles to share what I learn along the way. I built this site
+            to practice in public, to keep a record of the work, and to stay honest about how I&rsquo;m growing.
+            I believe in learning by shipping &mdash; small iterations, real feedback, and the discipline to keep
+            improving.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- HOW I WORK -->
+    <section class="how-i-work section">
+      <div class="container">
+        <header class="how-i-work__header">
+          <h2>How I work</h2>
+          <p class="how-i-work__lede">A few principles I keep coming back to.</p>
         </header>
 
-        <!-- Main Content -->
-        <main>
-            <!-- Workshop Overview Section -->
-            <section id="workshop-overview">
-                <h2><i class="fas fa-info-circle"></i> Workshop Overview</h2>
-                <div class="overview-content">
-                    <p>Welcome to my digital workshop =)  a space that documents my journey in software testing and development.</p>
-                    
-                    <p>This ongoing project serves both as a showcase of my practical experience and as a platform for enhancing my skills. While it is still a work in progress, I genuinely enjoy refining it bit by bit during my free time.</p>
-                    
-                    <p>It is a simple, static mini-website hosted on GitHub Pages, brought to life by integrating a personal domain with HTML, CSS, and JavaScript.</p> 
+        <div class="how-grid">
 
-                    <p>This website went trough many stages of change and refactoring - and many more to go,  must of them just for fun and other for aesthetic or functionalty adjusments.</p>
-                    
-                    <p>If in case you have an Idea or suggestion ill be more than happy to hear from you , fell free to send me DM on my Linkedin.</p> 
+          <article class="card how-card">
+            <span class="how-card__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </span>
+            <h3 class="how-card__title">Shift Left</h3>
+            <p class="how-card__desc">
+              I integrate testing early in the development cycle. Finding issues at design time costs a fraction
+              of finding them in production.
+            </p>
+          </article>
+
+          <article class="card how-card">
+            <span class="how-card__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            </span>
+            <h3 class="how-card__title">Automate Deliberately</h3>
+            <p class="how-card__desc">
+              Not everything should be automated. I prioritize test cases by risk, frequency, and ROI &mdash;
+              not by what&rsquo;s easiest to script.
+            </p>
+          </article>
+
+          <article class="card how-card">
+            <span class="how-card__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+            </span>
+            <h3 class="how-card__title">Iterate in Public</h3>
+            <p class="how-card__desc">
+              This site, my GitHub, and my LinkedIn articles are all part of how I practice and document
+              continuous improvement.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
 
 
-                </div>
-                
-                <div class="tech-used">
-                    <h3><i class="fas fa-code"></i> Technologies Used</h3>
-                    <ul>
-                        <li><i class="fab fa-html5"></i> HTML5</li>
-                        <li><i class="fab fa-css3-alt"></i> CSS3</li>
-                        <li><i class="fab fa-js"></i> JavaScript</li>
-                        <li><i class="fab fa-github"></i> GitHub Pages</li>
-                        <li><i class="fas fa-palette"></i> Canva</li>
-                        <li><i class="fas fa-globe"></i> Wix</li>
-                        <li><i class="fas fa-terminal"></i> Cursor</li>
-                    </ul>
-                </div>
-            </section>
-        </main>
+    <!-- THIS SITE -->
+    <section class="this-site section">
+      <div class="container">
+        <div class="this-site__inner">
+          <h2>About this site</h2>
+          <p>
+            This portfolio is a static site built with HTML, CSS, and JavaScript, hosted on GitHub Pages.
+            It is intentionally lightweight &mdash; fast to load, easy to maintain, and a small example of how
+            I approach technical decisions: choose simple tools that do the job well.
+          </p>
+          <div class="this-site__tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">GitHub Pages</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    </div>
-    <div id="footer-root"></div>
 
-    <script src="js/main.js"></script>
-    <script src="js/components.js" defer></script>
+    <!-- CONNECT -->
+    <section class="connect-cta">
+      <div class="container connect-inner">
+        <h2 class="connect-title">Want to talk engineering, testing, or a potential collaboration?</h2>
+        <div class="connect-actions">
+          <a href="https://www.linkedin.com/in/ru8ik/" target="_blank" rel="noopener noreferrer" class="btn-primary">Message on LinkedIn</a>
+          <a href="https://github.com/ru8ik" target="_blank" rel="noopener noreferrer" class="btn-secondary">View GitHub</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-root"></div>
+  <div id="back-to-top-root"></div>
+
+  <script src="js/components.js" defer></script>
 </body>
 </html>
-
-     

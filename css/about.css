@@ -1,0 +1,160 @@
+/* =============================================================
+   ABOUT PAGE — about.css
+   Page-specific styles. Uses tokens from style.css :root.
+   ============================================================= */
+
+
+/* =============================================================
+   1. PAGE HEADER
+   ============================================================= */
+.about-header {
+  padding-block: clamp(3rem, 8vw, 5rem) var(--space-xl);
+  text-align: center;
+}
+
+.about-header h1 {
+  margin-bottom: var(--space-md);
+}
+
+.about-header .subtitle {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  max-width: 52ch;
+  margin-inline: auto;
+  margin-bottom: 0;
+}
+
+
+/* =============================================================
+   2. STORY
+   ============================================================= */
+.about-story {
+  border-top: 1px solid var(--border);
+}
+
+.about-story__inner {
+  max-width: 68ch;
+  margin-inline: auto;
+}
+
+.about-story p + p {
+  margin-top: var(--space-md);
+}
+
+
+/* =============================================================
+   3. HOW I WORK
+   ============================================================= */
+.how-i-work {
+  border-top: 1px solid var(--border);
+}
+
+.how-i-work__header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.how-i-work__header h2 {
+  margin-bottom: var(--space-sm);
+}
+
+.how-i-work__lede {
+  color: var(--text-secondary);
+  margin-inline: auto;
+  max-width: 52ch;
+}
+
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.how-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.how-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background-color: var(--accent-soft);
+  color: var(--accent);
+  margin-bottom: var(--space-xs);
+}
+
+.how-card__title {
+  margin: 0;
+}
+
+.how-card__desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+@media (max-width: 860px) {
+  .how-grid { grid-template-columns: 1fr; }
+}
+
+
+/* =============================================================
+   4. THIS SITE
+   ============================================================= */
+.this-site {
+  border-top: 1px solid var(--border);
+}
+
+.this-site__inner {
+  max-width: 68ch;
+  margin-inline: auto;
+}
+
+.this-site__inner h2 {
+  margin-bottom: var(--space-md);
+}
+
+.this-site__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+
+
+/* =============================================================
+   5. CONNECT
+   ============================================================= */
+.connect-cta {
+  margin-block: var(--space-2xl) var(--space-xl);
+}
+
+.connect-inner {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(1.5rem, 4vw, 3rem);
+  text-align: center;
+  max-width: 1100px;
+}
+
+.connect-title {
+  margin-bottom: var(--space-md);
+  font-size: clamp(1.4rem, 2.5vw, 1.75rem);
+  color: var(--text-primary);
+  max-width: 36ch;
+  margin-inline: auto;
+}
+
+.connect-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}

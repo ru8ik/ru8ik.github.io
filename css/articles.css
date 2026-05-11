@@ -1,0 +1,241 @@
+/* =============================================================
+   ARTICLES PAGE — articles.css
+   Page-specific styles. Uses tokens from style.css :root.
+   ============================================================= */
+
+
+/* =============================================================
+   1. PAGE HEADER
+   ============================================================= */
+.articles-header {
+  padding-block: clamp(3rem, 8vw, 5rem) var(--space-xl);
+  text-align: center;
+}
+
+.articles-header h1 {
+  margin-bottom: var(--space-md);
+}
+
+.articles-header .subtitle {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  max-width: 52ch;
+  margin-inline: auto;
+  margin-bottom: 0;
+}
+
+
+/* =============================================================
+   2. FILTER BAR
+   ============================================================= */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.filter-btn {
+  padding: 0.45rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  background-color: transparent;
+  cursor: pointer;
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.filter-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background-color: var(--accent-soft);
+}
+
+.filter-btn.active {
+  color: var(--bg-primary);
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+.filter-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+
+/* =============================================================
+   3. ARTICLE GRID
+   ============================================================= */
+.articles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+}
+
+@media (min-width: 640px) {
+  .articles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* =============================================================
+   4. ARTICLE CARD
+   ============================================================= */
+.article-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* Tag pill */
+.article-tag {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.article-tag--testing {
+  color: var(--accent);
+  background-color: rgba(0, 212, 170, 0.12);
+  border: 1px solid rgba(0, 212, 170, 0.3);
+}
+
+.article-tag--automation {
+  color: #60a5fa;
+  background-color: rgba(96, 165, 250, 0.10);
+  border: 1px solid rgba(96, 165, 250, 0.28);
+}
+
+.article-tag--strategy {
+  color: #c084fc;
+  background-color: rgba(192, 132, 252, 0.10);
+  border: 1px solid rgba(192, 132, 252, 0.28);
+}
+
+.article-tag--career {
+  color: #fb923c;
+  background-color: rgba(251, 146, 60, 0.10);
+  border: 1px solid rgba(251, 146, 60, 0.28);
+}
+
+.article-tag--ai {
+  color: #f472b6;
+  background-color: rgba(244, 114, 182, 0.10);
+  border: 1px solid rgba(244, 114, 182, 0.28);
+}
+
+.article-tag--tools {
+  color: #34d399;
+  background-color: rgba(52, 211, 153, 0.10);
+  border: 1px solid rgba(52, 211, 153, 0.28);
+}
+
+/* Title */
+.article-card__title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.article-card__title a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.article-card__title a:hover {
+  color: var(--accent);
+}
+
+/* Excerpt */
+.article-card__excerpt {
+  flex: 1;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  max-width: none;
+  margin: 0;
+}
+
+/* Footer row */
+.article-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+
+.article-card__date,
+.article-card__read {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+/* CTA link */
+.article-card__cta {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.article-card__cta:hover {
+  color: var(--accent-hover);
+}
+
+
+/* =============================================================
+   5. BOTTOM CTA
+   ============================================================= */
+.articles-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+  padding: var(--space-xl);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.articles-cta__text {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  max-width: 48ch;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .articles-cta {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
