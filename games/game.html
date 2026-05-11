@@ -89,8 +89,8 @@
         window.onload = function(){
             canvas = document.getElementById('gameCanvas');
             canvasContext = canvas.getContext('2d');
-     /*first 2 numbers are location, last 2 numbers are size   */
-            /* the location starts on LEFT HIGH corrner  */
+     /* first 2 numbers are location, last 2 numbers are size */
+            /* the location starts on the top-left corner */
             var framesPerSecond = 40;
             setInterval(function(){
                                    moveEverything();
@@ -121,7 +121,7 @@
             ballY = canvas.height/2;
         }
 
-        function computerMovment(){
+        function computerMovement(){
             var paddle2YCenter = paddle2Y + (PADDLE_HEIGHT/2);
              if (paddle2YCenter < ballY - 35){
                  paddle2Y += 6;
@@ -135,7 +135,7 @@
         if(showingWinScreen){
             return;
         }
-        computerMovment();
+        computerMovement();
         ballX += ballSpeedX;
         ballY += ballSpeedY;
 
@@ -144,14 +144,14 @@
               if(ballY > paddle1Y &&
                  ballY < paddle1Y + PADDLE_HEIGHT){
                  ballSpeedX = -ballSpeedX;
-                 // Ball control - as more you go far from the center of the paddle the ball change to more stiper angle
+                 // Ball control — the further from the center of the paddle, the steeper the angle
                 var deltaY = ballY - (paddle1Y+PADDLE_HEIGHT/2);
-                  // increase the speed of the ball relaing on the deltaY
+                  // adjust the Y speed of the ball depending on deltaY
                   ballSpeedY = deltaY * 0.35;
 
 
               }else{
-                  player2Score += 1; // most be BEFORE ballReset()
+                  player2Score += 1; // must be BEFORE ballReset()
                   ballReset();
 
               }
@@ -162,12 +162,12 @@
                  if(ballY > paddle2Y &&
                  ballY < paddle2Y + PADDLE_HEIGHT){
                  ballSpeedX = -ballSpeedX;
-                      // Ball control - as more you go far from the center of the paddle the ball change to more stiper angle
+                      // Ball control — the further from the center of the paddle, the steeper the angle
                 var deltaY = ballY - (paddle2Y+PADDLE_HEIGHT/2);
-                  // increase the speed of the ball relaing on the deltaY
+                  // adjust the Y speed of the ball depending on deltaY
                   ballSpeedY = deltaY * 0.35;
               }else{
-                  player1Score += 1; // most be BEFORE ballReset()
+                  player1Score += 1; // must be BEFORE ballReset()
                   ballReset();
 
               }
