@@ -119,9 +119,10 @@
   background-color: var(--border);
 }
 
-@media (max-width: 540px) {
+@media (max-width: 640px) {
   .trust-divider { display: none; }
   .hero-trust    { gap: var(--space-sm); }
+  /* Hero buttons already full-width via style.css global rule */
 }
 
 
@@ -187,13 +188,20 @@
   line-height: 1.3;
 }
 
-@media (max-width: 860px) {
+/* About strip: 2-col on tablet, 1-col on mobile */
+@media (max-width: 1024px) {
   .about-grid {
-    grid-template-columns: 1fr;
     gap: var(--space-xl);
   }
 }
 
+@media (max-width: 640px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Stat cards stay 2×2 on mobile; collapse to 1-col only on very narrow phones */
 @media (max-width: 480px) {
   .stats-grid { grid-template-columns: 1fr; }
 }
@@ -247,7 +255,7 @@
   color: var(--text-muted);
 }
 
-@media (max-width: 720px) {
+@media (max-width: 640px) {
   .toolkit-row {
     grid-template-columns: 1fr;
     gap: var(--space-sm);
@@ -321,11 +329,12 @@
   font-size: 0.9rem;
 }
 
-@media (max-width: 900px) {
+/* Article teaser: 3-col desktop → 2-col tablet → 1-col mobile */
+@media (max-width: 1024px) {
   .articles-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .articles-grid { grid-template-columns: 1fr; }
 }
 

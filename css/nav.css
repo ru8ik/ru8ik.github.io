@@ -130,6 +130,14 @@ body.has-nav {
 .nav-toggle[aria-expanded="true"] .bar:nth-child(2) { opacity: 0; }
 .nav-toggle[aria-expanded="true"] .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+/* --- Tablet: tighten link spacing so the row doesn't overflow --- */
+@media (max-width: 1024px) {
+  .nav-link {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.85rem;
+  }
+}
+
 /* --- Mobile layout --- */
 @media (max-width: 640px) {
   .nav-toggle { display: flex; }

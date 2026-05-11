@@ -419,7 +419,39 @@ strong {
 
 
 /* =============================================================
-   5. MOTION PREFERENCES
+   5. RESPONSIVE — GLOBAL
+   ============================================================= */
+
+/* Tablet (641–1024px): tighten container padding */
+@media (max-width: 1024px) {
+  .container {
+    padding-inline: var(--space-lg);
+  }
+}
+
+/* Mobile (≤640px) */
+@media (max-width: 640px) {
+  .container {
+    padding-inline: var(--space-md); /* 16px */
+  }
+
+  /* h1 uses clamp(2.25rem, 5vw, 3.75rem) — the vw value already
+     scales the heading down ~20–40% at narrow viewports. */
+  h1 {
+    letter-spacing: -0.03em;
+  }
+
+  /* Buttons go full-width so they're easy to tap */
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+/* =============================================================
+   6. MOTION PREFERENCES
    ============================================================= */
 @media (prefers-reduced-motion: reduce) {
     html {

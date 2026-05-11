@@ -70,6 +70,27 @@
 }
 
 
+/* Filter bar scrolls horizontally on mobile instead of wrapping */
+@media (max-width: 640px) {
+  .filter-bar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: var(--space-xs);
+    /* hide scrollbar visually but keep it functional */
+    scrollbar-width: none;
+  }
+
+  .filter-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    flex-shrink: 0;
+  }
+}
+
+
 /* =============================================================
    3. ARTICLE GRID
    ============================================================= */

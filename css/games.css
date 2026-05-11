@@ -60,6 +60,14 @@
   transform: translateY(-2px);
 }
 
+/* Mobile: force single-column card grid */
+@media (max-width: 640px) {
+  .game-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 /* --- Game canvas wrapper ------------------------------------- */
 .game-wrapper {
   display: flex;
