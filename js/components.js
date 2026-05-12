@@ -57,14 +57,12 @@
   function buildFooter() {
     return `<footer class="site-footer" id="site-footer">
         <div class="footer-inner container">
-          <div class="footer-main">
-            <p class="footer-copy">&copy; <span id="current-year"></span> Rubik Seviyants &mdash; Software Engineer &amp; QA Specialist</p>
-            <div class="footer-socials">
-              <a href="https://www.linkedin.com/in/ru8ik/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">${SVG.linkedin}</a>
-              <a href="https://github.com/ru8ik" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">${SVG.github}</a>
-            </div>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/ru8ik/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">${SVG.linkedin}</a>
+            <a href="https://github.com/ru8ik" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">${SVG.github}</a>
           </div>
-          <p class="footer-tagline">Built with HTML, CSS &amp; JS &middot; Hosted on GitHub Pages</p>
+          <p class="footer-tagline">Hand-built in HTML, CSS &amp; JavaScript &middot; Hosted on GitHub Pages</p>
+          <p class="footer-copy">&copy; <span id="current-year"></span> Rubik Seviyants</p>
         </div>
       </footer>`;
   }

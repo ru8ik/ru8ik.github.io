@@ -177,15 +177,9 @@ body.has-nav {
 .footer-inner {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
-}
-
-.footer-main {
-  display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-lg);
-  flex-wrap: wrap;
+  gap: var(--space-md);
+  text-align: center;
 }
 
 .footer-copy {
@@ -193,11 +187,13 @@ body.has-nav {
   color: var(--text-muted);
   max-width: none;
   line-height: 1.5;
+  margin: 0;
 }
 
 .footer-socials {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: var(--space-md);
 }
 
@@ -219,15 +215,7 @@ body.has-nav {
   font-size: 0.8rem;
   color: var(--text-muted);
   max-width: none;
-  text-align: center;
-}
-
-@media (max-width: 640px) {
-  .footer-main {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+  margin: 0;
 }
 
 
