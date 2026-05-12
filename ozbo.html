@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OZBO — Case Study — Rubik Seviyants</title>
+  <meta name="description" content="OZBO — a full-stack workforce scheduling platform built for a senior security firm. Case study by Rubik Seviyants.">
+  <meta name="keywords" content="workforce scheduling, operations platform, case study, rubik seviyants, aws">
+  <meta name="author" content="Rubik Seviyants">
+  <link rel="canonical" href="https://www.ru8iks.com/ozbo.html">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="OZBO — Workforce Scheduling Platform — Rubik Seviyants">
+  <meta property="og:description" content="Case study: a full-stack workforce scheduling platform built for a senior security firm, designed to adapt to any project-driven business.">
+  <meta property="og:url" content="https://www.ru8iks.com/ozbo.html">
+  <meta property="og:site_name" content="Rubik Seviyants">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="OZBO — Workforce Scheduling Platform">
+  <meta name="twitter:description" content="Case study: a full-stack workforce scheduling platform built for a senior security firm.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <script async src="https://plausible.io/js/pa-4Ff__DM4iX466qX_lXiHa.js"></script>
+  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+  <style>
+
+    /* ── Page layout ── */
+    .cs-page {
+      max-width: 860px;
+      margin-inline: auto;
+      padding-inline: var(--space-lg);
+      padding-block: var(--space-xl) var(--space-2xl);
+    }
+
+    /* ── Back link ── */
+    .cs-back {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-bottom: var(--space-xl);
+      transition: color var(--transition-fast);
+    }
+    .cs-back:hover { color: var(--accent); }
+    .cs-back::before { content: "←"; }
+
+    /* ── Hero ── */
+    .cs-hero { margin-bottom: var(--space-2xl); }
+
+    .cs-eyebrow {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: var(--space-md);
+    }
+
+    .cs-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: var(--space-md);
+    }
+
+    .cs-hero-pitch {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 68ch;
+      line-height: 1.7;
+      margin-bottom: var(--space-lg);
+    }
+
+    /* ── Meta pills ── */
+    .cs-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-xl);
+    }
+
+    .cs-meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.25rem 0.6rem;
+      letter-spacing: 0.04em;
+    }
+
+    .cs-meta-item--accent {
+      color: var(--accent);
+      border-color: rgba(0, 212, 170, 0.3);
+      background-color: var(--accent-soft);
+    }
+
+    /* ── Section labels ── */
+    .cs-section {
+      margin-bottom: var(--space-2xl);
+    }
+
+    .cs-section-label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: var(--space-md);
+      padding-bottom: var(--space-sm);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cs-section h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: var(--space-md);
+      margin-top: 0;
+    }
+
+    .cs-section p {
+      color: var(--text-secondary);
+      line-height: 1.75;
+      max-width: 72ch;
+    }
+
+    .cs-section p + p {
+      margin-top: var(--space-md);
+    }
+
+    /* ── Feature grid ── */
+    .cs-feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+
+    .cs-feature-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+    }
+
+    .cs-feature-card__icon {
+      font-size: 1.25rem;
+      margin-bottom: var(--space-sm);
+    }
+
+    .cs-feature-card h3 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--text-primary);
+    }
+
+    .cs-feature-card p {
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      max-width: none;
+    }
+
+    /* ── Placeholder blocks ── */
+    .cs-placeholder {
+      border: 2px dashed var(--border);
+      border-radius: var(--radius-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      text-align: center;
+      padding: var(--space-xl);
+    }
+
+    .cs-placeholder__label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.6;
+    }
+
+    /* Video placeholder */
+    .cs-video-placeholder {
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      margin-top: var(--space-lg);
+    }
+
+    /* Video embed (when ready) */
+    .cs-video-embed {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      margin-top: var(--space-lg);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--bg-card);
+      display: none; /* flip to block when video is ready */
+    }
+    .cs-video-embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ── Screenshot grid ── */
+    .cs-screenshot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+
+    .cs-screenshot-item {
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+    }
+
+    .cs-screenshot-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cs-screenshot-item.placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-align: center;
+      border-style: dashed;
+      border-color: var(--border-hover);
+    }
+
+    /* ── Stack tags (re-uses global .tag) ── */
+    .cs-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-top: var(--space-md);
+    }
+
+    /* ── PDF download button ── */
+    .cs-pdf-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+      margin-top: var(--space-md);
+      padding: var(--space-lg);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+    }
+
+    .cs-pdf-row__info { flex: 1; min-width: 200px; }
+    .cs-pdf-row__title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.25rem; }
+    .cs-pdf-row__sub { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* ── Role highlight box ── */
+    .cs-role-box {
+      background: var(--accent-soft);
+      border: 1px solid rgba(0, 212, 170, 0.25);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      margin-top: var(--space-lg);
+    }
+
+    .cs-role-box p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      max-width: none;
+    }
+
+    .cs-role-box strong { color: var(--text-primary); }
+
+    /* ── Stack placeholder row ── */
+    .cs-stack-placeholder {
+      margin-top: var(--space-md);
+      padding: var(--space-lg);
+      border: 2px dashed var(--border);
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="nav-root"></div>
+
+  <main class="cs-page">
+
+    <a href="projects.html" class="cs-back">Back to Projects</a>
+
+    <!-- ── HERO ── -->
+    <header class="cs-hero">
+      <span class="cs-eyebrow">Case Study</span>
+      <h1>OZBO — Workforce Scheduling &amp; Operations Platform</h1>
+      <p class="cs-hero-pitch">
+        A full-stack operations platform for building and managing complex monthly workforce schedules —
+        initially designed, built, and deployed for a senior security services firm, and architected
+        to be shaped and adapted to any project-driven business.
+      </p>
+      <div class="cs-meta">
+        <span class="cs-meta-item cs-meta-item--accent">&#9679; Live on AWS</span>
+        <span class="cs-meta-item">2024 – 2025</span>
+        <span class="cs-meta-item">Sole Engineer &amp; Designer</span>
+        <span class="cs-meta-item">Private Repo</span>
+        <span class="cs-meta-item">Security Industry</span>
+      </div>
+    </header>
+
+    <!-- ── THE PROBLEM ── -->
+    <section class="cs-section">
+      <span class="cs-section-label">Context &amp; Problem</span>
+      <h2>Scheduling complex teams is harder than it looks</h2>
+      <p>
+        Managing large security teams across dynamic, shift-based projects doesn't fit neatly into
+        any off-the-shelf tool. Generic scheduling software assumes fixed roles and predictable
+        patterns — neither of which match the reality of a senior security project manager
+        juggling multi-site deployments, rotating rosters, and monthly planning cycles.
+      </p>
+      <p>
+        OZBO was built to close that gap. The spec came directly from live operational pain points,
+        making it a tool shaped by real constraints rather than assumptions.
+      </p>
+    </section>
+
+    <!-- ── WHAT IT DOES ── -->
+    <section class="cs-section">
+      <span class="cs-section-label">Core Features</span>
+      <h2>What the platform does</h2>
+      <div class="cs-feature-grid">
+        <div class="cs-feature-card">
+          <div class="cs-feature-card__icon">📅</div>
+          <h3>Monthly Schedule Builder</h3>
+          <p>Create and manage complex shift patterns across dynamic project timelines.</p>
+        </div>
+        <div class="cs-feature-card">
+          <div class="cs-feature-card__icon">👷</div>
+          <h3>Worker Management</h3>
+          <p>Track roles, certifications, availability, and assignment history per employee.</p>
+        </div>
+        <div class="cs-feature-card">
+          <div class="cs-feature-card__icon">📁</div>
+          <h3>Project &amp; Site Management</h3>
+          <p>Scope and manage multi-site, multi-role projects with live status tracking.</p>
+        </div>
+        <div class="cs-feature-card">
+          <div class="cs-feature-card__icon">📊</div>
+          <h3>Reporting &amp; Exports</h3>
+          <p>Export clean schedule summaries and operational reports from within the platform.</p>
+        </div>
+        <div class="cs-feature-card">
+          <div class="cs-feature-card__icon">🏢</div>
+          <h3>Multi-Business Ready</h3>
+          <p>Designed to be adapted and white-labeled for different businesses and industries.</p>
+        </div>
+        <div class="cs-feature-card">
+          <div class="cs-feature-card__icon">🔐</div>
+          <h3>Secure Admin System</h3>
+          <p>Role-based access and secure admin controls built for operational environments.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── VIDEO WALKTHROUGH ── -->
+    <section class="cs-section">
+      <span class="cs-section-label">Walkthrough</span>
+      <h2>See it in action</h2>
+
+      <!-- Placeholder — swap this div for the .cs-video-embed block below when video is ready -->
+      <div class="cs-placeholder cs-video-placeholder">
+        <div class="cs-placeholder__label">Video coming soon</div>
+        <div>Platform walkthrough — 60–90 second demo</div>
+      </div>
+
+      <!-- Paste your YouTube/Loom embed src into the iframe below, then set display:block on .cs-video-embed -->
+      <div class="cs-video-embed">
+        <iframe
+          src=""
+          title="OZBO Platform Walkthrough"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <!-- ── SCREENSHOTS ── -->
+    <section class="cs-section">
+      <span class="cs-section-label">Screenshots</span>
+      <h2>Platform views</h2>
+      <div class="cs-screenshot-grid">
+        <div class="cs-screenshot-item placeholder">
+          <span>📸</span>
+          <span>Dashboard / Overview</span>
+        </div>
+        <div class="cs-screenshot-item placeholder">
+          <span>📸</span>
+          <span>Schedule Builder</span>
+        </div>
+        <div class="cs-screenshot-item placeholder">
+          <span>📸</span>
+          <span>Worker Management</span>
+        </div>
+        <div class="cs-screenshot-item placeholder">
+          <span>📸</span>
+          <span>Project / Site View</span>
+        </div>
+      </div>
+      <!-- To add a screenshot: replace a placeholder div with:
+           <div class="cs-screenshot-item">
+             <img src="images/ozbo/screenshot-name.png" alt="OZBO — [describe view]">
+           </div>
+      -->
+    </section>
+
+    <!-- ── TECH STACK ── -->
+    <section class="cs-section">
+      <span class="cs-section-label">Tech Stack</span>
+      <h2>How it's built</h2>
+      <!-- Replace the placeholder below with actual tag spans once you share the stack -->
+      <div class="cs-stack-placeholder">
+        [ Tech stack — paste from OZBO repo and I'll fill this in ]
+      </div>
+      <!--
+      <div class="cs-tags">
+        <span class="tag">React</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">AWS EC2</span>
+        <span class="tag">...</span>
+      </div>
+      -->
+    </section>
+
+    <!-- ── PDF MANUAL ── -->
+    <section class="cs-section">
+      <span class="cs-section-label">Documentation</span>
+      <h2>Platform manual</h2>
+      <p>A full PDF manual was produced covering the platform's features, admin workflows, and onboarding process for new teams.</p>
+      <div class="cs-pdf-row">
+        <div class="cs-pdf-row__info">
+          <div class="cs-pdf-row__title">OZBO — Platform Manual</div>
+          <div class="cs-pdf-row__sub">PDF · Full operational guide</div>
+        </div>
+        <!-- Swap href to the actual PDF path when ready: e.g. href="files/ozbo-manual.pdf" -->
+        <a href="#" class="btn-secondary" style="pointer-events:none;opacity:0.4;" aria-disabled="true">
+          Download PDF ↓
+        </a>
+      </div>
+    </section>
+
+    <!-- ── ROLE & OUTCOMES ── -->
+    <section class="cs-section">
+      <span class="cs-section-label">My Role</span>
+      <h2>How I built it</h2>
+      <p>
+        OZBO is a solo project in every sense — I designed the system architecture, built the
+        full stack, planned the feature set, and managed deployment to AWS. The feedback loop
+        came directly from the end user: a senior security firm project manager running live
+        trial operations, surfacing real edge cases and workflow gaps in real time.
+      </p>
+      <div class="cs-role-box">
+        <p>
+          <strong>Sole engineer, designer &amp; planner.</strong> Spec-to-deployment ownership,
+          with live trial runs inside a real security operations team. Designed with adaptation
+          in mind — the same core platform can be configured and deployed for different
+          businesses and industries.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-root"></div>
+  <div id="back-to-top-root"></div>
+
+  <script src="js/components.js" defer></script>
+</body>
+</html>
