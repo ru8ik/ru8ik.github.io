@@ -117,6 +117,10 @@
   gap: var(--space-md);
 }
 
+.article-card[hidden] {
+  display: none;
+}
+
 /* Tag pill */
 .article-tag {
   display: inline-flex;
