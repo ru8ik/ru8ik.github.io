@@ -62,10 +62,22 @@
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 6.5vw, 4.5rem);
-  line-height: 1.05;
-  letter-spacing: -0.04em;
+  font-size: clamp(1.9rem, 4.2vw, 3.1rem);
+  line-height: 1.12;
+  letter-spacing: -0.035em;
   margin-bottom: var(--space-md);
+}
+
+.hero-title-accent {
+  background: linear-gradient(120deg, var(--accent) 0%, var(--accent-hover) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-title-dim {
+  color: var(--text-secondary);
+  font-weight: 600;
 }
 
 .hero-amp {

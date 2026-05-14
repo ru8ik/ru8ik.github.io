@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects — Rubik Seviyants</title>
-  <meta name="description" content="Software projects by Rubik Seviyants — test automation frameworks, web applications, and engineering tools.">
+  <meta name="description" content="Software projects by Rubik Seviyants — shipped products, engineering tools, and automation frameworks.">
   <meta name="keywords" content="software projects, automation, testing, portfolio, rubik seviyants">
   <meta name="author" content="Rubik Seviyants">
   <link rel="canonical" href="https://www.ru8iks.com/projects.html">
@@ -15,12 +15,12 @@
   <link rel="manifest" href="/site.webmanifest">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Projects — Rubik Seviyants">
-  <meta property="og:description" content="Software projects by Rubik Seviyants — test automation frameworks, web applications, and engineering tools.">
+  <meta property="og:description" content="Software projects by Rubik Seviyants — shipped products, engineering tools, and automation frameworks.">
   <meta property="og:url" content="https://www.ru8iks.com/projects.html">
   <meta property="og:site_name" content="Rubik Seviyants">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Projects — Rubik Seviyants">
-  <meta name="twitter:description" content="Software projects by Rubik Seviyants — test automation frameworks, web applications, and engineering tools.">
+  <meta name="twitter:description" content="Software projects by Rubik Seviyants — shipped products, engineering tools, and automation frameworks.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
@@ -41,115 +41,132 @@
     <section class="projects-header">
       <div class="container">
         <h1>Projects</h1>
-        <p class="subtitle">Test automation frameworks, data-driven web apps, and the experiments in between.</p>
+        <p class="subtitle">Shipped products, engineering tools, and technical foundations &mdash; across the full build&ndash;test&ndash;ship cycle.</p>
       </div>
     </section>
 
-    <!-- PROJECTS GRID -->
-    <section class="section">
+
+    <!-- ============================================================
+         FLAGSHIP PRODUCTS
+         ============================================================ -->
+    <section class="section projects-section">
       <div class="container">
+        <header class="projects-section-header">
+          <h2>Flagship Products</h2>
+          <p class="projects-section-context">Shipped software with real users &mdash; designed, built, tested, and owned end-to-end.</p>
+        </header>
+
+        <div class="flagship-grid">
+
+          <!-- BillTick -->
+          <article class="card project-card project-card--flagship">
+            <div class="flagship-visual flagship-visual--billtick" aria-hidden="true">
+              <span class="flagship-visual__name">BillTick</span>
+            </div>
+            <div class="flagship-body">
+              <div class="project-card__meta">
+                <span class="badge badge--live">Live</span>
+                <span class="badge badge--year">2025</span>
+              </div>
+              <h3 class="project-card__title">BillTick &mdash; Local-First Billing for Small Businesses</h3>
+              <ul class="flagship-detail">
+                <li>
+                  <span class="flagship-detail__key">Role</span>
+                  <span class="flagship-detail__val">Sole engineer &amp; co-founder</span>
+                </li>
+                <li>
+                  <span class="flagship-detail__key">Scope</span>
+                  <span class="flagship-detail__val">Product design, full-stack development, test coverage, and Vercel deployment</span>
+                </li>
+                <li>
+                  <span class="flagship-detail__key">Constraint</span>
+                  <span class="flagship-detail__val">Zero backend &mdash; all state stored locally on the user&rsquo;s device</span>
+                </li>
+              </ul>
+              <p class="project-card__desc">Professional billing for individuals and small businesses &mdash; create invoices and receipts, log billable time, and export clean PDFs, all stored locally on the user&rsquo;s device. Built from scratch as sole engineer and co-founder: scoped, designed, coded in Next.js, tested across browsers and devices, and shipped to production on Vercel.</p>
+              <div class="project-card__tags">
+                <span class="tag">Next.js</span>
+                <span class="tag">React</span>
+                <span class="tag">Tailwind CSS</span>
+                <span class="tag">Vercel</span>
+                <span class="tag">Local-First</span>
+              </div>
+              <div class="project-card__tested">
+                <span class="project-card__tested-label">some of the test covers</span>
+                <p>PDF export fidelity across browsers, local-storage persistence across sessions, responsive forms on mobile, light/dark theme contrast. . .</p>
+              </div>
+              <div class="project-card__links">
+                <a href="https://www.billtick.co" target="_blank" rel="noopener noreferrer" class="project-card__link">Live Site ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- OZBO -->
+          <article class="card project-card project-card--flagship">
+            <div class="flagship-visual flagship-visual--ozbo" aria-hidden="true">
+              <span class="flagship-visual__name">OZBO</span>
+            </div>
+            <div class="flagship-body">
+              <div class="project-card__meta">
+                <span class="badge badge--completed">Deployed</span>
+                <span class="badge badge--year">2024&ndash;2025</span>
+              </div>
+              <h3 class="project-card__title">OZBO &mdash; Workforce Scheduling Platform</h3>
+              <ul class="flagship-detail">
+                <li>
+                  <span class="flagship-detail__key">Role</span>
+                  <span class="flagship-detail__val">Sole engineer, designer, and planner</span>
+                </li>
+                <li>
+                  <span class="flagship-detail__key">Scope</span>
+                  <span class="flagship-detail__val">Architecture through deployment, including QA against a live operations team</span>
+                </li>
+                <li>
+                  <span class="flagship-detail__key">Constraint</span>
+                  <span class="flagship-detail__val">Private codebase &mdash; deployed for a real security firm with production data</span>
+                </li>
+              </ul>
+              <p class="project-card__desc">Full-stack operations platform for managing complex monthly workforce schedules on dynamic multi-site projects &mdash; built for a senior security firm, designed to adapt to any project-driven business. Led every phase from system architecture and database design through frontend development, QA, and live trial runs with the client&rsquo;s real operations team.</p>
+              <div class="project-card__tags">
+                <span class="tag">AWS</span>
+                <span class="tag">Full-Stack</span>
+                <span class="tag">Private</span>
+              </div>
+              <div class="project-card__tested">
+                <span class="project-card__tested-label">some of the test covers</span>
+                <p>Schedule logic edge cases, role-based access, live trial runs with real security operations team. . .</p>
+              </div>
+              <div class="project-card__links">
+                <a href="ozbo.html" class="project-card__link">Case Study ↗</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         APPLIED ENGINEERING WORK
+         ============================================================ -->
+    <section class="section projects-section">
+      <div class="container">
+        <header class="projects-section-header">
+          <h2>Applied Engineering Work</h2>
+          <p class="projects-section-context">Tools and apps built around real data, real requirements, or real clients.</p>
+        </header>
+
         <div class="projects-grid">
 
-          <!-- PROJECT 1 — Featured: BillTick -->
-          <article class="card project-card project-card--featured">
-            <div class="project-card__meta">
-              <span class="badge badge--live">Live</span>
-              <span class="badge badge--year">2025</span>
-            </div>
-            <h3 class="project-card__title">BillTick — Local-First Billing for Small Businesses</h3>
-            <p class="project-card__desc">Professional billing for individuals and small businesses — create invoices and receipts, log billable time, and export clean PDFs, all stored locally on the user's device. Built and shipped end-to-end as sole engineer and co-founder.</p>
-            <div class="project-card__tags">
-              <span class="tag">Next.js</span>
-              <span class="tag">React</span>
-              <span class="tag">Tailwind CSS</span>
-              <span class="tag">Vercel</span>
-              <span class="tag">Local-First</span>
-            </div>
-            <div class="project-card__tested">
-              <span class="project-card__tested-label">some of the test covers</span>
-              <p>PDF export fidelity across browsers, local-storage persistence across sessions, responsive forms on mobile, light/dark theme contrast. . .</p>
-            </div>
-            <div class="project-card__links">
-              <a href="https://www.billtick.co" target="_blank" rel="noopener noreferrer" class="project-card__link">Live Site ↗</a>
-            </div>
-          </article>
-
-          <!-- PROJECT 2 — OZBO Case Study -->
-          <article class="card project-card">
-            <div class="project-card__meta">
-              <span class="badge badge--completed">Deployed</span>
-              <span class="badge badge--year">2024–2025</span>
-            </div>
-            <h3 class="project-card__title">OZBO — Workforce Scheduling Platform</h3>
-            <p class="project-card__desc">Full-stack operations platform for managing complex monthly workforce schedules on dynamic multi-site projects — built for a senior security firm, designed to adapt to any project-driven business. Sole engineer, designer, and planner.</p>
-            <div class="project-card__tags">
-              <span class="tag">AWS</span>
-              <span class="tag">Full-Stack</span>
-              <span class="tag">Private</span>
-            </div>
-            <div class="project-card__tested">
-              <span class="project-card__tested-label">some of the test covers</span>
-              <p>Schedule logic edge cases, role-based access, live trial runs with real security operations team. . .</p>
-            </div>
-            <div class="project-card__links">
-              <a href="ozbo.html" class="project-card__link">Case Study ↗</a>
-            </div>
-          </article>
-
-          <!-- PROJECT 3 — Portfolio Website -->
-          <article class="card project-card">
-            <div class="project-card__meta">
-              <span class="badge badge--live">Live</span>
-              <span class="badge badge--year">2024–2025</span>
-            </div>
-            <h3 class="project-card__title">Portfolio Website — ru8iks.com</h3>
-            <p class="project-card__desc">This site. A static portfolio built and maintained as a living project — continuously refactored for performance, UX, and content quality. Also serves as a sandbox for front-end experimentation.</p>
-            <div class="project-card__tags">
-              <span class="tag">HTML5</span>
-              <span class="tag">CSS3</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">GitHub Pages</span>
-            </div>
-            <div class="project-card__tested">
-              <span class="project-card__tested-label">some of the test covers</span>
-              <p>Cross-browser layout, page load performance, accessibility basics. . .</p>
-            </div>
-            <div class="project-card__links">
-              <a href="https://www.ru8iks.com" target="_blank" rel="noopener noreferrer" class="project-card__link">Live Site ↗</a>
-              <a href="https://github.com/ru8ik/ru8ik.github.io" target="_blank" rel="noopener noreferrer" class="project-card__link project-card__link--secondary">GitHub ↗</a>
-            </div>
-          </article>
-
-          <!-- PROJECT 2 — Browser Games -->
-          <article class="card project-card">
-            <div class="project-card__meta">
-              <span class="badge badge--live">Live</span>
-              <span class="badge badge--year">2024</span>
-            </div>
-            <h3 class="project-card__title">Browser Games Collection</h3>
-            <p class="project-card__desc">Two canvas-based browser games built with vanilla JavaScript — PaddlePong (a pong clone with mouse control and AI opponent) and Break Brick (a breakout-style game). Built as a hands-on exercise in game loop logic and canvas rendering.</p>
-            <div class="project-card__tags">
-              <span class="tag">HTML5 Canvas</span>
-              <span class="tag">JavaScript</span>
-            </div>
-            <div class="project-card__tested">
-              <span class="project-card__tested-label">some of the test covers</span>
-              <p>Game loop timing, edge collision handling, browser compatibility. . .</p>
-            </div>
-            <div class="project-card__links">
-              <a href="games/index.html" class="project-card__link">Play Games ↗</a>
-              <a href="https://github.com/ru8ik/games" target="_blank" rel="noopener noreferrer" class="project-card__link project-card__link--secondary">GitHub ↗</a>
-            </div>
-          </article>
-
-          <!-- PROJECT 3 — AI-Powered QA Flow -->
+          <!-- AI-Powered QA Flow Demo -->
           <article class="card project-card">
             <div class="project-card__meta">
               <span class="badge badge--completed">Completed</span>
               <span class="badge badge--year">2025</span>
             </div>
             <h3 class="project-card__title">AI-Powered QA Flow Demo</h3>
-            <p class="project-card__desc">A demonstration of AI-augmented testing — a custom self-healing Selenium wrapper, Applitools visual AI checks, and ReportPortal-based defect clustering, all wired through PyTest and GitHub Actions.</p>
+            <p class="project-card__desc">A demonstration of AI-augmented testing &mdash; a custom self-healing Selenium wrapper, Applitools visual AI checks, and ReportPortal-based defect clustering, all wired through PyTest and GitHub Actions.</p>
             <div class="project-card__tags">
               <span class="tag">Python</span>
               <span class="tag">PyTest</span>
@@ -166,14 +183,14 @@
             </div>
           </article>
 
-          <!-- PROJECT 4 — Toronto Calls for Service -->
+          <!-- Toronto Calls for Service -->
           <article class="card project-card">
             <div class="project-card__meta">
               <span class="badge badge--live">Live</span>
               <span class="badge badge--year">2025</span>
             </div>
             <h3 class="project-card__title">Toronto Calls for Service Viewer</h3>
-            <p class="project-card__desc">A React app that surfaces Toronto Police Service calls in near real-time using the city's public ArcGIS API. Auto-refresh, multi-column sorting, and filtering by division, type, location, and date range.</p>
+            <p class="project-card__desc">A React app that surfaces Toronto Police Service calls in near real-time using the city&rsquo;s public ArcGIS API. Auto-refresh, multi-column sorting, and filtering by division, type, location, and date range.</p>
             <div class="project-card__tags">
               <span class="tag">React 18</span>
               <span class="tag">Axios</span>
@@ -190,14 +207,55 @@
             </div>
           </article>
 
-          <!-- PROJECT 5 — E2E Automation Framework -->
+          <!-- Portfolio Website -->
+          <article class="card project-card">
+            <div class="project-card__meta">
+              <span class="badge badge--live">Live</span>
+              <span class="badge badge--year">2024&ndash;2025</span>
+            </div>
+            <h3 class="project-card__title">Portfolio Website &mdash; ru8iks.com</h3>
+            <p class="project-card__desc">This site. A static portfolio built and maintained as a living project &mdash; continuously refactored for performance, UX, and content quality. Also serves as a sandbox for front-end experimentation.</p>
+            <div class="project-card__tags">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">GitHub Pages</span>
+            </div>
+            <div class="project-card__tested">
+              <span class="project-card__tested-label">some of the test covers</span>
+              <p>Cross-browser layout, page load performance, accessibility basics. . .</p>
+            </div>
+            <div class="project-card__links">
+              <a href="https://www.ru8iks.com" target="_blank" rel="noopener noreferrer" class="project-card__link">Live Site ↗</a>
+              <a href="https://github.com/ru8ik/ru8ik.github.io" target="_blank" rel="noopener noreferrer" class="project-card__link project-card__link--secondary">GitHub ↗</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         FRAMEWORKS & EXPERIMENTS
+         ============================================================ -->
+    <section class="section projects-section">
+      <div class="container">
+        <header class="projects-section-header">
+          <h2>Frameworks &amp; Experiments</h2>
+          <p class="projects-section-context">Technical scaffolds, automation references, and hands-on explorations.</p>
+        </header>
+
+        <div class="projects-grid">
+
+          <!-- E2E Web Automation Framework -->
           <article class="card project-card">
             <div class="project-card__meta">
               <span class="badge badge--completed">Completed</span>
               <span class="badge badge--year">2025</span>
             </div>
             <h3 class="project-card__title">E2E Web Automation Framework</h3>
-            <p class="project-card__desc">A professional-grade end-to-end automation framework built around the Page Object Model. Configurable environments, data-driven tests, Allure reporting, and full GitHub Actions CI — exercised against DemoQA.</p>
+            <p class="project-card__desc">A professional-grade end-to-end automation framework built around the Page Object Model. Configurable environments, data-driven tests, Allure reporting, and full GitHub Actions CI &mdash; exercised against DemoQA.</p>
             <div class="project-card__tags">
               <span class="tag">Python</span>
               <span class="tag">Selenium</span>
@@ -215,7 +273,7 @@
             </div>
           </article>
 
-          <!-- PROJECT 6 — QA Automation Demo Stack -->
+          <!-- QA Automation Demo Stack -->
           <article class="card project-card">
             <div class="project-card__meta">
               <span class="badge badge--completed">Completed</span>
@@ -236,6 +294,28 @@
             </div>
             <div class="project-card__links">
               <a href="https://github.com/ru8ik/QA-Automation-Demo" target="_blank" rel="noopener noreferrer" class="project-card__link">GitHub ↗</a>
+            </div>
+          </article>
+
+          <!-- Browser Games Collection -->
+          <article class="card project-card">
+            <div class="project-card__meta">
+              <span class="badge badge--live">Live</span>
+              <span class="badge badge--year">2024</span>
+            </div>
+            <h3 class="project-card__title">Browser Games Collection</h3>
+            <p class="project-card__desc">Two canvas-based browser games built with vanilla JavaScript &mdash; PaddlePong (a pong clone with mouse control and AI opponent) and Break Brick (a breakout-style game). Built as a hands-on exercise in game loop logic and canvas rendering.</p>
+            <div class="project-card__tags">
+              <span class="tag">HTML5 Canvas</span>
+              <span class="tag">JavaScript</span>
+            </div>
+            <div class="project-card__tested">
+              <span class="project-card__tested-label">some of the test covers</span>
+              <p>Game loop timing, edge collision handling, browser compatibility. . .</p>
+            </div>
+            <div class="project-card__links">
+              <a href="games/index.html" class="project-card__link">Play Games ↗</a>
+              <a href="https://github.com/ru8ik/games" target="_blank" rel="noopener noreferrer" class="project-card__link project-card__link--secondary">GitHub ↗</a>
             </div>
           </article>
 

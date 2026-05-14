@@ -26,7 +26,25 @@
 
 
 /* =============================================================
-   2. PROJECTS GRID
+   2. SECTION GROUPINGS
+   ============================================================= */
+.projects-section {
+  border-top: 1px solid var(--border);
+}
+
+.projects-section-header {
+  margin-bottom: var(--space-xl);
+}
+
+.projects-section-context {
+  margin-top: var(--space-xs);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+
+/* =============================================================
+   3. PROJECTS GRID
    ============================================================= */
 .projects-grid {
   display: grid;
@@ -50,7 +68,7 @@
 
 
 /* =============================================================
-   3. PROJECT CARD
+   4. PROJECT CARD
    ============================================================= */
 .project-card {
   display: flex;
@@ -58,16 +76,96 @@
   gap: var(--space-md);
 }
 
-/* Featured: accent left border + full-row span on tablet+ */
-.project-card--featured {
-  border-left: 3px solid var(--accent);
-  padding-left: calc(var(--space-lg) - 3px); /* compensate for border */
+/* Flagship: two-column internal layout (visual + content) */
+.flagship-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
 }
 
-@media (min-width: 640px) {
-  .project-card--featured {
-    grid-column: 1 / -1;
+.project-card--flagship {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .project-card--flagship {
+    grid-template-columns: 1fr;
   }
+}
+
+.flagship-visual {
+  border-radius: var(--radius-md);
+  min-height: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .flagship-visual {
+    min-height: 90px;
+  }
+}
+
+.flagship-visual--billtick {
+  background: linear-gradient(145deg, rgba(0, 212, 170, 0.14) 0%, rgba(0, 212, 170, 0.04) 100%);
+  border: 1px solid rgba(0, 212, 170, 0.2);
+}
+
+.flagship-visual--ozbo {
+  background: linear-gradient(145deg, rgba(120, 130, 255, 0.12) 0%, rgba(120, 130, 255, 0.03) 100%);
+  border: 1px solid rgba(120, 130, 255, 0.15);
+}
+
+.flagship-visual__name {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+  opacity: 0.3;
+}
+
+.flagship-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.flagship-detail {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.flagship-detail li {
+  display: flex;
+  gap: var(--space-md);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.flagship-detail__key {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  min-width: 84px;
+  padding-top: 0.18em;
+  flex-shrink: 0;
+}
+
+.flagship-detail__val {
+  color: var(--text-secondary);
 }
 
 /* Meta row: badge + year */
@@ -155,7 +253,7 @@
 
 
 /* =============================================================
-   4. STATUS BADGE VARIANTS
+   5. STATUS BADGE VARIANTS
    ============================================================= */
 .badge--completed {
   color: var(--text-muted);
@@ -165,7 +263,7 @@
 
 
 /* =============================================================
-   5. "MORE ON GITHUB" BANNER
+   6. "MORE ON GITHUB" BANNER
    ============================================================= */
 .github-banner {
   display: flex;
