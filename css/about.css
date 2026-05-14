@@ -41,6 +41,34 @@
   margin-top: var(--space-md);
 }
 
+.about-story__list-heading {
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-sm);
+  font-size: 1rem;
+}
+
+.about-story__list {
+  padding: 0;
+}
+
+.about-story__list li {
+  position: relative;
+  padding-left: 1.5em;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.about-story__list li + li {
+  margin-top: var(--space-sm);
+}
+
+.about-story__list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 
 /* =============================================================
    3. HOW I WORK
@@ -122,6 +150,10 @@
 
 .this-site__inner h2 {
   margin-bottom: var(--space-md);
+}
+
+.this-site__inner p + p {
+  margin-top: var(--space-md);
 }
 
 .this-site__tags {
