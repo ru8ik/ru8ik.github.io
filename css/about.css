@@ -70,74 +70,9 @@
 }
 
 
-/* =============================================================
-   3. HOW I WORK
-   ============================================================= */
-.how-i-work {
-  border-top: 1px solid var(--border);
-}
-
-.how-i-work__header {
-  text-align: center;
-  margin-bottom: var(--space-xl);
-}
-
-.how-i-work__header h2 {
-  margin-bottom: var(--space-sm);
-}
-
-.how-i-work__lede {
-  color: var(--text-secondary);
-  margin-inline: auto;
-  max-width: 52ch;
-}
-
-.how-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-lg);
-}
-
-.how-card {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.how-card__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-md);
-  background-color: var(--accent-soft);
-  color: var(--accent);
-  margin-bottom: var(--space-xs);
-}
-
-.how-card__title {
-  margin: 0;
-}
-
-.how-card__desc {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  margin: 0;
-}
-
-/* How I Work: 3-col desktop → 2-col tablet → 1-col mobile */
-@media (max-width: 1024px) {
-  .how-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 640px) {
-  .how-grid { grid-template-columns: 1fr; }
-}
-
 
 /* =============================================================
-   4. THIS SITE
+   3. THIS SITE
    ============================================================= */
 .this-site {
   border-top: 1px solid var(--border);
@@ -165,7 +100,7 @@
 
 
 /* =============================================================
-   5. CONNECT
+   4. CONNECT
    ============================================================= */
 .connect-cta {
   margin-block: var(--space-2xl) var(--space-xl);
