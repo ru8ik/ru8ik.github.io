@@ -58,95 +58,93 @@
 
         <div class="flagship-grid">
 
-          <!-- BillTick -->
-          <article class="card project-card project-card--flagship">
-            <div class="flagship-visual flagship-visual--billtick" aria-hidden="true">
-              <span class="flagship-visual__name">BillTick</span>
+          <!-- OZBO — Case Study (chosen: real client, production data, live trial validation) -->
+          <article class="card project-card project-card--flagship project-card--case-study">
+            <div class="project-card__eyebrow">Case Study</div>
+            <div class="project-card__meta">
+              <span class="badge badge--completed">Deployed</span>
+              <span class="badge badge--year">2024&ndash;2025</span>
             </div>
-            <div class="flagship-body">
-              <div class="project-card__meta">
-                <span class="badge badge--live">Live</span>
-                <span class="badge badge--year">2025</span>
+            <h3 class="project-card__title">OZBO &mdash; Workforce Scheduling Platform</h3>
+            <p class="project-card__problem">A senior security firm was managing complex multi-site monthly shift schedules manually &mdash; no off-the-shelf tool matched the real operational workflow.</p>
+            <ul class="flagship-detail">
+              <li>
+                <span class="flagship-detail__key">Role</span>
+                <span class="flagship-detail__val">Sole engineer, designer &amp; planner &mdash; spec to deployment</span>
+              </li>
+              <li>
+                <span class="flagship-detail__key">Stack</span>
+                <span class="flagship-detail__val">Full-Stack &middot; AWS (private codebase)</span>
+              </li>
+              <li>
+                <span class="flagship-detail__key">Result</span>
+                <span class="flagship-detail__val">Deployed to production; validated through live trial runs with the client&rsquo;s real operations team &mdash; replaced a manual scheduling process</span>
+              </li>
+            </ul>
+            <div class="project-card__case-content">
+              <div class="project-card__case-block">
+                <h4>Key decisions</h4>
+                <p>Chose a server-backed architecture over local storage because schedule data needed to be authoritative and shared across the team. Built role-based access from the start to support multi-tier users (admin, project manager, worker). Prioritised the monthly scheduling view as the core interaction &mdash; matching how the client actually worked, not how a generic calendar would expect them to.</p>
               </div>
-              <h3 class="project-card__title">BillTick &mdash; Local-First Billing for Small Businesses</h3>
-              <ul class="flagship-detail">
-                <li>
-                  <span class="flagship-detail__key">Role</span>
-                  <span class="flagship-detail__val">Sole engineer &amp; co-founder</span>
-                </li>
-                <li>
-                  <span class="flagship-detail__key">Scope</span>
-                  <span class="flagship-detail__val">Product design, full-stack development, test coverage, and Vercel deployment</span>
-                </li>
-                <li>
-                  <span class="flagship-detail__key">Constraint</span>
-                  <span class="flagship-detail__val">Zero backend &mdash; all state stored locally on the user&rsquo;s device</span>
-                </li>
-              </ul>
-              <p class="project-card__desc">Professional billing for individuals and small businesses &mdash; create invoices and receipts, log billable time, and export clean PDFs, all stored locally on the user&rsquo;s device. Built from scratch as sole engineer and co-founder: scoped, designed, coded in Next.js, tested across browsers and devices, and shipped to production on Vercel.</p>
-              <div class="project-card__tags">
-                <span class="tag">Next.js</span>
-                <span class="tag">React</span>
-                <span class="tag">Tailwind CSS</span>
-                <span class="tag">Vercel</span>
-                <span class="tag">Local-First</span>
+              <div class="project-card__case-block">
+                <h4>Constraints</h4>
+                <p>Private codebase. Production data from day one. No QA team &mdash; I wrote and executed all tests, then validated live with the client during scheduled trial runs against real operational data and real edge cases.</p>
               </div>
-              <div class="project-card__tested">
-                <span class="project-card__tested-label">Quality focus:</span>
-                <p>cross-browser PDF accuracy, local-storage persistence across sessions, mobile form reliability, and accessible light/dark theme contrast.</p>
+              <div class="project-card__case-block">
+                <h4>What I&rsquo;d do differently</h4>
+                <p>I&rsquo;d build a regression test suite earlier. Live trial feedback was direct and valuable, but reactive &mdash; edge cases in the scheduling logic surfaced in real operations that structured unit tests would have caught during development.</p>
               </div>
-              <div class="project-card__tested">
-                <span class="project-card__tested-label">Delivery challenge:</span>
-                <p>shipping a zero-backend product where all state lives on the user's device — reliable across browsers and sessions with no server-side safety net.</p>
-              </div>
-              <div class="project-card__links">
-                <a href="https://www.billtick.co" target="_blank" rel="noopener noreferrer" class="project-card__link">Live Site ↗</a>
-              </div>
+            </div>
+            <div class="project-card__tags">
+              <span class="tag">Full-Stack</span>
+              <span class="tag">AWS</span>
+            </div>
+            <div class="project-card__role-tags">
+              <span class="tag tag--role">Full-Stack</span>
+              <span class="tag tag--role">Solo Delivery</span>
+              <span class="tag tag--role">Database Design</span>
+              <span class="tag tag--role">DevOps</span>
+            </div>
+            <div class="project-card__links">
+              <a href="ozbo.html" class="project-card__link">Read case study &rarr;</a>
             </div>
           </article>
 
-          <!-- OZBO -->
+          <!-- BillTick -->
           <article class="card project-card project-card--flagship">
-            <div class="flagship-visual flagship-visual--ozbo" aria-hidden="true">
-              <span class="flagship-visual__name">OZBO</span>
+            <div class="project-card__meta">
+              <span class="badge badge--live">Live</span>
+              <span class="badge badge--year">2025</span>
             </div>
-            <div class="flagship-body">
-              <div class="project-card__meta">
-                <span class="badge badge--completed">Deployed</span>
-                <span class="badge badge--year">2024&ndash;2025</span>
-              </div>
-              <h3 class="project-card__title">OZBO &mdash; Workforce Scheduling Platform</h3>
-              <ul class="flagship-detail">
-                <li>
-                  <span class="flagship-detail__key">Role</span>
-                  <span class="flagship-detail__val">Sole engineer, designer, and planner</span>
-                </li>
-                <li>
-                  <span class="flagship-detail__key">Scope</span>
-                  <span class="flagship-detail__val">Architecture through deployment, including QA against a live operations team</span>
-                </li>
-                <li>
-                  <span class="flagship-detail__key">Constraint</span>
-                  <span class="flagship-detail__val">Private codebase &mdash; deployed for a real security firm with production data</span>
-                </li>
-              </ul>
-              <p class="project-card__desc">Full-stack operations platform for managing complex monthly workforce schedules on dynamic multi-site projects &mdash; built for a senior security firm, designed to adapt to any project-driven business. Led every phase from system architecture and database design through frontend development, QA, and live trial runs with the client&rsquo;s real operations team.</p>
-              <div class="project-card__tags">
-                <span class="tag">AWS</span>
-                <span class="tag">Full-Stack</span>
-                <span class="tag">Private</span>
-              </div>
-              <div class="project-card__tested">
-                <span class="project-card__tested-label">Quality focus:</span>
-                <p>schedule correctness across shift conflicts and edge cases, role-based access for multi-tier user groups, and live trial validation with the client's real operations team.</p>
-              </div>
-              <div class="project-card__tested">
-                <span class="project-card__tested-label">Delivery challenge:</span>
-                <p>adapting schedule logic and access control to live operational workflows with minimal friction for users.</p>
-              </div>
-              <div class="project-card__links">
-                <a href="ozbo.html" class="project-card__link">Case Study ↗</a>
-              </div>
+            <h3 class="project-card__title">BillTick &mdash; Local-First Billing for Small Businesses</h3>
+            <p class="project-card__problem">Freelancers and small businesses lacked a simple billing tool that worked offline, required no account, and stored data only on their device.</p>
+            <ul class="flagship-detail">
+              <li>
+                <span class="flagship-detail__key">Role</span>
+                <span class="flagship-detail__val">Sole engineer &amp; co-founder &mdash; scoped, designed, coded, tested, and shipped</span>
+              </li>
+              <li>
+                <span class="flagship-detail__key">Stack</span>
+                <span class="flagship-detail__val">Next.js &middot; React &middot; Tailwind CSS &middot; Vercel</span>
+              </li>
+              <li>
+                <span class="flagship-detail__key">Result</span>
+                <span class="flagship-detail__val">Shipped live at billtick.co &mdash; zero-backend architecture, cross-browser PDF accuracy validated, deployed to Vercel with no QA handoff</span>
+              </li>
+            </ul>
+            <div class="project-card__tags">
+              <span class="tag">Next.js</span>
+              <span class="tag">React</span>
+              <span class="tag">Tailwind CSS</span>
+              <span class="tag">Vercel</span>
+            </div>
+            <div class="project-card__role-tags">
+              <span class="tag tag--role">Full-Stack</span>
+              <span class="tag tag--role">Frontend Architecture</span>
+              <span class="tag tag--role">Solo Delivery</span>
+            </div>
+            <div class="project-card__links">
+              <a href="https://www.billtick.co" target="_blank" rel="noopener noreferrer" class="project-card__link">Live Site &#8599;</a>
             </div>
           </article>
 
@@ -174,7 +172,12 @@
               <span class="badge badge--year">2025</span>
             </div>
             <h3 class="project-card__title">AI-Powered QA Flow Demo</h3>
-            <p class="project-card__desc">A demonstration of AI-augmented testing &mdash; a custom self-healing Selenium wrapper, Applitools visual AI checks, and ReportPortal-based defect clustering, all wired through PyTest and GitHub Actions.</p>
+            <p class="project-card__problem">Standard Selenium suites break silently under DOM drift and produce failure noise that requires manual triage in CI.</p>
+            <p class="project-card__role">Sole author</p>
+            <div class="project-card__result">
+              <span class="project-card__result-label">Result</span>
+              <p>Self-healing locator wrapper, Applitools visual AI checks, and automated defect clustering &mdash; wired through GitHub Actions with no manual triage required per run</p>
+            </div>
             <div class="project-card__tags">
               <span class="tag">Python</span>
               <span class="tag">PyTest</span>
@@ -182,12 +185,14 @@
               <span class="tag">Applitools</span>
               <span class="tag">GitHub Actions</span>
             </div>
-            <div class="project-card__tested">
-              <span class="project-card__tested-label">Quality focus:</span>
-              <p>locator resilience under DOM drift, visual regression accuracy across page states, and CI failure signal quality through automated defect clustering.</p>
+            <div class="project-card__role-tags">
+              <span class="tag tag--role">E2E Testing</span>
+              <span class="tag tag--role">CI/CD</span>
+              <span class="tag tag--role">Automation Framework</span>
+              <span class="tag tag--role">Visual Regression</span>
             </div>
             <div class="project-card__links">
-              <a href="https://github.com/ru8ik/QA-AI-Flow-Demo-" target="_blank" rel="noopener noreferrer" class="project-card__link">GitHub ↗</a>
+              <a href="https://github.com/ru8ik/QA-AI-Flow-Demo-" target="_blank" rel="noopener noreferrer" class="project-card__link">GitHub &#8599;</a>
             </div>
           </article>
 
@@ -198,20 +203,26 @@
               <span class="badge badge--year">2025</span>
             </div>
             <h3 class="project-card__title">Toronto Calls for Service Viewer</h3>
-            <p class="project-card__desc">A React app that surfaces Toronto Police Service calls in near real-time using the city&rsquo;s public ArcGIS API. Auto-refresh, multi-column sorting, and filtering by division, type, location, and date range.</p>
+            <p class="project-card__problem">Toronto Police Service public call data was available via API but had no usable query interface &mdash; no filtering, no refresh, no sorting.</p>
+            <p class="project-card__role">Sole author</p>
+            <div class="project-card__result">
+              <span class="project-card__result-label">Result</span>
+              <p>Live app surfacing near-real-time call data &mdash; multi-column sort, date range and division filters, auto-refresh on a configurable interval</p>
+            </div>
             <div class="project-card__tags">
               <span class="tag">React 18</span>
               <span class="tag">Axios</span>
               <span class="tag">ArcGIS API</span>
               <span class="tag">GitHub Pages</span>
             </div>
-            <div class="project-card__tested">
-              <span class="project-card__tested-label">Quality focus:</span>
-              <p>API refresh reliability under live data volume, filter and sort correctness across all column combinations, and responsive layout usability on mobile.</p>
+            <div class="project-card__role-tags">
+              <span class="tag tag--role">Frontend Architecture</span>
+              <span class="tag tag--role">API Integration</span>
+              <span class="tag tag--role">Data Visualization</span>
             </div>
             <div class="project-card__links">
-              <a href="https://ru8ik.github.io/toronto-calls-for-service/" target="_blank" rel="noopener noreferrer" class="project-card__link">Live Site ↗</a>
-              <a href="https://github.com/ru8ik/toronto-calls-for-service" target="_blank" rel="noopener noreferrer" class="project-card__link project-card__link--secondary">GitHub ↗</a>
+              <a href="https://ru8ik.github.io/toronto-calls-for-service/" target="_blank" rel="noopener noreferrer" class="project-card__link">Live Site &#8599;</a>
+              <a href="https://github.com/ru8ik/toronto-calls-for-service" target="_blank" rel="noopener noreferrer" class="project-card__link project-card__link--secondary">GitHub &#8599;</a>
             </div>
           </article>
 
@@ -222,20 +233,26 @@
               <span class="badge badge--year">2024&ndash;2025</span>
             </div>
             <h3 class="project-card__title">Portfolio Website &mdash; ru8iks.com</h3>
-            <p class="project-card__desc">This site. A static portfolio built and maintained as a living project &mdash; continuously refactored for performance, UX, and content quality. Also serves as a sandbox for front-end experimentation.</p>
+            <p class="project-card__problem">Needed a technical portfolio that demonstrates engineering judgment and iterative craft, not just a list of project links.</p>
+            <p class="project-card__role">Sole author &mdash; design, development, and ongoing maintenance</p>
+            <div class="project-card__result">
+              <span class="project-card__result-label">Result</span>
+              <p>Deployed and continuously iterated &mdash; serves as a live front-end sandbox with measurable performance and accessibility targets</p>
+            </div>
             <div class="project-card__tags">
               <span class="tag">HTML5</span>
               <span class="tag">CSS3</span>
               <span class="tag">JavaScript</span>
               <span class="tag">GitHub Pages</span>
             </div>
-            <div class="project-card__tested">
-              <span class="project-card__tested-label">Quality focus:</span>
-              <p>cross-browser layout consistency, page load performance on low-bandwidth connections, and basic accessibility for keyboard and screen reader users.</p>
+            <div class="project-card__role-tags">
+              <span class="tag tag--role">Frontend Architecture</span>
+              <span class="tag tag--role">Solo Delivery</span>
+              <span class="tag tag--role">Performance Optimization</span>
             </div>
             <div class="project-card__links">
-              <a href="https://www.ru8iks.com" target="_blank" rel="noopener noreferrer" class="project-card__link">Live Site ↗</a>
-              <a href="https://github.com/ru8ik/ru8ik.github.io" target="_blank" rel="noopener noreferrer" class="project-card__link project-card__link--secondary">GitHub ↗</a>
+              <a href="https://www.ru8iks.com" target="_blank" rel="noopener noreferrer" class="project-card__link">Live Site &#8599;</a>
+              <a href="https://github.com/ru8ik/ru8ik.github.io" target="_blank" rel="noopener noreferrer" class="project-card__link project-card__link--secondary">GitHub &#8599;</a>
             </div>
           </article>
 
@@ -263,21 +280,26 @@
               <span class="badge badge--year">2025</span>
             </div>
             <h3 class="project-card__title">E2E Web Automation Framework</h3>
-            <p class="project-card__desc">A professional-grade end-to-end automation framework built around the Page Object Model. Configurable environments, data-driven tests, Allure reporting, and full GitHub Actions CI &mdash; exercised against DemoQA.</p>
+            <p class="project-card__problem">Most shared Selenium templates lack environment configuration, data-driven patterns, and CI integration out of the box.</p>
+            <p class="project-card__role">Sole author</p>
+            <div class="project-card__result">
+              <span class="project-card__result-label">Result</span>
+              <p>Production-grade framework: Page Object Model, environment-configurable runs, Allure reports, CI passing in GitHub Actions</p>
+            </div>
             <div class="project-card__tags">
               <span class="tag">Python</span>
               <span class="tag">Selenium</span>
               <span class="tag">PyTest</span>
-              <span class="tag">Page Object Model</span>
               <span class="tag">Allure</span>
               <span class="tag">GitHub Actions</span>
             </div>
-            <div class="project-card__tested">
-              <span class="project-card__tested-label">Quality focus:</span>
-              <p>regression flow reliability across DemoQA interactions, headless/headed config parity, and consistent execution in GitHub Actions CI.</p>
+            <div class="project-card__role-tags">
+              <span class="tag tag--role">E2E Testing</span>
+              <span class="tag tag--role">Automation Framework</span>
+              <span class="tag tag--role">CI/CD</span>
             </div>
             <div class="project-card__links">
-              <a href="https://github.com/ru8ik/e2e-automation-testing-framework" target="_blank" rel="noopener noreferrer" class="project-card__link">GitHub ↗</a>
+              <a href="https://github.com/ru8ik/e2e-automation-testing-framework" target="_blank" rel="noopener noreferrer" class="project-card__link">GitHub &#8599;</a>
             </div>
           </article>
 
@@ -288,7 +310,12 @@
               <span class="badge badge--year">2025</span>
             </div>
             <h3 class="project-card__title">QA Automation Demo Stack</h3>
-            <p class="project-card__desc">A full-stack training scaffold: FastAPI backend with JWT auth, a React CRUD frontend, and a ready-to-extend PyTest + Selenium framework covering both API and UI layers. Designed as a hands-on QA learning environment.</p>
+            <p class="project-card__problem">QA practitioners learning automation had no realistic full-stack environment with both a live API and UI to test against.</p>
+            <p class="project-card__role">Sole author</p>
+            <div class="project-card__result">
+              <span class="project-card__result-label">Result</span>
+              <p>End-to-end test environment covering API contract and UI CRUD flows &mdash; deployable as a self-contained learning scaffold</p>
+            </div>
             <div class="project-card__tags">
               <span class="tag">FastAPI</span>
               <span class="tag">React</span>
@@ -296,12 +323,14 @@
               <span class="tag">Selenium</span>
               <span class="tag">JWT</span>
             </div>
-            <div class="project-card__tested">
-              <span class="project-card__tested-label">Quality focus:</span>
-              <p>JWT authentication integrity, API contract correctness against live endpoints, and UI CRUD path coverage via Selenium against the real backend.</p>
+            <div class="project-card__role-tags">
+              <span class="tag tag--role">E2E Testing</span>
+              <span class="tag tag--role">Full-Stack</span>
+              <span class="tag tag--role">API Integration</span>
+              <span class="tag tag--role">Automation Framework</span>
             </div>
             <div class="project-card__links">
-              <a href="https://github.com/ru8ik/QA-Automation-Demo" target="_blank" rel="noopener noreferrer" class="project-card__link">GitHub ↗</a>
+              <a href="https://github.com/ru8ik/QA-Automation-Demo" target="_blank" rel="noopener noreferrer" class="project-card__link">GitHub &#8599;</a>
             </div>
           </article>
 
@@ -312,18 +341,23 @@
               <span class="badge badge--year">2024</span>
             </div>
             <h3 class="project-card__title">Browser Games Collection</h3>
-            <p class="project-card__desc">Two canvas-based browser games built with vanilla JavaScript &mdash; PaddlePong (a pong clone with mouse control and AI opponent) and Break Brick (a breakout-style game). Built as a hands-on exercise in game loop logic and canvas rendering.</p>
+            <p class="project-card__problem">Needed direct experience with game loop logic and canvas rendering without reaching for a game engine.</p>
+            <p class="project-card__role">Sole author</p>
+            <div class="project-card__result">
+              <span class="project-card__result-label">Result</span>
+              <p>Two playable browser games deployed &mdash; collision physics, AI opponent, and game state management built from scratch</p>
+            </div>
             <div class="project-card__tags">
               <span class="tag">HTML5 Canvas</span>
               <span class="tag">JavaScript</span>
             </div>
-            <div class="project-card__tested">
-              <span class="project-card__tested-label">Quality focus:</span>
-              <p>game loop timing consistency, edge and corner collision accuracy, and cross-browser canvas compatibility.</p>
+            <div class="project-card__role-tags">
+              <span class="tag tag--role">Frontend Architecture</span>
+              <span class="tag tag--role">Solo Delivery</span>
             </div>
             <div class="project-card__links">
-              <a href="games/index.html" class="project-card__link">Play Games ↗</a>
-              <a href="https://github.com/ru8ik/games" target="_blank" rel="noopener noreferrer" class="project-card__link project-card__link--secondary">GitHub ↗</a>
+              <a href="games/index.html" class="project-card__link">Play Games &#8599;</a>
+              <a href="https://github.com/ru8ik/games" target="_blank" rel="noopener noreferrer" class="project-card__link project-card__link--secondary">GitHub &#8599;</a>
             </div>
           </article>
 
