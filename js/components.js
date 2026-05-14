@@ -13,7 +13,7 @@
 
   const PAGE_MAP = {
     'projects.html': 'projects',
-    'workshop.html': 'about',
+    'about.html': 'about',
     'articles.html': 'articles'
   };
   const activePage = PAGE_MAP[filename] || null;
@@ -33,7 +33,7 @@
   function buildNav() {
     const links = [
       { href: `${base}projects.html`, label: 'Projects', page: 'projects' },
-      { href: `${base}workshop.html`, label: 'About',    page: 'about'    },
+      { href: `${base}about.html`, label: 'About',    page: 'about'    },
       { href: `${base}articles.html`, label: 'Articles', page: 'articles' }
     ];
 
