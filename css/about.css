@@ -24,6 +24,18 @@
   margin-bottom: 0;
 }
 
+.about-proof {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-tertiary, var(--text-secondary));
+  opacity: 0.7;
+  letter-spacing: 0.02em;
+  text-align: center;
+  margin-inline: auto;
+  margin-top: var(--space-md);
+  margin-bottom: 0;
+}
+
 
 /* =============================================================
    2. STORY
