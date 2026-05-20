@@ -21,6 +21,16 @@
   font-size: 1.05rem;
   max-width: 52ch;
   margin-inline: auto;
+  margin-bottom: var(--space-sm);
+}
+
+.projects-proof {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-tertiary, var(--text-secondary));
+  opacity: 0.7;
+  letter-spacing: 0.02em;
+  margin-inline: auto;
   margin-bottom: 0;
 }
 
