@@ -215,6 +215,32 @@
   margin-top: var(--space-md);
 }
 
+.about-proof {
+  list-style: none;
+  padding: 0;
+  margin-top: var(--space-md);
+  border-top: 1px solid var(--border, rgba(255,255,255,0.08));
+  padding-top: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.about-proof li {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  padding-left: 1.1em;
+  position: relative;
+  line-height: 1.5;
+}
+
+.about-proof li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -439,8 +465,17 @@
 
 .contact-subtitle {
   color: var(--text-secondary);
-  margin: 0 auto var(--space-xl);
+  margin: 0 auto var(--space-sm);
   max-width: 52ch;
+}
+
+.contact-fit {
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  color: var(--text-tertiary, var(--text-secondary));
+  margin: 0 auto var(--space-xl);
+  max-width: 60ch;
+  opacity: 0.75;
 }
 
 .contact-actions {
