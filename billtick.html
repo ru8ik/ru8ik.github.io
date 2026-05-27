@@ -366,6 +366,58 @@
       </p>
     </section>
 
+    <!-- ── TESTING STRATEGY ── -->
+    <section class="cs-section">
+      <span class="cs-section-label">Testing Strategy</span>
+      <h2>No telemetry means catch it before ship</h2>
+      <p>
+        Testing is my primary discipline, and on a privacy-by-design product with no analytics
+        coming back from production, that discipline has to be unusually tight: there is no
+        signal to flag a regression after release, so every meaningful failure has to be caught
+        before deployment. Vitest + Testing Library cover the persistence layer (Dexie round-trips,
+        IndexedDB schema migrations) and the pure-function math behind totals, taxes, and time
+        durations — small surfaces with high blast radius if they silently drift. React Hook Form
+        + Zod schemas double as runtime test cases at the input boundary, rejecting invalid state
+        before it ever reaches storage.
+      </p>
+      <p>
+        The highest-ROI surface is the PDF export path: every supported browser engine renders
+        <code>@react-pdf/renderer</code> output slightly differently, so a fixed reference invoice
+        gets rendered in each engine and diffed against a known-good baseline. In a team setting,
+        that work is the right thing to delegate to a junior tester with a snapshot harness —
+        repeatable, structured, and exactly the kind of regression hunting that benefits from a
+        fresh pair of eyes — while I keep the data layer, the math, and the licensing flow that
+        gates the paid tier.
+      </p>
+    </section>
+
+    <!-- ── KEY DECISIONS ── -->
+    <section class="cs-section">
+      <span class="cs-section-label">Key Decisions</span>
+      <h2>Why local-first, and what it cost</h2>
+      <p>
+        The most consequential decision was eliminating the application backend entirely. A
+        traditional SaaS architecture would have made billing data trivially syncable across
+        devices, but it would also have meant standing up auth, storage, and the operational
+        overhead of running a service for users who explicitly didn&rsquo;t want a service running
+        on their behalf. IndexedDB — accessed through Dexie — was the right primitive: durable,
+        asynchronous, and large enough to hold years of invoice history without pressure.
+      </p>
+      <p>
+        PDF generation runs entirely in the browser via <code>@react-pdf/renderer</code>, which
+        keeps the local-first contract intact — no document ever touches a remote server to be
+        rendered. Browser rendering engines disagree on margins, font fallbacks, and page-break
+        behaviour, so the export path had to be explicitly verified rather than assumed; each
+        engine was checked against a known-good invoice layout before the feature was considered
+        shipped.
+      </p>
+      <p>
+        State management is deliberately small: Zustand for in-memory app state, Dexie for
+        persistence, Zod plus React Hook Form for input validation. No global context, no Redux
+        ceremony, no server-state library — because there is no server state to manage.
+      </p>
+    </section>
+
     <!-- ── WHAT IT DOES ── -->
     <section class="cs-section">
       <span class="cs-section-label">Core Features</span>
@@ -455,36 +507,25 @@
       -->
     </section>
 
-    <!-- ── KEY DECISIONS ── -->
-    <section class="cs-section">
-      <span class="cs-section-label">Key Decisions</span>
-      <h2>Why local-first, and what it cost</h2>
-      <p>
-        The most consequential decision was eliminating the backend entirely. A traditional SaaS
-        architecture would have made billing data trivially syncable across devices, but it would
-        also have meant standing up auth, storage, and the operational overhead of running a
-        service for users who explicitly didn&rsquo;t want a service running on their behalf.
-        IndexedDB was the right primitive: durable, asynchronous, and large enough to hold years
-        of invoice history without pressure.
-      </p>
-      <p>
-        Cross-browser PDF generation was the other meaningful constraint. Browser rendering engines
-        disagree on margins, font fallbacks, and page-break behaviour, so the export path had to be
-        explicitly verified rather than assumed. Each engine was checked against a known-good
-        invoice layout before the feature was considered shipped.
-      </p>
-    </section>
-
     <!-- ── TECH STACK ── -->
     <section class="cs-section">
       <span class="cs-section-label">Tech Stack</span>
       <h2>How it&rsquo;s built</h2>
-      <p>A modern client-side stack with no application server — only static hosting and CDN delivery.</p>
+      <p>A modern client-side stack with no application server — only static hosting on Vercel&rsquo;s edge, and a thin API surface for license activation and Stripe webhooks.</p>
       <div class="cs-tags">
-        <span class="tag">Next.js</span>
-        <span class="tag">React</span>
-        <span class="tag">Tailwind CSS</span>
-        <span class="tag">IndexedDB</span>
+        <span class="tag">Next.js 16</span>
+        <span class="tag">React 19</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Tailwind CSS 4</span>
+        <span class="tag">Dexie (IndexedDB)</span>
+        <span class="tag">@react-pdf/renderer</span>
+        <span class="tag">React Hook Form</span>
+        <span class="tag">Zod</span>
+        <span class="tag">Zustand</span>
+        <span class="tag">date-fns</span>
+        <span class="tag">nanoid</span>
+        <span class="tag">Vitest</span>
+        <span class="tag">Testing Library</span>
         <span class="tag">Vercel</span>
       </div>
     </section>

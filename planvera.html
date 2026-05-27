@@ -394,6 +394,58 @@
       </p>
     </section>
 
+    <!-- ── TESTING STRATEGY ── -->
+    <section class="cs-section">
+      <span class="cs-section-label">Testing Strategy</span>
+      <h2>Risk-based, not coverage-based</h2>
+      <p>
+        Testing is my primary discipline, so on Planvera I treated it as a budgeting problem
+        before a coverage one: every test carries a maintenance cost, and the question is which
+        tests buy the most risk reduction per unit of effort. Investment went heavy on the schedule
+        engine — a greedy assignment algorithm where one off-by-one strands a worker mid-shift —
+        the JWT auth flow, and the Google Calendar sync contract. Pytest + httpx exercise the
+        FastAPI endpoints against a real Postgres fixture rather than mocks, because the bugs that
+        actually cost money in scheduling are the ones a mocked test passes and a live publish fails.
+      </p>
+      <p>
+        The highest-ROI surface is the schedule-publish path: one user action touches the database,
+        queues emails, fires background tasks, and writes to external calendars. Everything that
+        flows through it is covered end-to-end. In a team setting, visual regression and exhaustive
+        role-permission sweeps are the right work to hand to a junior tester with a structured
+        checklist while I keep the engine, data, and integration layers — and UAT was delegated
+        by design, with the senior operations manager running live trial shifts and surfacing
+        edge cases no spec could have predicted.
+      </p>
+    </section>
+
+    <!-- ── KEY DECISIONS ── -->
+    <section class="cs-section">
+      <span class="cs-section-label">Key Decisions</span>
+      <h2>Architecture choices made deliberately small</h2>
+      <p>
+        Planvera serves a single security operations team — under a thousand active users — so the
+        architecture was sized to that reality rather than to a hypothetical scale. A single AWS EC2
+        instance running Docker Compose hosts the full stack: FastAPI behind Gunicorn, the Vite build
+        served by Nginx as a static site, and PostgreSQL co-located on the same box. ECS, ALB,
+        CloudFront, and S3 were all considered and rejected as premature for the load profile.
+      </p>
+      <p>
+        Async work — schedule-publish emails, Google Calendar sync, invoice delivery — runs through
+        FastAPI&rsquo;s built-in <code>BackgroundTasks</code> instead of Celery. No Redis broker, no
+        worker fleet to operate. PDF generation uses WeasyPrint server-side so invoice layouts stay
+        identical regardless of the client&rsquo;s browser. FullCalendar was chosen over a hand-rolled
+        grid because the schedule view is the product, and a battle-tested scheduler with native
+        Google Calendar bindings was worth more than the flexibility of building from scratch.
+      </p>
+      <p>
+        State management splits cleanly: TanStack Query owns server data and cache invalidation,
+        Zustand holds the small set of truly-client concerns (active user, current role, UI flags).
+        Pydantic schemas on the FastAPI side and Zod schemas on the React side describe the same
+        contracts in both languages, so a backend change surfaces as a type error on the frontend
+        rather than as a runtime bug in production.
+      </p>
+    </section>
+
     <!-- ── WHAT IT DOES ── -->
     <section class="cs-section">
       <span class="cs-section-label">Core Features</span>
@@ -486,37 +538,54 @@
     <!-- ── TECH STACK ── -->
     <section class="cs-section">
       <span class="cs-section-label">Tech Stack</span>
-      <h2>How it's built</h2>
-      <!-- Replace the placeholder below with actual tag spans once you share the stack -->
-      <div class="cs-stack-placeholder">
-        [ Tech stack — paste from Planvera repo and I'll fill this in ]
-      </div>
-      <!--
+      <h2>How it&rsquo;s built</h2>
+      <p>A typed full stack from database to UI — React on the front, FastAPI on the back, PostgreSQL underneath, all on a single AWS EC2 host orchestrated with Docker Compose.</p>
       <div class="cs-tags">
-        <span class="tag">React</span>
-        <span class="tag">Node.js</span>
-        <span class="tag">PostgreSQL</span>
+        <span class="tag">React 18</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Vite</span>
+        <span class="tag">Tailwind CSS</span>
+        <span class="tag">shadcn/ui</span>
+        <span class="tag">TanStack Query</span>
+        <span class="tag">Zustand</span>
+        <span class="tag">React Hook Form</span>
+        <span class="tag">Zod</span>
+        <span class="tag">FullCalendar</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag">Python 3.12</span>
+        <span class="tag">Pydantic</span>
+        <span class="tag">SQLAlchemy</span>
+        <span class="tag">Alembic</span>
+        <span class="tag">PostgreSQL 16</span>
+        <span class="tag">JWT (python-jose)</span>
+        <span class="tag">WeasyPrint</span>
+        <span class="tag">Google Calendar API</span>
         <span class="tag">AWS EC2</span>
-        <span class="tag">...</span>
+        <span class="tag">Nginx</span>
+        <span class="tag">Docker Compose</span>
+        <span class="tag">GitHub Actions</span>
+        <span class="tag">Let&rsquo;s Encrypt</span>
       </div>
-      -->
     </section>
 
-    <!-- ── PDF MANUAL ── -->
+    <!-- ── CONSTRAINTS ── -->
     <section class="cs-section">
-      <span class="cs-section-label">Documentation</span>
-      <h2>Platform manual</h2>
-      <p>A full PDF manual was produced covering the platform's features, admin workflows, and onboarding process for new teams.</p>
-      <div class="cs-pdf-row">
-        <div class="cs-pdf-row__info">
-          <div class="cs-pdf-row__title">Planvera — Platform Manual</div>
-          <div class="cs-pdf-row__sub">PDF · Full operational guide</div>
-        </div>
-        <!-- Swap href to the actual PDF path when ready: e.g. href="files/planvera-manual.pdf" -->
-        <a href="#" class="btn-secondary" style="pointer-events:none;opacity:0.4;" aria-disabled="true">
-          Download PDF ↓
-        </a>
-      </div>
+      <span class="cs-section-label">Constraints</span>
+      <h2>What I worked around</h2>
+      <p>
+        No co-engineer, no dedicated QA, and a live operations team using earlier builds in real
+        shifts — which meant every release had to land cleanly the first time, because a broken
+        schedule view on a Sunday night isn&rsquo;t a bug report, it&rsquo;s a missed deployment of
+        security personnel. The spec also kept moving: real edge cases (overnight shifts crossing
+        billing periods, partial-day re-assignments, last-minute substitutions) surfaced from the
+        floor faster than they could be designed for on paper.
+      </p>
+      <p>
+        Infrastructure was deliberately constrained — a single EC2 host instead of a managed
+        container platform — which kept costs flat and the system understandable end to end, but
+        meant zero-downtime deploys, backups, and SSL renewal all had to be solved with simple
+        tools rather than relied on as managed services.
+      </p>
     </section>
 
     <!-- ── ROLE & OUTCOMES ── -->
@@ -537,6 +606,21 @@
           businesses and industries.
         </p>
       </div>
+    </section>
+
+    <!-- ── REFLECTION ── -->
+    <section class="cs-section">
+      <span class="cs-section-label">Reflection</span>
+      <h2>What I&rsquo;d do differently</h2>
+      <p>
+        I&rsquo;d treat the schedule engine as its own deliberately-bounded service from day one
+        rather than letting it grow inside the FastAPI app. The greedy scheduler is the part of
+        the system most likely to need real iteration — new constraints, fairness rules,
+        re-assignment heuristics — and isolating it behind a stable interface would have made
+        rewrites cheaper. I&rsquo;d also wire a small synthetic-monitoring layer earlier;
+        running on a single EC2 means an unhealthy container is a real outage, and a one-minute
+        check pinging the schedule API would have caught a couple of issues before users did.
+      </p>
     </section>
 
     <!-- ── CLOSING LIVE CTA ── -->
