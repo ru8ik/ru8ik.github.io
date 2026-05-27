@@ -7,7 +7,7 @@
   <meta name="description" content="Planvera — a full-stack workforce scheduling platform built for a senior security firm. Case study by Rubik Seviyants.">
   <meta name="keywords" content="workforce scheduling, operations platform, case study, rubik seviyants, aws">
   <meta name="author" content="Rubik Seviyants">
-  <link rel="canonical" href="https://www.ru8iks.com/ozbo.html">
+  <link rel="canonical" href="https://www.ru8iks.com/planvera.html">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
@@ -16,7 +16,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Planvera — Workforce Scheduling Platform — Rubik Seviyants">
   <meta property="og:description" content="Case study: a full-stack workforce scheduling platform built for a senior security firm, designed to adapt to any project-driven business.">
-  <meta property="og:url" content="https://www.ru8iks.com/ozbo.html">
+  <meta property="og:url" content="https://www.ru8iks.com/planvera.html">
   <meta property="og:site_name" content="Rubik Seviyants">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Planvera — Workforce Scheduling Platform">
@@ -322,6 +322,24 @@
       text-align: center;
     }
 
+    /* ── Live site CTA row ── */
+    .cs-live-cta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-2xl);
+      padding: var(--space-lg);
+      background: var(--accent-soft);
+      border: 1px solid rgba(0, 212, 170, 0.25);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius-md);
+    }
+
+    .cs-live-cta__info { flex: 1; min-width: 200px; }
+    .cs-live-cta__title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.25rem; color: var(--text-primary); }
+    .cs-live-cta__sub { font-size: 0.8rem; color: var(--text-muted); }
+
   </style>
 </head>
 <body>
@@ -348,6 +366,17 @@
         <span class="cs-meta-item">Security Industry</span>
       </div>
     </header>
+
+    <!-- ── LIVE SITE CTA ── -->
+    <section class="cs-live-cta">
+      <div class="cs-live-cta__info">
+        <div class="cs-live-cta__title">Visit Planvera</div>
+        <div class="cs-live-cta__sub">Live at planvera.co — workforce management for security operations</div>
+      </div>
+      <a href="https://www.planvera.co" target="_blank" rel="noopener noreferrer" class="btn-primary">
+        Visit Live Site ↗
+      </a>
+    </section>
 
     <!-- ── THE PROBLEM ── -->
     <section class="cs-section">
@@ -449,7 +478,7 @@
       </div>
       <!-- To add a screenshot: replace a placeholder div with:
            <div class="cs-screenshot-item">
-             <img src="images/ozbo/screenshot-name.png" alt="Planvera — [describe view]">
+             <img src="images/planvera/screenshot-name.png" alt="Planvera — [describe view]">
            </div>
       -->
     </section>
@@ -483,7 +512,7 @@
           <div class="cs-pdf-row__title">Planvera — Platform Manual</div>
           <div class="cs-pdf-row__sub">PDF · Full operational guide</div>
         </div>
-        <!-- Swap href to the actual PDF path when ready: e.g. href="files/ozbo-manual.pdf" -->
+        <!-- Swap href to the actual PDF path when ready: e.g. href="files/planvera-manual.pdf" -->
         <a href="#" class="btn-secondary" style="pointer-events:none;opacity:0.4;" aria-disabled="true">
           Download PDF ↓
         </a>
@@ -508,6 +537,17 @@
           businesses and industries.
         </p>
       </div>
+    </section>
+
+    <!-- ── CLOSING LIVE CTA ── -->
+    <section class="cs-live-cta">
+      <div class="cs-live-cta__info">
+        <div class="cs-live-cta__title">See Planvera in production</div>
+        <div class="cs-live-cta__sub">Live at planvera.co — scheduling, coordination, and operations for security teams</div>
+      </div>
+      <a href="https://www.planvera.co" target="_blank" rel="noopener noreferrer" class="btn-primary">
+        Visit Live Site ↗
+      </a>
     </section>
 
   </main>

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BillTick — Case Study — Rubik Seviyants</title>
+  <meta name="description" content="BillTick — a local-first invoice and receipt generator with built-in time tracking. Case study by Rubik Seviyants.">
+  <meta name="keywords" content="invoice generator, receipt generator, local-first app, indexeddb, pdf export, case study, rubik seviyants">
+  <meta name="author" content="Rubik Seviyants">
+  <link rel="canonical" href="https://www.ru8iks.com/billtick.html">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BillTick — Local-First Billing for Small Businesses — Rubik Seviyants">
+  <meta property="og:description" content="Case study: a local-first invoice and receipt generator with built-in time tracking — zero backend, IndexedDB persistence, deployed live at billtick.co.">
+  <meta property="og:url" content="https://www.ru8iks.com/billtick.html">
+  <meta property="og:site_name" content="Rubik Seviyants">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="BillTick — Local-First Billing for Small Businesses">
+  <meta name="twitter:description" content="Case study: a local-first invoice and receipt generator with built-in time tracking.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <script async src="https://plausible.io/js/pa-4Ff__DM4iX466qX_lXiHa.js"></script>
+  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+  <style>
+
+    /* ── Page layout ── */
+    .cs-page {
+      max-width: 860px;
+      margin-inline: auto;
+      padding-inline: var(--space-lg);
+      padding-block: var(--space-xl) var(--space-2xl);
+    }
+
+    /* ── Back link ── */
+    .cs-back {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-bottom: var(--space-xl);
+      transition: color var(--transition-fast);
+    }
+    .cs-back:hover { color: var(--accent); }
+    .cs-back::before { content: "←"; }
+
+    /* ── Hero ── */
+    .cs-hero { margin-bottom: var(--space-2xl); }
+
+    .cs-eyebrow {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: var(--space-md);
+    }
+
+    .cs-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: var(--space-md);
+    }
+
+    .cs-hero-pitch {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 68ch;
+      line-height: 1.7;
+      margin-bottom: var(--space-lg);
+    }
+
+    /* ── Meta pills ── */
+    .cs-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-xl);
+    }
+
+    .cs-meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.25rem 0.6rem;
+      letter-spacing: 0.04em;
+    }
+
+    .cs-meta-item--accent {
+      color: var(--accent);
+      border-color: rgba(0, 212, 170, 0.3);
+      background-color: var(--accent-soft);
+    }
+
+    /* ── Live site CTA row ── */
+    .cs-live-cta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-2xl);
+      padding: var(--space-lg);
+      background: var(--accent-soft);
+      border: 1px solid rgba(0, 212, 170, 0.25);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius-md);
+    }
+
+    .cs-live-cta__info { flex: 1; min-width: 200px; }
+    .cs-live-cta__title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.25rem; color: var(--text-primary); }
+    .cs-live-cta__sub { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* ── Section labels ── */
+    .cs-section {
+      margin-bottom: var(--space-2xl);
+    }
+
+    .cs-section-label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: var(--space-md);
+      padding-bottom: var(--space-sm);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cs-section h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: var(--space-md);
+      margin-top: 0;
+    }
+
+    .cs-section p {
+      color: var(--text-secondary);
+      line-height: 1.75;
+      max-width: 72ch;
+    }
+
+    .cs-section p + p {
+      margin-top: var(--space-md);
+    }
+
+    /* ── Feature grid ── */
+    .cs-feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+
+    .cs-feature-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+    }
+
+    .cs-feature-card__icon {
+      font-size: 1.25rem;
+      margin-bottom: var(--space-sm);
+    }
+
+    .cs-feature-card h3 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--text-primary);
+    }
+
+    .cs-feature-card p {
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      max-width: none;
+    }
+
+    /* ── Placeholder blocks ── */
+    .cs-placeholder {
+      border: 2px dashed var(--border);
+      border-radius: var(--radius-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      text-align: center;
+      padding: var(--space-xl);
+    }
+
+    .cs-placeholder__label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.6;
+    }
+
+    /* Video placeholder */
+    .cs-video-placeholder {
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      margin-top: var(--space-lg);
+    }
+
+    /* Video embed (when ready) */
+    .cs-video-embed {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      margin-top: var(--space-lg);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--bg-card);
+      display: none; /* flip to block when video is ready */
+    }
+    .cs-video-embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ── Screenshot grid ── */
+    .cs-screenshot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+
+    .cs-screenshot-item {
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+    }
+
+    .cs-screenshot-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cs-screenshot-item.placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-align: center;
+      border-style: dashed;
+      border-color: var(--border-hover);
+    }
+
+    /* ── Stack tags (re-uses global .tag) ── */
+    .cs-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-top: var(--space-md);
+    }
+
+    /* ── Role highlight box ── */
+    .cs-role-box {
+      background: var(--accent-soft);
+      border: 1px solid rgba(0, 212, 170, 0.25);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      margin-top: var(--space-lg);
+    }
+
+    .cs-role-box p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      max-width: none;
+    }
+
+    .cs-role-box strong { color: var(--text-primary); }
+
+  </style>
+</head>
+<body>
+  <div id="nav-root"></div>
+
+  <main class="cs-page">
+
+    <a href="projects.html" class="cs-back">Back to Projects</a>
+
+    <!-- ── HERO ── -->
+    <header class="cs-hero">
+      <span class="cs-eyebrow">Case Study</span>
+      <h1>BillTick — Local-First Billing for Small Businesses</h1>
+      <p class="cs-hero-pitch">
+        A zero-backend invoice and receipt generator with built-in time tracking — designed for
+        freelancers and small businesses that want professional billing without surrendering
+        their data to a third-party server. Everything runs in the browser; nothing leaves the device.
+      </p>
+      <div class="cs-meta">
+        <span class="cs-meta-item cs-meta-item--accent">● Live at billtick.co</span>
+        <span class="cs-meta-item">2025</span>
+        <span class="cs-meta-item">Sole Engineer &amp; Co-Founder</span>
+        <span class="cs-meta-item">Next.js · Vercel</span>
+        <span class="cs-meta-item">Local-First (IndexedDB)</span>
+      </div>
+    </header>
+
+    <!-- ── LIVE SITE CTA ── -->
+    <section class="cs-live-cta">
+      <div class="cs-live-cta__info">
+        <div class="cs-live-cta__title">Try BillTick</div>
+        <div class="cs-live-cta__sub">Live at billtick.co — no signup, no account, runs in your browser</div>
+      </div>
+      <a href="https://www.billtick.co" target="_blank" rel="noopener noreferrer" class="btn-primary">
+        Visit Live Site ↗
+      </a>
+    </section>
+
+    <!-- ── THE PROBLEM ── -->
+    <section class="cs-section">
+      <span class="cs-section-label">Context &amp; Problem</span>
+      <h2>Billing tools come with strings attached</h2>
+      <p>
+        Most invoicing tools assume the same trade: you hand over your client list, line items, and
+        billing history in exchange for the convenience of a web app. For freelancers and small
+        operators, that&rsquo;s a high-friction deal — accounts, subscriptions, cloud sync, and the
+        ambient risk of vendor lock-in for something as simple as &ldquo;send a PDF invoice&rdquo;.
+      </p>
+      <p>
+        BillTick was built around a different premise: the user&rsquo;s billing data should live on
+        the user&rsquo;s device. No account creation, no analytics, no server roundtrip. Invoices,
+        receipts, and time entries are stored locally in the browser and exported as PDFs on demand.
+      </p>
+    </section>
+
+    <!-- ── WHAT IT DOES ── -->
+    <section class="cs-section">
+      <span class="cs-section-label">Core Features</span>
+      <h2>What the platform does</h2>
+      <div class="cs-feature-grid">
+        <div class="cs-feature-card">
+          <div class="cs-feature-card__icon">🧾</div>
+          <h3>Invoice &amp; Receipt Builder</h3>
+          <p>Compose invoices and receipts with line items, taxes, and configurable payment terms.</p>
+        </div>
+        <div class="cs-feature-card">
+          <div class="cs-feature-card__icon">⏱️</div>
+          <h3>Built-in Time Tracking</h3>
+          <p>Stopwatch sessions or manual time entries — billable hours feed straight into invoices.</p>
+        </div>
+        <div class="cs-feature-card">
+          <div class="cs-feature-card__icon">📄</div>
+          <h3>Cross-Browser PDF Export</h3>
+          <p>Generate clean, print-ready PDFs directly in the browser — validated across major engines.</p>
+        </div>
+        <div class="cs-feature-card">
+          <div class="cs-feature-card__icon">🔒</div>
+          <h3>Local-First Persistence</h3>
+          <p>All data lives in IndexedDB on the user&rsquo;s device — no servers, no accounts, no analytics.</p>
+        </div>
+        <div class="cs-feature-card">
+          <div class="cs-feature-card__icon">📁</div>
+          <h3>Client &amp; Project Management</h3>
+          <p>Organise recurring clients and projects with reusable profiles for faster billing cycles.</p>
+        </div>
+        <div class="cs-feature-card">
+          <div class="cs-feature-card__icon">💾</div>
+          <h3>Backup &amp; Restore</h3>
+          <p>Manual JSON export and import — portable backups the user owns and controls outright.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── VIDEO WALKTHROUGH ── -->
+    <section class="cs-section">
+      <span class="cs-section-label">Walkthrough</span>
+      <h2>See it in action</h2>
+
+      <!-- Placeholder — swap this div for the .cs-video-embed block below when video is ready -->
+      <div class="cs-placeholder cs-video-placeholder">
+        <div class="cs-placeholder__label">Video coming soon</div>
+        <div>Product walkthrough — 60–90 second demo</div>
+      </div>
+
+      <!-- Paste your YouTube/Loom embed src into the iframe below, then set display:block on .cs-video-embed -->
+      <div class="cs-video-embed">
+        <iframe
+          src=""
+          title="BillTick Product Walkthrough"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <!-- ── SCREENSHOTS ── -->
+    <section class="cs-section">
+      <span class="cs-section-label">Screenshots</span>
+      <h2>Product views</h2>
+      <div class="cs-screenshot-grid">
+        <div class="cs-screenshot-item placeholder">
+          <span>📸</span>
+          <span>Invoice Builder</span>
+        </div>
+        <div class="cs-screenshot-item placeholder">
+          <span>📸</span>
+          <span>Time Tracker</span>
+        </div>
+        <div class="cs-screenshot-item placeholder">
+          <span>📸</span>
+          <span>Client &amp; Project Manager</span>
+        </div>
+        <div class="cs-screenshot-item placeholder">
+          <span>📸</span>
+          <span>PDF Export Preview</span>
+        </div>
+      </div>
+      <!-- To add a screenshot: replace a placeholder div with:
+           <div class="cs-screenshot-item">
+             <img src="images/billtick/screenshot-name.png" alt="BillTick — [describe view]">
+           </div>
+      -->
+    </section>
+
+    <!-- ── KEY DECISIONS ── -->
+    <section class="cs-section">
+      <span class="cs-section-label">Key Decisions</span>
+      <h2>Why local-first, and what it cost</h2>
+      <p>
+        The most consequential decision was eliminating the backend entirely. A traditional SaaS
+        architecture would have made billing data trivially syncable across devices, but it would
+        also have meant standing up auth, storage, and the operational overhead of running a
+        service for users who explicitly didn&rsquo;t want a service running on their behalf.
+        IndexedDB was the right primitive: durable, asynchronous, and large enough to hold years
+        of invoice history without pressure.
+      </p>
+      <p>
+        Cross-browser PDF generation was the other meaningful constraint. Browser rendering engines
+        disagree on margins, font fallbacks, and page-break behaviour, so the export path had to be
+        explicitly verified rather than assumed. Each engine was checked against a known-good
+        invoice layout before the feature was considered shipped.
+      </p>
+    </section>
+
+    <!-- ── TECH STACK ── -->
+    <section class="cs-section">
+      <span class="cs-section-label">Tech Stack</span>
+      <h2>How it&rsquo;s built</h2>
+      <p>A modern client-side stack with no application server — only static hosting and CDN delivery.</p>
+      <div class="cs-tags">
+        <span class="tag">Next.js</span>
+        <span class="tag">React</span>
+        <span class="tag">Tailwind CSS</span>
+        <span class="tag">IndexedDB</span>
+        <span class="tag">Vercel</span>
+      </div>
+    </section>
+
+    <!-- ── CONSTRAINTS ── -->
+    <section class="cs-section">
+      <span class="cs-section-label">Constraints</span>
+      <h2>What I worked around</h2>
+      <p>
+        No QA handoff, no backend to lean on, and no analytics to observe usage after release —
+        the privacy posture had to hold all the way through. That meant every bug had to be caught
+        before deployment, since there was no telemetry coming back to flag a regression. The
+        offline-first contract also forced careful state handling: persistence, conflict
+        resolution, and PDF generation all had to work without a network round trip available
+        as a fallback.
+      </p>
+    </section>
+
+    <!-- ── ROLE & OUTCOMES ── -->
+    <section class="cs-section">
+      <span class="cs-section-label">My Role</span>
+      <h2>How I built it</h2>
+      <p>
+        BillTick is a solo build — I scoped the product, designed the architecture, wrote the
+        front-end, validated the PDF export path across browsers, and shipped to Vercel without a
+        QA handoff. As co-founder I also own the product framing: who it&rsquo;s for, what it
+        deliberately doesn&rsquo;t do, and how the local-first contract is communicated to users.
+      </p>
+      <div class="cs-role-box">
+        <p>
+          <strong>Sole engineer &amp; co-founder.</strong> Scoped, designed, coded, tested, and
+          shipped — zero-backend architecture, cross-browser PDF accuracy validated end-to-end,
+          deployed live to Vercel with no QA team in the loop.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── WHAT I'D DO DIFFERENTLY ── -->
+    <section class="cs-section">
+      <span class="cs-section-label">Reflection</span>
+      <h2>What I&rsquo;d do differently</h2>
+      <p>
+        I&rsquo;d invest earlier in an automated visual-regression layer for the PDF output.
+        Browser-engine differences in PDF rendering are easy to miss by eye and stable enough
+        between releases that a scripted snapshot diff would catch drift far more reliably than
+        manual cross-browser passes.
+      </p>
+    </section>
+
+    <!-- ── CLOSING LIVE CTA ── -->
+    <section class="cs-live-cta">
+      <div class="cs-live-cta__info">
+        <div class="cs-live-cta__title">See BillTick in production</div>
+        <div class="cs-live-cta__sub">Open it in your browser — your data stays on your device</div>
+      </div>
+      <a href="https://www.billtick.co" target="_blank" rel="noopener noreferrer" class="btn-primary">
+        Visit Live Site ↗
+      </a>
+    </section>
+
+  </main>
+
+  <div id="footer-root"></div>
+  <div id="back-to-top-root"></div>
+
+  <script src="js/components.js" defer></script>
+</body>
+</html>

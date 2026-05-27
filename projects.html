@@ -63,7 +63,7 @@
           <article class="card project-card project-card--flagship project-card--case-study">
             <div class="project-card__eyebrow">Case Study</div>
             <div class="project-card__meta">
-              <span class="badge badge--completed">Deployed</span>
+              <span class="badge badge--live">Live</span>
               <span class="badge badge--year">2024&ndash;2025</span>
             </div>
             <h3 class="project-card__title">Planvera &mdash; Workforce Scheduling Platform</h3>
@@ -108,12 +108,14 @@
               <span class="tag tag--role">DevOps</span>
             </div>
             <div class="project-card__links">
-              <a href="ozbo.html" class="project-card__link">Read case study &rarr;</a>
+              <a href="planvera.html" class="project-card__link">Read case study &rarr;</a>
+              <a href="https://www.planvera.co" target="_blank" rel="noopener noreferrer" class="project-card__link project-card__link--secondary">Live Site &#8599;</a>
             </div>
           </article>
 
-          <!-- BillTick -->
-          <article class="card project-card project-card--flagship">
+          <!-- BillTick — Case Study -->
+          <article class="card project-card project-card--flagship project-card--case-study">
+            <div class="project-card__eyebrow">Case Study</div>
             <div class="project-card__meta">
               <span class="badge badge--live">Live</span>
               <span class="badge badge--year">2025</span>
@@ -127,7 +129,7 @@
               </li>
               <li>
                 <span class="flagship-detail__key">Stack</span>
-                <span class="flagship-detail__val">Next.js &middot; React &middot; Tailwind CSS &middot; Vercel</span>
+                <span class="flagship-detail__val">Next.js &middot; React &middot; Tailwind CSS &middot; IndexedDB &middot; Vercel</span>
               </li>
               <li>
                 <span class="flagship-detail__key">Result</span>
@@ -135,10 +137,25 @@
               </li>
             </ul>
             <p class="card-proof">Proof: live deployment, offline-first architecture, client-side persistence, cross-browser PDF export validation</p>
+            <div class="project-card__case-content">
+              <div class="project-card__case-block">
+                <h4>Key decisions</h4>
+                <p>Eliminated the backend entirely. A traditional SaaS architecture would have made cross-device sync trivial, but it would also have meant standing up auth, storage, and an ongoing service for users who explicitly didn&rsquo;t want one. IndexedDB was the right primitive &mdash; durable, asynchronous, and big enough to hold years of invoice history without pressure.</p>
+              </div>
+              <div class="project-card__case-block">
+                <h4>Constraints</h4>
+                <p>No QA handoff, no backend to lean on, and no analytics to observe usage after release. The privacy posture had to hold end-to-end, so every bug had to be caught before deployment &mdash; there was no telemetry coming back to flag regressions. Cross-browser PDF generation had to be explicitly verified rather than assumed.</p>
+              </div>
+              <div class="project-card__case-block">
+                <h4>What I&rsquo;d do differently</h4>
+                <p>I&rsquo;d invest earlier in an automated visual-regression layer for the PDF output. Browser-engine rendering differences are easy to miss by eye and stable enough between releases that a scripted snapshot diff would catch drift far more reliably than manual cross-browser passes.</p>
+              </div>
+            </div>
             <div class="project-card__tags">
               <span class="tag">Next.js</span>
               <span class="tag">React</span>
               <span class="tag">Tailwind CSS</span>
+              <span class="tag">IndexedDB</span>
               <span class="tag">Vercel</span>
             </div>
             <div class="project-card__role-tags">
@@ -147,7 +164,8 @@
               <span class="tag tag--role">Solo Delivery</span>
             </div>
             <div class="project-card__links">
-              <a href="https://www.billtick.co" target="_blank" rel="noopener noreferrer" class="project-card__link">Live Site &#8599;</a>
+              <a href="billtick.html" class="project-card__link">Read case study &rarr;</a>
+              <a href="https://www.billtick.co" target="_blank" rel="noopener noreferrer" class="project-card__link project-card__link--secondary">Live Site &#8599;</a>
             </div>
           </article>
 

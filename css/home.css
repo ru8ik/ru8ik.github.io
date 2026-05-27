@@ -407,13 +407,28 @@
   border-top: 1px solid var(--border, rgba(255,255,255,0.08));
 }
 
+.work-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  align-items: center;
+  margin-top: var(--space-sm);
+}
+
 .article-link {
   font-family: var(--font-mono);
   font-size: 0.85rem;
   color: var(--accent);
   letter-spacing: 0.02em;
-  margin-top: var(--space-sm);
   align-self: flex-start;
+}
+
+.article-link--secondary {
+  color: var(--text-muted);
+}
+
+.article-link--secondary:hover {
+  color: var(--text-primary);
 }
 
 .article-link:hover span {
